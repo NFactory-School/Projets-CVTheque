@@ -58,7 +58,8 @@ if(!empty($name)){
 } ?>
 
 <!-- Ajouter le pseudo de session a la value de name -->
-<form class="form" action="" method="post">
+<form class="contact" action="" method="post">
+  
   <fieldset>
   <legend>Nous Contacter</legend>
     <label for="obj">Objet</label>
@@ -67,6 +68,7 @@ if(!empty($name)){
     <textarea name="msg" rows="8" cols="80" placeholder="Votre message ici.."><?php if(!empty($_POST['msg'])) {echo $_POST['msg'];}?></textarea>
     <span class="error"><?php if(!empty($errors['msg'])){echo $errors['msg'];};?></span>
   </fieldset>
+
   <fieldset>
   <legend>Vos Coordonnées</legend>
     <label for="name">Votre nom</label>
@@ -78,6 +80,6 @@ if(!empty($name)){
     <input type="submit" name="submit" value="Envoyer">
     <input type="reset" name="" value="Annuler">
   </fieldset>
-  </form>
+</form>
 
 <?php include 'inc/footer.php';
