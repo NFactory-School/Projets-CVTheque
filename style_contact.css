@@ -1,0 +1,77 @@
+@import "reset.css";
+
+img{
+  width:100%;
+  }
+
+body {
+ font-family:"trebuchet ms",sans-serif;
+ font-size:90%;
+ }
+
+.contact {
+  color:#182f56;
+  border-radius : 5px;
+  margin : 50px auto;
+  background-color: #cccccc;
+  padding:10px;
+  width:500px;
+ }
+
+.contact fieldset {
+  padding:0 20px 20px 20px;
+  margin-bottom:10px;
+  border:1px solid #182f56;
+  border-radius: 5px;
+ }
+
+.contact legend {
+  color:#182f56;
+  font-weight:bold
+ }
+
+.contact label {
+  margin-top:10px;
+  display:block;
+ }
+
+.contact label.inline {
+  display:inline;
+  margin-right:50px;
+ }
+
+.contact input, textarea, option {
+  background-color:#FFF3F3;
+ }
+
+.contact input, textarea{
+  margin : 10px auto;
+  resize : none;
+  padding:3px;
+  border:1px solid grey;
+  border-radius:5px;
+  width:200px;
+  box-shadow:1px 1px 2px #C0C0C0 inset;
+ }
+
+.contact input[type=submit] {
+  margin-top:10px;
+ }
+
+.contact input[type=radio] {
+  background-color:transparent;
+  border:none;
+  width:10px;
+ }
+
+.contact input[type=submit], input[type=reset] {
+  width:100px;
+  margin-left:5px;
+  box-shadow:1px 1px 1px #D83F3D;
+  cursor:pointer;
+ }
+
+.contact input[type=submit]:hover, input[type=reset]:hover{
+ background-color:#FCDEDE;
+ box-shadow:1px 1px 1px #D83F3D inset;
+}
