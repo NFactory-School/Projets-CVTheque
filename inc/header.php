@@ -12,7 +12,6 @@
 	</head>
 
 	<body>
-	<header id="header">
 		<header class="header">
 			<div class="header-limiter">
 				<h1><a href="index.php">Company<span>logo</span></a></h1>
@@ -39,3 +38,4 @@
 			});
 
 		</script>
+		</header>
