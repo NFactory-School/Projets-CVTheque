@@ -6,9 +6,9 @@
 			·
 			<a href="http://forum.doctissimo.fr/sante/vaccination/liste_sujet-1.htm">Blog</a>
 			·
-			<a href="#">Qui sommes nous ?</a>
+			<a href="about.php">Qui sommes nous ?</a>
 			·
-			<a href="#">Contact</a>
+			<a href="contact.php">Contact</a>
 		</p>
 		<p class="footer-company-name">VAX &copy; 2015</p>
 	</div>

@@ -15,7 +15,7 @@
 	<header id="header">
 		<header class="header">
 			<div class="header-limiter">
-				<h1><a href="#">Company<span>logo</span></a></h1>
+				<h1><a href="index.php">Company<span>logo</span></a></h1>
 <?php include 'nav.php' ?>
 			</div>
 		</header>
