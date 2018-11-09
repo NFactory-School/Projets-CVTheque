@@ -37,7 +37,6 @@ if(islogged()){
 
       $_SESSION['user'] = array(
         'id' => $user['id'],
-        'pseudo' => $user['pseudo'],
         'mail' => $user['mail'],
         'status' => $user['status'],
         'ip' => $_SERVER['REMOTE_ADDR']
@@ -45,7 +44,7 @@ if(islogged()){
       if($user['status'] == 'admin'){
         header('Location:back/back_office.php');
       }else{
-       // header('Location:carnet.php');
+       header('Location:carnet.php');
      }
 
 
