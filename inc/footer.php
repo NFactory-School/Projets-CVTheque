@@ -10,7 +10,7 @@
 			·
 			<a href="contact.php">Contact</a>
 		</p>
-		<p class="footer-company-name">VAX &copy; 2015</p>
+		<p class="footer-company-name">VAX &copy; 2018</p>
 	</div>
 
 	<div class="footer-center">
