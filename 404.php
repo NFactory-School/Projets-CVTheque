@@ -7,7 +7,7 @@ include ('inc/header.php'); ?>
 <a class="back" href ="index.php">
     <div class="container">
       <div class="spooky">
-        <div class="body"><h2 class="noAccess">404</h2>
+        <div class="body">
           <div class="eyes"></div>
           <div class="mouth"></div>
           <div class="feet">
@@ -16,11 +16,12 @@ include ('inc/header.php'); ?>
             <div></div>
           </div>
         </div>
+        <h2 class="noAccess">404</h2>
       </div>
       <div class="shadow"></div>
     </div>
   </a>
-    <h2 class ="noAccess">Page not found ! </br><span>click me to go home</span></h2>
+    <h2 class ="noAccess">Page not found ! <br/><span>click me to go home</span></h2>
 
 
 <?php include ('inc/footer.php') ?>
