@@ -2,6 +2,10 @@
 include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
+<<<<<<< HEAD
+=======
+/*ceci est un test a supprimer*/
+>>>>>>> ed69d64948c6a9fa86844aae90d07a6037450565
 ?>
 
     <div class="intro">

@@ -1,6 +1,9 @@
 <!DOCTYPE HTML>
 <html>
+<<<<<<< HEAD
 <?php include 'pdo.php' ?>
+=======
+>>>>>>> ed69d64948c6a9fa86844aae90d07a6037450565
 	<head>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +11,15 @@
         <meta name="description" content="">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<<<<<<< HEAD
 	<link href="https://fonts.googleapis.com/css?family=Fondamento" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+=======
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style_calendrier.css">
+	<link rel="stylesheet" href="css/style_about.css">
+	<link rel="stylesheet" href="css/style_contact.css">
+>>>>>>> ed69d64948c6a9fa86844aae90d07a6037450565
 	</head>
 
 	<body>

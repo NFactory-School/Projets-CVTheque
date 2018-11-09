@@ -1,0 +1,103 @@
+@import "reset.css";
+
+img{
+  width:100%;
+}
+
+body {
+  font: 400 16px/1.3 verdana, arial, sans-serif;
+  color:#000;background-color: #DCDCDC;
+}
+.wrap {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.bolder {font-weight: bold;}
+
+/* aside : photo de profil, nom prenom, nom des 3 pros vaccins*/
+.profil{
+  background-color: #608BD2;
+  text-align: center;
+  float: left;
+  border-radius: 5px;
+  border : 2px solid #1560BD;
+  margin: 50px 0 50px 300px;
+  padding: 20px 5px;
+}
+.profil .pp{
+  margin: 0px auto;
+  width : 50%;
+}
+.profil .pp img{
+  border: 1px solid #1560BD;
+  border-radius: 50px;
+}
+/* animation rebond */
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+.profil .pp img:hover{
+  animation: bounce 1s;
+  opacity:.8;
+}
+.profil p{
+  color: whitesmoke;
+  font-size: 1.2em;
+}
+.profil a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+.profil a:hover{
+  color : white;
+  font-weight: bold;
+}
+.profil .trait{
+  background-color: #1560BD;
+  height: 2px;
+  width: 70px;
+  margin: 5px auto 5px;
+}
+
+/* Liste : vaccins, maladie, date */
+.liste{
+  margin:55px 50px;
+  float: left;
+  width: 50%;
+}
+.liste ul li{
+  background-color: #608BD2;
+  margin-top: 10px;
+  color: #FFF;
+  border-radius: 5px;
+  padding: 18px 36px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #1560BD;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: 0.4s;
+}
+
+.liste ul li:hover{
+  font-weight: bold;
+  box-shadow: inset 0 0 0 3px #1560BD;
+}
+.liste ul li a{
+  text-decoration: none;
+  color : whitesmoke;
+}
