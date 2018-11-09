@@ -267,32 +267,24 @@ body {
 	margin-bottom: 20px;
 }
 
-.footer .footer-icons{
-	margin-top: 25px;
+.footer-icons{
+	padding-top:20px;
 }
 
-.icon{
-  float:left;
-  width:40%;
-  margin:0 2px;
-  border-radius: 50%;
-  cursor: pointer;
+/*lien RSX*/
+.facebook {
+	background: url('../img/rsx.png') no-repeat -23px -24px;
 }
 
-.footer .footer-icons a{
-	display: inline-block;
-	width: 35px;
-	height: 35px;
-	cursor: pointer;
-	border-radius: 2px;
+.twitter {
+	background: url('../img/rsx.png') no-repeat -202px -208px;
+}
 
-	font-size: 20px;
-	color: #ffffff;
-	text-align: center;
-	line-height: 35px;
-
-	margin-right: 3px;
-	margin-bottom: 5px;
+.rsx {
+	margin:5px 5px 0 0;
+	float:left;
+	width: 65px;
+	height: 65px;
 }
 
 @keyframes bounce {
@@ -315,19 +307,6 @@ body {
 /*photo profil aniamtion*/
 .icon:hover{
     animation: bounce 1s;
-}
-
-/*lien RSX*/
-.footer .facebook {
-  background: url('../img/facebook.png') no-repeat -217px -63px;
-	width: 64px;
-	height: 64px;
-}
-
- .footer .twitter{
-  background: url('../img/twitter.png') no-repeat -53px -63px;
-  width: 64px;
-  height: 64px;
 }
 
 /*responsive footer*/

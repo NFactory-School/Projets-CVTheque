@@ -37,8 +37,8 @@
 		<p class="about"> Vax est une plateforme d'information et de communication sur les vaccins présents en France. Plus de 10000 professionels de la santé sont actuellement inscrits sur VAX. </p>
 
 		<div class="footer-icons">
-			<div class="icon facebook"><a href="#"></a></div>
-			<div class="icon twitter"><a href="#"></a></div>
+			<a href="index.php"><div class="rsx facebook"></div></a>
+			<a href="index.php"><div class="rsx twitter"></div></a>
 		</div>
 	</div>
 </footer>
