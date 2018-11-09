@@ -1,9 +1,5 @@
 @import "reset.css";
 
-img{
-  width:100%;
-}
-
 body {
   font: 400 16px/1.3 verdana, arial, sans-serif;
 	color:#000;
@@ -316,34 +312,25 @@ body {
   }
 }
 
+/*photo profil aniamtion*/
 .icon:hover{
     animation: bounce 1s;
 }
 
+/*lien RSX*/
 .footer .facebook {
-  background: url('../img/social.png') no-repeat -217px -63px;
+  background: url('../img/facebook.png') no-repeat -217px -63px;
 	width: 64px;
 	height: 64px;
 }
 
  .footer .twitter{
-  background: url('../img/social.png') no-repeat -53px -63px;
+  background: url('../img/twitter.png') no-repeat -53px -63px;
   width: 64px;
   height: 64px;
 }
 
- .footer .youtube{
-  background: url('../img/social.png') no-repeat -217px -137px;
-	width: 64px;
-	height: 64px;
-}
-
- .footer .rss{
-  background: url('../img/social.png') no-repeat -135px -137px;
-  width: 64px;
-  height: 64px;
-}
-
+/*responsive footer*/
 @media (max-width: 880px) {
 	.footer{
 		font: bold 14px sans-serif;
@@ -363,6 +350,7 @@ body {
 	}
 }
 
+/*sous header - titre VAX*/
 .intro {
 	max-width:80%;
 	width: 100%;
@@ -400,47 +388,7 @@ body {
 	font-style: bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* login sign up*/
 .login-wrap{
 	width:100%;
 	margin:auto;
@@ -561,12 +509,14 @@ input[type="submit"]:focus{
 	transform:rotate(0);
 }
 
+/*barre déco login sign up*/
 .hr{
 	height: 2px;
 	margin: 30px auto;
 	background:white;
 }
 
+/*spooky la mascotte - Fantôme pour les pages erreur*/
 .spooky {
   margin: 10% auto;
   width: 80%;
@@ -669,6 +619,7 @@ input[type="submit"]:focus{
   animation: zoomy 2s infinite;
 }
 
+/*animation - Flotement du fantôme*/
 @keyframes floaty {
   0%,
   100% {
@@ -678,10 +629,14 @@ input[type="submit"]:focus{
     transform: translateY(-20px);
   }
 }
+
+/*retour index pour page erreur*/
 .back{
   text-decoration: none;
   color : black;
 }
+
+/*texte erreur pour page erreur*/
 .noAccess {
 	padding-top:45px;
   font-size: 1.8em;
@@ -689,12 +644,13 @@ input[type="submit"]:focus{
   text-align: center;
 }
 
+/*animation ombre fantôme*/
 @keyframes zoomy {
   0%,
   100% {
     transform: scale(1);
   }
   50% {
-    transform: scale(0.8);
+    transform: scale(0.75);
   }
 }

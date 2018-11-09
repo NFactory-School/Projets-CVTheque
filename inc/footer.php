@@ -39,8 +39,6 @@
 		<div class="footer-icons">
 			<div class="icon facebook"><a href="#"></a></div>
 			<div class="icon twitter"><a href="#"></a></div>
-			<div class="icon youtube"><a href="#"></a></div>
-			<div class="icon rss"><a href="#"></a></div>
 		</div>
 	</div>
 </footer>
