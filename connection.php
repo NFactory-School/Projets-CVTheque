@@ -12,7 +12,7 @@ if(islogged()){
     $mail = trim(strip_tags($_POST['mail']));
     $mdp = trim(strip_tags($_POST['mdp']));
 
-  // Vérif pseudo & MDP
+  // Vérif  & MDP
     $sql = "SELECT * FROM vax_profils
             WHERE  mail = :mail";
     $query = $pdo -> prepare($sql);
@@ -45,7 +45,7 @@ if(islogged()){
       if($user['status'] == 'admin'){
         header('Location:back/back_office.php');
       }else{
-       header('Location:carnet.php');
+       // header('Location:carnet.php');
      }
 
 

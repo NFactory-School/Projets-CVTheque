@@ -3,7 +3,9 @@ include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
 /*ceci est un test a supprimer*/
-
+if (isLogged()){
+  header('Location:carnet.php');
+}
 ?>
 
     <div class="intro">

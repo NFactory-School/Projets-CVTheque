@@ -8,7 +8,7 @@ include ('inc/header.php');
   <div class="pp"><img class="bonhomme" src="img/bonhomme.png" alt=""></div>
   <div class="clear"></div>
   <div class="trait"></div>
-  <p>Jean Paul le BG
+  <p> le BG <?php echo tab($_SESSION['user']); ?>
   </p>
   <div class="trait"></div>
   <ul>
