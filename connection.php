@@ -1,20 +1,20 @@
 <?php
 include ('inc/pdo.php');
 include ('inc/fonction.php');
-include ('inc/header.php');
+
 
 if(islogged()){
-  header('Location:index.php');
+  header('Location:carnet.php');
 }else {
 
 
-    if(!empty($_POST['submit'])){
+    if(!empty($_POST['connexion'])){
     $mail = trim(strip_tags($_POST['mail']));
     $mdp = trim(strip_tags($_POST['mdp']));
 
   // Vérif pseudo & MDP
-    $sql = "SELECT * FROM nf_user
-            WHERE pseudo = :mail OR mail = :mail";
+    $sql = "SELECT * FROM vax_profils
+            WHERE  mail = :mail";
     $query = $pdo -> prepare($sql);
     $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
     $query -> execute();
@@ -45,7 +45,7 @@ if(islogged()){
       if($user['status'] == 'admin'){
         header('Location:back/back_office.php');
       }else{
-       header('Location:index.php');
+       header('Location:carnet.php');
      }
 
 
@@ -53,21 +53,3 @@ if(islogged()){
   }
 }
 ?>
-
-<div class="wrap">
-  <form class="" action="" method="post">
-    <fieldset>
-      <legend>Connection</legend>
-        <label for="pseudo">Pseudo ou adresse mail</label>
-      <input type="text" name="mail" value="">
-      <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
-        <label for="mdp">Mot de passe</label>
-      <input type="password" name="mdp" value="">
-      <span class="error"><?php if(!empty($errors['mdp'])){echo $errors['mdp'];};?></span><br>
-      <input class="myButton" type="submit" name="submit" value="Connexion">
-      <p><a class="myButton" href="oublimail.php">mot de passe oublié ?</a></p>
-    </fieldset>
-  </form>
-</div>
-
-<?php include ('inc/footer.php');
