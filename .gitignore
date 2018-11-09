@@ -1,0 +1,6 @@
+.DS_Store
+pdo.php
+*.sql
+*.zip
+.*
+!.gitignore
