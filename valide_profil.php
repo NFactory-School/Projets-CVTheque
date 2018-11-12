@@ -18,14 +18,13 @@ if(!empty($_POST['sub'])){
     $notif = 2;
   }
 
-<<<<<<< HEAD
+
 $jj=$_POST['jj'];
 $mm=$_POST['mm'];
 $aaaa=$_POST['aaaa'];
 
 
-=======
->>>>>>> f5c62bd1ac9b361b97df96c4d438340788d7bc2c
+
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
    vnum($error,$jj,1,31,'jj');

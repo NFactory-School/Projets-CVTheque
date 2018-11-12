@@ -155,6 +155,7 @@ if(islogged()){
 				</div>
 
 				<div class="group">
+          <span class="error"><?php if(!empty($errors['mdpV'])){echo $errors['mdpV'];};?></span>
 					<input type="password" placeholder="Répéter mot de passe" name="mdpV" value=""><br>
 				</div>
 
