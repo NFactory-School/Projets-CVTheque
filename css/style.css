@@ -633,3 +633,67 @@ input[type="submit"]:focus{
     transform: scale(0.75);
   }
 }
+
+/*formulaire sans animation*/
+.intro {
+	max-width:80%;
+	width: 100%;
+	text-align: center;
+	margin: 0 auto 100px auto;
+	background-color: #608bd2;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	color:white;
+}
+
+.intro h2{
+	font-size: 1.5em;
+	padding: 10px 0;
+}
+
+.intro h2 span{
+	color:#292C2F;
+	font-weight: bold;
+	font-family: 'Fondamento', cursive;
+	font-size: 1.75em;
+	padding-left: 1%;
+}
+
+.intro p{
+	margin: 0 auto;
+	padding-left: 10%;
+	background-color: #608bd2;
+	font-size: 1.25em;
+}
+
+.texte-intro{
+	margin-left:20%;
+	font-size: 1.4em;
+	font-style: bold;
+}
+
+/* login sign up*/
+.form{
+	background-color: #A9A9A9;
+	max-width: 50%;
+	width: 100%;
+	margin:10px auto;
+	padding:10px;
+}
+
+/*bouton submit*/
+
+.myButton {
+	box-shadow:inset 0px 0px 15px 3px #230381;
+	background-color:#230381;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	color:white;
+	font-size:15px;
+	padding:6px 13px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background-color:#608BD2;
+}
