@@ -70,6 +70,7 @@ if (isLogged()){
 
 				<div class="group">
 					<input type="submit" class="myButton" value="Se connecter" name="connexion">
+          <a href="oublimail.php">mot de passe oublié ?</a>
 				</div>
 				<div class="hr"></div>
 			</div>

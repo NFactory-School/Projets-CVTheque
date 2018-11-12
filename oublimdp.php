@@ -31,7 +31,7 @@ if (!empty($_GET['mail']) && !empty($_GET['token'])) {
       if(count($errors) == 0){
         $hash = password_hash($mdp, PASSWORD_DEFAULT);
         $token = generateRandomString(120);
-        $sql = "UPDATE nf_user
+        $sql = "UPDATE vax_profils
                 SET mdp = :hash, token = :token
                 WHERE id = :id";
         $query = $pdo -> prepare($sql);
@@ -39,7 +39,7 @@ if (!empty($_GET['mail']) && !empty($_GET['token'])) {
         $query -> bindValue(':token', $token);
         $query -> bindValue(':id', $user['id']);
         $query -> execute();
-        header('Location:connection.php');
+        header('Location:index.php');
       }
     }
   }else {
