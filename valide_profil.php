@@ -19,7 +19,11 @@ if(!empty($_POST['sub'])){
   }
 
 tab($_POST);
+<<<<<<< HEAD
 tab($_SESSION);
+=======
+
+>>>>>>> 18d7a04c1d2d8c036b8f5f0b0748259d477305e4
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
 
@@ -27,13 +31,16 @@ $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
      $sql = "UPDATE vax_profils
-            SET modified_at = NOW(), nom = :nom, prenom = :prenom, ddn = $ddn, sexe = $sexe, taille = :taille, poids = :poids, notif = $notif
+            SET modified_at = NOW(), nom = :nom, prenom = :prenom, ddn = :ddn, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
             WHERE id = $id";
      $query = $pdo -> prepare($sql);
+
      $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
      $query -> bindValue(':prenom', $prenom, PDO::PARAM_STR);
      $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
      $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
+     $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
+     $query -> bindValue(':ddn', $ddn, PDO::PARAM_INT);
      $query -> execute();
 
      $sql = "SELECT * FROM vax_profils
