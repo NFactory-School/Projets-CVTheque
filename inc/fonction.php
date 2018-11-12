@@ -100,9 +100,18 @@ function age(){
   if (!empty($GET['ddn'])){
       $periodes=array('jour','semaine','mois','année');
       $temps=array('7','4.35','12','10');
+
       $timestamp = strtotime($_GET['ddn']);
       $now = time();
       $difference = var_dump((int)($now-$timestamp));
+
+      for($j = 0; $difference >= $temps[$j] && $j < count($temps)-1; $j++) {
+          $difference /= $temps[$j];
+      }
+
+      $difference = round($difference);
+
+      return "$difference $periods[$j]";
   }else{
       echo "Veuillez renseigner votre âge";
   }
