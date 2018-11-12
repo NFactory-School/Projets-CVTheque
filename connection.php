@@ -1,5 +1,5 @@
-<?php
-include ('inc/require.php');
+<?php include ('inc/pdo.php');
+//include ('inc/request.php');
 include ('inc/fonction.php');
 
 
@@ -13,7 +13,7 @@ if(islogged()){
     $mdp = trim(strip_tags($_POST['mdp']));
 
   // Vérif  & MDP
-    connection();
+    connection($mail);
   if(!empty($user)){
 
     if(!password_verify($mdp, $user['mdp'])){
@@ -43,6 +43,7 @@ if(islogged()){
         'notif' => $user['notif'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
+
         header('Location:profil.php');
       }
     }

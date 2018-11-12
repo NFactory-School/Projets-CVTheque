@@ -27,7 +27,7 @@ include ('inc/header.php');
 </div>
 
 <p>
-  <?php echo ageUser(); ?>
+  <?php echo rappel(); ?>
 </p>
 
 <div class="clear"></div>

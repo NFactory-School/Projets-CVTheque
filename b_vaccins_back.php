@@ -48,7 +48,7 @@ $vaccins = $query -> fetchAll();
       <td><?php echo $vaccin['nom'] ?></td>
       <td><?php echo $vaccin['maladie_cible'] ?></td>
       <td><?php echo $vaccin['info'] ?></td>
-      <td><?php echo $vaccin['age_recommandé'] ?></td>
+      <td><?php echo $vaccin['age_recommande'] ?></td>
       <td> <a href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
            <a href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
       <td><?php echo $vaccin['status'] ?></td>
