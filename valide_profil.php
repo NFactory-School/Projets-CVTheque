@@ -10,7 +10,7 @@ if(!empty($_POST['sub'])){
   $prenom = trim(strip_tags($_POST['prenom']));
   $ddn = $_POST['ddn'];
   $sexe = $_POST['sexe'];
-  $poids = trim(strip_tags($_POST['poid']));
+  $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));
   if(!empty($_POST['notif'])){
     $notif = 1;
@@ -19,6 +19,7 @@ if(!empty($_POST['sub'])){
   }
 
 tab($_POST);
+tab($_SESSION);
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
 
@@ -34,12 +35,17 @@ $id = $_SESSION['user']['id'];
      $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
      $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
      $query -> execute();
+
+     $sql = "SELECT * FROM vax_profils
+             WHERE  id = $id";
+     $query = $pdo -> prepare($sql);
+     $query -> execute();
      $user = $query -> fetch();
 
      $_SESSION['user'] = array(
        'id' => $user['id'],
        'status' => $user['status'],
-       'ip' => $_SERVER['REMOTE_ADDR']
+       'ip' => $_SERVER['REMOTE_ADDR'],
        'nom' => $user['nom'],
        'prenom' => $user['prenom'],
        'ddn' => $user['ddn'],
@@ -47,7 +53,6 @@ $id = $_SESSION['user']['id'];
        'poids' => $user['poids'],
        'notif' => $user['notif']
      );
-     // header('Location:redirection.php');
+     header('Location:profil.php');
    }
 }
-tab($errors);
