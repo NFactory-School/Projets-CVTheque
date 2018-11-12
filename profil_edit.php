@@ -1,7 +1,6 @@
 <?php include ('inc/pdo.php') ?>
 <?php include ('inc/fonction.php') ?>
-<?php include ('inc/header.php') ?>
-
+<?php include ('inc/header.php')  ?>
 <form id="profil" action="valide_profil.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
 
     <label for="nom">Votre nom:

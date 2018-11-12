@@ -2,6 +2,7 @@
 include 'inc/pdo.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
+
 if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
   header('Location:403.php');
 }
@@ -14,7 +15,7 @@ $countVaccins = $query -> fetch();
 
 // Variables pagination
 $nbVaccins = $countVaccins['nbVaccins'];
-$vaccinsParPages = 4;
+$vaccinsParPages = 2;
 $nbPages = ceil($nbVaccins/$vaccinsParPages);
 
 if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){

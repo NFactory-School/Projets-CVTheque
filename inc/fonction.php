@@ -96,20 +96,18 @@ function error($errors,$key){
   }
 }
 
-function age(){
-  if (!empty($GET['ddn'])){
-      $periodes=array('jour','semaine','mois','année');
-      $temps=array('7','4.35','12','10');
+function rappel($datevaccin,$intervalle){
+  if (!empty($_SESSION['user']['ddn'])){
 
-      $timestamp = strtotime($_GET['ddn']);
+      $timestamp = strtotime($_SESSION['user']['ddn']);
       $now = time();
-      $difference = var_dump((int)($now-$timestamp));
+      $difference = floor($now-$timestamp);
 
-      for($j = 0; $difference >= $temps[$j] && $j < count($temps)-1; $j++) {
-          $difference /= $temps[$j];
-      }
+      $difference /= 60*60*24*7*4.35;
 
-      $difference = round($difference);
+      $difference = floor($difference);
+      echo $difference;
+
 
       return "$difference $periods[$j]";
   }
