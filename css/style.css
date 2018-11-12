@@ -688,6 +688,10 @@ body {
 	font-weight: bold;
 }
 
+.form .reset{
+	float:right;
+}
+
 /*bouton submit*/
 
 .myButton {

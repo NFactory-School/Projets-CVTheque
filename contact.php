@@ -96,7 +96,7 @@ if(!empty($_POST['submit'])) {
     <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
     <br/>
     <input class="myButton" type="submit" name="submit" value="Envoyer">
-    <input type="reset" name="" value="Annuler">
+    <input class="reset" type="reset" name="" value="Annuler">
   </fieldset>
   </form>
 
