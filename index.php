@@ -172,13 +172,13 @@ if(islogged()){
 			<div class="sign-up-htm">
 
 				<div class="group">
-					<input type="text" placeholder="Adresse E-mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>"><br>
-					<span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span><?php br(); ?>
+          <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
+          <input type="text" placeholder="Adresse E-mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>">
 				</div>
 
 				<div class="group">
-					<input type="password" placeholder="Mot de passe" name="mdp" value=""><br>
-					<span class="error"><?php if(!empty($errors['mdp'])){echo $errors['mdp'];};?></span><?php br(); ?>
+          <span class="error"><?php if(!empty($errors['mdp'])){echo $errors['mdp'];};?></span>
+          <input type="password" placeholder="Mot de passe" name="mdp" value="">
 				</div>
 
 				<div class="group">
