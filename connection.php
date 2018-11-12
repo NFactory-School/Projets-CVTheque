@@ -50,12 +50,8 @@ if(islogged()){
         'ip' => $_SERVER['REMOTE_ADDR']
       );
 
+      header('Location:index.php');
 
-      if($user['status'] == 'admin'){
-        header('Location:b_back.php');
-      }else{
-          header('Location:403.php');
-      }
     }
   }
 }

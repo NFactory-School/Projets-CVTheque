@@ -112,9 +112,20 @@ function age(){
       $difference = round($difference);
 
       return "$difference $periods[$j]";
-  }else{
-      echo "Veuillez renseigner votre âge";
   }
 }
-
+function vnum($error,$data,$min,$max,$key){
+  if (!empty($data)) {
+    if (is_int($data) && $data <= $min) {
+      $error[$key] = 'error : entre  '.$min.'et'.$max;
+    }
+    elseif (is_int($data) && $data <= $min) {
+      $error[$key] = 'error : entre  '.$min.'et'.$max;
+    }
+  }
+  else {
+    $error[$key] = 'error : vide';
+  }
+  return $error;
+}
 ?>
