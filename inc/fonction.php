@@ -97,16 +97,15 @@ function error($errors,$key){
 }
 
 function ageUser(){
-  echo $_SESSION['user']['ddn'];
   if (!empty($_SESSION['user']['ddn'])){
 
       $timestamp = strtotime($_SESSION['user']['ddn']);
       $now = time();
-      $difference = var_dump((int)($now-$timestamp));
+      $difference = floor($now-$timestamp);
 
-      $difference /= 12;
+      $difference /= 60*60*24*7*4.35;
 
-      $difference = round($difference);
+      $difference = floor($difference);
 
       return "$difference mois";
   }else{
