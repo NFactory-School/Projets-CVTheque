@@ -39,7 +39,7 @@ $sql = "SELECT *
                                 </div>
                             </div>
                         </div>
-                        <a href="user_back.php">
+                        <a href="b_user_back.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -63,7 +63,7 @@ $sql = "SELECT *
                                 </div>
                             </div>
                         </div>
-                        <a href="vaccins_back.php">
+                        <a href="b_vaccins_back.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -85,7 +85,7 @@ $sql = "SELECT *
       foreach($contacts as $contact){
         $id = $contact['id'];
         echo '<tbody>
-                <td><a href="contact_back.php?id='.$id.'">'.$contact['nom'].'</a></td>
+                <td><a href="b_contact_back.php?id='.$id.'">'.$contact['nom'].'</a></td>
                 <td>'.$contact['objet'].'</td>
                 <td>'.$contact['created_at'].'</td>
               </tbody>';}?>

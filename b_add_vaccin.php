@@ -42,7 +42,7 @@ if(!empty($_POST['submit'])){
       $query -> bindValue(':labo', $labo, PDO::PARAM_STR);
       $query -> bindValue(':info', $info, PDO::PARAM_STR);
       $query -> execute();
-      header('Location:vaccins_back.php');
+      header('Location:b_vaccins_back.php');
     }
 
   }
@@ -64,4 +64,4 @@ if(!empty($_POST['submit'])){
   	<span class="error"><?php if(!empty($errors['info'])){echo $errors['info'];};?></span><?php br(); ?>
   <input type="submit" name="submit" value="Ajouter">
 </form>
-<a href="vaccins_back.php">Retour</a>
+<a href="b_vaccins_back.php">Retour</a>

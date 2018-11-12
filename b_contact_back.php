@@ -24,6 +24,7 @@ $contacts = $query -> fetch();
     <li><?php echo $contacts['mail'] ?></li>
   </ul>
 </div>
+<a href="b_back.php">Retour au back-office</a>
 
 <?php
 include 'inc/footer.php';
