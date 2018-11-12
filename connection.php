@@ -43,15 +43,9 @@ if(islogged()){
         'notif' => $user['notif'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
-
-      if (!empty($user['status'])){
-          if($user['status'] == 'admin'){
-            header('Location:b_back.php');
-          }elseif($user['status'] == 'user'){
-            header('Location:carnet.php');
-          }
+        header('Location:profil.php');
       }
     }
   }
-}
+
 ?>

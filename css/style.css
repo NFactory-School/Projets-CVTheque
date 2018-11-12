@@ -678,14 +678,20 @@ body {
 	padding:10px;
 }
 
-.form .texte-center{
-
-}
-
 .form legend{
 	padding: 10px 0;
 	text-align: center;
 	font-weight: bold;
+}
+
+.form .reset{
+	float:right;
+	width:10%;
+	height: 10%;
+}
+
+.champ{
+	margin:0 auto;
 }
 
 /*bouton submit*/

@@ -76,27 +76,31 @@ if(!empty($_POST['submit'])) {
 <form class="form" action="" method="post">
   <fieldset>
   <legend>Nous Contacter</legend>
-    <label for="obj">Objet</label>
-    <input type="text" name="obj" placeholder="Ex : Je suis content" value="<?php if(!empty($_POST['obj'])) {echo $_POST['obj'];}?>" placeholder="Ex:Jean Bonneau">
-    <span class="error"><?php if(!empty($errors['obj'])){echo $errors['obj'];};?></span>
-    <br/>
-    <label for="msg">Votre Message</label>
-    <textarea name="msg" rows="8" cols="80" placeholder="Votre message ici.."></textarea>
-    <span class="error"><?php if(!empty($errors['msg'])){echo $errors['msg'];};?></span>
-    <br/>
+    <div class="champ">
+      <span>Objet</span>
+      <input type="text" name="obj" placeholder="Ex : Je suis content" value="<?php if(!empty($_POST['obj'])) {echo $_POST['obj'];}?>" placeholder="Ex:Jean Bonneau">
+      <span class="error"><?php if(!empty($errors['obj'])){echo $errors['obj'];};?></span>
+    </div>
+    <div class="champ">
+      <label for="msg">Votre Message</label>
+      <textarea class="champ"name="msg" rows="8" cols="80" placeholder="Votre message ici.."></textarea>
+      <span class="error"><?php if(!empty($errors['msg'])){echo $errors['msg'];};?></span>
+    </div>
   </fieldset>
   <fieldset>
   <legend>Vos Coordonnées</legend>
-    <label for="name">Votre nom</label>
-    <input type="text" name="name" value="<?php if(!empty($_POST['name'])) {echo $_POST['name'];}?>" placeholder="Ex:Jean Bonneau">
-    <span class="error"><?php if(!empty($errors['name'])){echo $errors['name'];};?></span>
-    <br/>
-    <label for="mail">Votre adresse mail</label>
-    <input type="mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>" placeholder="Ex:jb@jambon.fr">
-    <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
-    <br/>
+    <div class="champ">
+      <label for="name">Votre nom</label>
+      <input class="champ" type="text" name="name" value="<?php if(!empty($_POST['name'])) {echo $_POST['name'];}?>" placeholder="Ex:Jean Bonneau">
+      <span class="error"><?php if(!empty($errors['name'])){echo $errors['name'];};?></span>
+    </div>
+    <div class="champ">
+      <label for="mail">Votre adresse mail</label>
+      <input class="champ" type="mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>" placeholder="Ex:jb@jambon.fr">
+      <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
+    </div>
     <input class="myButton" type="submit" name="submit" value="Envoyer">
-    <input type="reset" name="" value="Annuler">
+    <input class="reset" type="reset" name="" value="Annuler">
   </fieldset>
   </form>
 
