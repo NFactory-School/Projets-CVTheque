@@ -1,5 +1,5 @@
 <?php
-include 'inc/pdo.php';
+include 'inc/require.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 
@@ -15,11 +15,7 @@ if(!empty($_POST['submit'])){
   $labo = trim(strip_tags($_POST['labo']));
   $info = trim(strip_tags($_POST['info']));
     if (!empty($_POST['nom'])) {
-      $sql = "SELECT nom FROM vax_vaccins WHERE nom = :nom";
-      $query = $pdo -> prepare($sql);
-      $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
-      $query -> execute();
-      $nomVaccin = $query -> fetch();
+      b_add_vaccin();
       if(!empty($nomVaccin)){
         $errors['nom'] = "Ce vaccin est déjà présent dans la base de données.";
       }
@@ -36,14 +32,7 @@ if(!empty($_POST['submit'])){
     }
 // si le formulaire ne contient pas d'erreurs
     if(count($errors)==0){
-      $sql = "INSERT INTO vax_vaccins(nom, maladie_cible, labo, info)
-              VALUES (:nom, :cible, :labo, :info)";
-      $query = $pdo -> prepare($sql);
-      $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
-      $query -> bindValue(':cible', $cible, PDO::PARAM_STR);
-      $query -> bindValue(':labo', $labo, PDO::PARAM_STR);
-      $query -> bindValue(':info', $info, PDO::PARAM_STR);
-      $query -> execute();
+      b_add_vaccin1();
       header('Location:b_vaccins_back.php');
     }
 

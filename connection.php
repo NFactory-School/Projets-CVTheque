@@ -1,5 +1,5 @@
 <?php
-include ('inc/pdo.php');
+include ('inc/require.php');
 include ('inc/fonction.php');
 
 
@@ -13,13 +13,7 @@ if(islogged()){
     $mdp = trim(strip_tags($_POST['mdp']));
 
   // Vérif  & MDP
-    $sql = "SELECT * FROM vax_profils
-            WHERE  mail = :mail";
-    $query = $pdo -> prepare($sql);
-    $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-    $query -> execute();
-    $user = $query -> fetch();
-
+    connection();
   if(!empty($user)){
 
     if(!password_verify($mdp, $user['mdp'])){
