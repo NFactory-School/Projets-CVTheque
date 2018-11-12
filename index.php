@@ -69,6 +69,9 @@ if (isLogged()){
 				</div>
 
 				<div class="group">
+          <label for="checkbox">
+          <input type="checkbox" name="remember" value="remember">Se souvenir de moi
+        </label>
 					<input type="submit" class="myButton" value="Se connecter" name="connexion">
           <a href="oublimail.php">mot de passe oublié ?</a>
 				</div>

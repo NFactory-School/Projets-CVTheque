@@ -12,9 +12,6 @@
     <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
   <input type="text" name="prenom" placeholder="prenom" required="required"><br>
 
-    <label for="mail">Votre mail:</label>
-    <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];}?></span>
-  <input type="mail" name="mail" placeholder="mail" required="required" value="<?php echo $_SESSION['user']['mail'] ?>"><br>
 
     <label for="ddn">Votre date de naissance:</label>
   <input type="date" name="ddn"  value="01-01-2001"><br>
@@ -28,7 +25,7 @@
   <p>Votre taille:</p>  <input type="number" name="taille"> <p>en cm</p>
   <br>
 
-    <p>Votre poids:</p><input type="number" name="poid"> <p>en kg</p>
+    <p>Votre poids:</p><input type="number" name="poids"> <p>en kg</p>
   <br>
 
     <input type="checkbox" name="notif" value="notif" checked><span>Voulez vous recevoir les notifications </span><br>

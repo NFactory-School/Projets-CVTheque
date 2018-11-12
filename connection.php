@@ -31,7 +31,9 @@ if(islogged()){
 
     $errors['mail'] = 'Vous n\'êtes pas inscrit';
   }
-
+  // if(!empty($_POST['remember'])){
+  //   setcookie('user_id',$user -> id,time()+3600*24)
+  // }
 
     if(count($errors) == 0){
 
