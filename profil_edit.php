@@ -27,19 +27,6 @@
   <p>Votre poids:</p><input type="number" name="poids"> <p>en kg</p>
   <br>
 
-  <?php 
-  if(!empty($_POST['taille']) && !empty($_POST['poids'])){
-    $taille = $_POST['taille'];
-    $poids = $_POST['poids'];
-    $imc = $tailles*$taille;
-    $imc = $poids/$imc;
-
-    if ($imc<20){
-      $resultimc = 0;
-    }
-  }
-  ?>
-
     <input type="checkbox" name="notif" value="notif" checked><span>Voulez vous recevoir les notifications </span><br>
 
     <input type="submit" name="sub" value="Confirmer">
