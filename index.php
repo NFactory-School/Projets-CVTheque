@@ -69,7 +69,7 @@ if (isLogged()){
 				</div>
 
 				<div class="group">
-					<input type="submit" class="send" value="Se connecter" name="connexion">
+					<input type="myButton" class="send" value="Se connecter" name="connexion">
 				</div>
 				<div class="hr"></div>
 			</div>

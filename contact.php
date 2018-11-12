@@ -91,7 +91,7 @@ if(!empty($_POST['submit'])) {
     <label for="mail">Votre adresse mail</label>
     <input type="mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>" placeholder="Ex:jb@jambon.fr">
     <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
-    <input type="submit" name="submit" value="Envoyer">
+    <input class="myButton" type="submit" name="submit" value="Envoyer">
     <input type="reset" name="" value="Annuler">
   </fieldset>
   </form>
