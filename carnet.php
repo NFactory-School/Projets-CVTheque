@@ -26,10 +26,6 @@ include ('inc/header.php');
   </ul>
 </div>
 
-<p>
-  <?php echo rappel(); ?>
-</p>
-
 <div class="clear"></div>
 
 <?php include 'inc/footer.php';
