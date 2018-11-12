@@ -427,17 +427,6 @@ body {
 	outline: none;
 }
 
-input[type="submit"]{
-	margin-top: 50px;
-	border:none;
-	background-color:#230381;
-}
-
-input[type="submit"]:focus{
-	border:solid 2px white;
-	background-color:#230381;
-}
-
 .login-html .tab{
 	font-size:22px;
 	margin-right:15px;
