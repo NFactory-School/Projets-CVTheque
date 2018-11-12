@@ -678,6 +678,16 @@ body {
 	padding:10px;
 }
 
+.form .texte-center{
+
+}
+
+.form legend{
+	padding: 10px 0;
+	text-align: center;
+	font-weight: bold;
+}
+
 /*bouton submit*/
 
 .myButton {
