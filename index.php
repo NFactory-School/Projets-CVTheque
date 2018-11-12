@@ -1,12 +1,124 @@
 <?php
 include ('inc/pdo.php');
 include ('inc/fonction.php');
-include ('inc/header.php');
-/*ceci est un test a supprimer*/
-if (isLogged()){
+
+if(islogged()){
   header('Location:carnet.php');
-}
+}else {
+
+  $errors = array();
+  $success = false;
+  if(!empty($_POST['submit'])){
+    // failles XSS
+
+    $mail = trim(strip_tags($_POST['mail']));
+    $mdp = trim(strip_tags($_POST['mdp']));
+    $mdpV = trim(strip_tags($_POST['mdpV']));
+
+
+
+    // Verif mail
+    if(!empty($_POST['mail'])){
+      if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
+        if(strlen($mail) < 5 || (strlen($mail) >150)){
+          $errors['mail'] = "Veuillez entrer un mail valide";
+        }else{
+          $sql = "SELECT mail FROM vax_profils WHERE mail = :mail";
+          $query = $pdo -> prepare($sql);
+          $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
+          $query -> execute();
+          $userMail = $query -> fetch();
+          if(!empty($userMail)){
+            $errors['mail'] = "Adresse mail déja utilisée";
+          }
+        }
+      }else{
+        $errors['mail'] = 'Veuillez entrer une adresse mail valide';
+      }
+    }else{
+        $errors['mail'] = "Veuillez renseigner une adresse mail";
+    }
+
+    // Verif taille mdp
+    if(!empty($_POST['mdp'])){
+      if(strlen($mdp) < 6 || strlen($mdp) > 100){
+        $errors['mdp'] = "Veuillez entrer un mot de passe valide";
+      }
+    } else{
+        $errors['mdp'] = "Veuillez entrer un mot de passe valide";
+      }
+
+    // MDPS identiques
+    if($mdp != $mdpV){
+      $errors['mdp'] = "Les mots de passe ne correspondent pas";
+    }
+
+
+    // S'il n'y a pas d'erreurs
+    if(count($errors) == 0){
+      $success = true;
+      $hash = password_hash($mdp, PASSWORD_DEFAULT);
+      $token = generateRandomString(120);
+      $sql = "INSERT INTO vax_profils ( mail, mdp , created_at,token,status) VALUES ( :mail, :hash, NOW(), :token,'user')";
+      $query = $pdo -> prepare($sql);
+      $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
+      $query -> bindValue(':token', $token, PDO::PARAM_STR);
+      $query -> bindValue(':hash', $hash, PDO::PARAM_STR);
+      $query -> execute();
+      header('Location:index.php');
+    }
+  }
+    if(!empty($_POST['connexion'])){
+    $mail = trim(strip_tags($_POST['mail']));
+    $mdp = trim(strip_tags($_POST['mdp']));
+
+  // Vérif  & MDP
+    $sql = "SELECT * FROM vax_profils
+            WHERE  mail = :mail";
+    $query = $pdo -> prepare($sql);
+    $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
+    $query -> execute();
+    $user = $query -> fetch();
+
+  if(!empty($user)){
+
+    if(!password_verify($mdp, $user['mdp'])){
+
+      $errors['mdp'] = "mdp invalide";
+    }
+  }
+  else{
+
+    $errors['mail'] = 'Vous n\'êtes pas inscrit';
+  }
+  // if(!empty($_POST['remember'])){
+  //   setcookie('user_id',$user -> id,time()+3600*24)
+  // }
+
+    if(count($errors) == 0){
+
+      $_SESSION['user'] = array(
+        'id' => $user['id'],
+        'mail' => $user['mail'],
+        'status' => $user['status'],
+        'nom' => $user['nom'],
+        'prenom' => $user['prenom'],
+        'ddn' => $user['ddn'],
+        'taille' => $user['taille'],
+        'poids' => $user['poids'],
+        'notif' => $user['notif'],
+        'ip' => $_SERVER['REMOTE_ADDR']
+      );
+
+        // header('Location:profil.php');
+      }
+    }
+    // header('Location:index.php');
+  }
+
+  include ('inc/header.php');
 ?>
+
 
     <div class="intro">
 
@@ -17,10 +129,10 @@ if (isLogged()){
 
 <div class="login-wrap">
 	<div class="login-html">
-	<form action="incription.php" method="post">
+	<form action="index.php" method="post">
 
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked>
-		<label for="tab-1" class="tab">S'incrire</label>
+		<label for="tab-1" class="tab">S'inscrire</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up">
 		<label for="tab-2" class="tab">Connexion</label>
 
@@ -54,7 +166,7 @@ if (isLogged()){
 
 	</form>
 
-	<form action="connection.php" method="post">
+	<form action="index.php" method="post">
 
 			<div class="sign-up-htm">
 

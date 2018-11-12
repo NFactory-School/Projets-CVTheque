@@ -49,8 +49,20 @@ if(islogged()){
         'notif' => $user['notif'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
+<<<<<<< HEAD
         header('Location:profil.php');
+=======
+
+        // header('Location:profil.php');
+>>>>>>> 55dc388801f627694f27c8b400b3c16cda49767c
       }
       header('Location:index.php');
     }
+<<<<<<< HEAD
   }?>
+=======
+    // header('Location:index.php');
+  }
+
+?>
+>>>>>>> 55dc388801f627694f27c8b400b3c16cda49767c

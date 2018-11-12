@@ -106,8 +106,25 @@ function rappel(){
       $difference /= 60*60*24*7*4.35;
 
       $difference = floor($difference);
+      echo $difference;
+
+
+      return "$difference $periods[$j]";
       echo $difference.' mois ou '.floor($difference/12).' années';;
   }
 }
-
+function vnum($error,$data,$min,$max,$key){
+  if (!empty($data)) {
+    if (is_int($data) && $data <= $min) {
+      $error[$key] = 'error : entre  '.$min.'et'.$max;
+    }
+    elseif (is_int($data) && $data <= $min) {
+      $error[$key] = 'error : entre  '.$min.'et'.$max;
+    }
+  }
+  else {
+    $error[$key] = 'error : vide';
+  }
+  return $error;
+}
 ?>
