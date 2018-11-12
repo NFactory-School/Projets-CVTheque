@@ -22,18 +22,9 @@ function b_add_vaccin1($nom,$cible,$labo,$info){
   $query -> execute();
 }
 
-function connection($mail){
-  global $pdo;
-  $sql = "SELECT * FROM vax_profils
-          WHERE mail = :mail";
-  $query = $pdo -> prepare($sql);
-  $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
 }
 
-function incription($mail){
+function index($mail){
   global $pdo;
   $sql = "SELECT mail FROM vax_profils WHERE mail = :mail";
   $query = $pdo -> prepare($sql);
@@ -43,7 +34,7 @@ function incription($mail){
   return $userMail;
 }
 
-function incription1($mail, $token, $hash){
+function index1($mail, $token, $hash){
   $sql = "INSERT INTO vax_profils ( mail, mdp , created_at,token,status)
           VALUES ( :mail, :hash, NOW(), :token,'user')";
   $query = $pdo -> prepare($sql);
@@ -52,3 +43,13 @@ function incription1($mail, $token, $hash){
   $query -> bindValue(':hash', $hash, PDO::PARAM_STR);
   $query -> execute();
 }
+
+function index3($mail){
+  global $pdo;
+  $sql = "SELECT * FROM vax_profils
+          WHERE mail = :mail";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
+  $query -> execute();
+  $user = $query -> fetch();
+  return $user;

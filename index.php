@@ -1,5 +1,6 @@
 <?php
 include ('inc/pdo.php');
+include ('inc/request.php');
 include ('inc/fonction.php');
 
 if(islogged()){
@@ -23,11 +24,7 @@ if(islogged()){
         if(strlen($mail) < 5 || (strlen($mail) >150)){
           $errors['mail'] = "Veuillez entrer un mail valide";
         }else{
-          $sql = "SELECT mail FROM vax_profils WHERE mail = :mail";
-          $query = $pdo -> prepare($sql);
-          $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-          $query -> execute();
-          $userMail = $query -> fetch();
+          index($mail);
           if(!empty($userMail)){
             $errors['mail'] = "Adresse mail déja utilisée";
           }
@@ -59,12 +56,7 @@ if(islogged()){
       $success = true;
       $hash = password_hash($mdp, PASSWORD_DEFAULT);
       $token = generateRandomString(120);
-      $sql = "INSERT INTO vax_profils ( mail, mdp , created_at,token,status) VALUES ( :mail, :hash, NOW(), :token,'user')";
-      $query = $pdo -> prepare($sql);
-      $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-      $query -> bindValue(':token', $token, PDO::PARAM_STR);
-      $query -> bindValue(':hash', $hash, PDO::PARAM_STR);
-      $query -> execute();
+      index1($mail, $token, $hash);
       header('Location:index.php');
     }
   }
@@ -73,12 +65,7 @@ if(islogged()){
     $mdp = trim(strip_tags($_POST['mdp']));
 
   // Vérif  & MDP
-    $sql = "SELECT * FROM vax_profils
-            WHERE  mail = :mail";
-    $query = $pdo -> prepare($sql);
-    $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-    $query -> execute();
-    $user = $query -> fetch();
+    index3($mail);
 
   if(!empty($user)){
 
