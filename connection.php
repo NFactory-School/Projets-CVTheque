@@ -41,6 +41,12 @@ if(islogged()){
         'id' => $user['id'],
         'mail' => $user['mail'],
         'status' => $user['status'],
+        'nom' => $user['nom'],
+        'prenom' => $user['prenom'],
+        'ddn' => $user['ddn'],
+        'taille' => $user['taille'],
+        'poids' => $user['poids'],
+        'notif' => $user['notif'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
 

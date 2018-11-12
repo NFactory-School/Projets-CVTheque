@@ -1,12 +1,11 @@
 <nav>
   <?php
-tab($_SESSION);
         if (islogged()) {
           if(!empty($_SESSION['user']['prenom'])){
             echo '<p>'. $_SESSION['user']['prenom'] .' </p>
                   <p>'. $_SESSION['user']['nom'] .' </p><br/>';
           }else {
-            echo '<p>'. $_SESSION['user']['mail'] .' </p><br/>';
+            echo '<p>'.$_SESSION['user']['mail'] .' </p><br/>';
           }
 
           echo '<a href="profil.php">Votre profil |</a>
