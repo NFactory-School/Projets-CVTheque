@@ -50,10 +50,10 @@ if(islogged()){
         'ip' => $_SERVER['REMOTE_ADDR']
       );
 
-        header('Location:profil.php');
+        // header('Location:profil.php');
       }
     }
-    header('Location:index.php');
+    // header('Location:index.php');
   }
 
 ?>
