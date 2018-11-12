@@ -106,14 +106,7 @@ function rappel(){
       $difference /= 60*60*24*7*4.35;
 
       $difference = floor($difference);
-<<<<<<< HEAD
-      echo $difference;
-
-
-      return "$difference $periods[$j]";
-=======
       echo $difference.' mois ou '.floor($difference/12).' années';;
->>>>>>> 283d0f0e538ba8c0a202fb65c8f93e4b6b450bff
   }
 }
 function vnum($error,$data,$min,$max,$key){

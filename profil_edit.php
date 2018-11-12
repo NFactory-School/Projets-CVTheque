@@ -27,11 +27,7 @@
   <label for="taille">Votre taille:  <input type="number" name="taille"> <span>en cm</span></label>
   <br>
 
-<<<<<<< HEAD
     <label for="poids">Votre poids:<input type="number" name="poids"> <span>en kg</span>
-=======
-  <p>Votre poids:</p><input type="number" name="poids"> <p>en kg</p>
->>>>>>> 283d0f0e538ba8c0a202fb65c8f93e4b6b450bff
   <br>
 
     <input type="checkbox" name="notif" value="notif" checked><span>Voulez vous recevoir les notifications </span><br>
