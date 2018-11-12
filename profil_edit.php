@@ -27,14 +27,14 @@
   <label for="taille">Votre taille:  <input type="number" name="taille"> <span>en cm</span></label>
   <br>
 
-<<<<<<< HEAD
+
     <label for="poids">Votre poids:<input type="number" name="poids"> <span>en kg</span>
-=======
+
   <p>Votre poids:</p><input type="number" name="poids"> <p>en kg</p>
->>>>>>> 283d0f0e538ba8c0a202fb65c8f93e4b6b450bff
+
   <br>
 
-  <?php 
+  <?php
   if(!empty($_POST['taille']) && !empty($_POST['poids'])){
     $taille = $_POST['taille'];
     $poids = $_POST['poids'];
