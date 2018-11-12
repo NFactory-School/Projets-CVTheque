@@ -1,6 +1,6 @@
 <footer class="footer">
 	<div class="footer-left">
-		<a href="index.php"><img class="footer-logo" src="img/logo.svg" alt=""></a>
+		<a href="index.php"><img class="footer-logo" src="img/logo_footer.svg" alt=""></a>
 		<p class="footer-links">
 			<a href="index.php">Home</a>
 			·
