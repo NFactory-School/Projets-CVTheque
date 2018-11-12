@@ -21,12 +21,32 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $count_vaccins = $query->fetch();
 
-// requête contacts
-$sql = "SELECT *
-        FROM vax_contact";
+// Requete pagination contacts
+$sql ="SELECT COUNT(*) as nbContact
+      FROM vax_contact";
+$query = $pdo -> prepare($sql);
+$query -> execute();
+$countMsg = $query -> fetch();
+
+// Variables pagination
+$nbContact = $countMsg['nbContact'];
+$msgParPages = 4;
+$nbPages = ceil($nbContact/$msgParPages);
+
+if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
+  $cPage = $_GET['p'];
+}else{
+  $cPage = 1;
+}
+
+// requête affichage contacts
+$sql = "SELECT * FROM vax_contact
+        ORDER BY id DESC LIMIT ".(($cPage - 1) * $msgParPages).", $msgParPages";
   $query = $pdo -> prepare($sql);
   $query -> execute();
   $contacts = $query -> fetchAll();
+
+
 ?>
 
 <!-- Boite nbre users -->
@@ -43,7 +63,7 @@ $sql = "SELECT *
                                 </div>
                             </div>
                         </div>
-                        <a href="user_back.php">
+                        <a href="b_user_back.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -67,7 +87,7 @@ $sql = "SELECT *
                                 </div>
                             </div>
                         </div>
-                        <a href="vaccins_back.php">
+                        <a href="b_vaccins_back.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -89,7 +109,7 @@ $sql = "SELECT *
       foreach($contacts as $contact){
         $id = $contact['id'];
         echo '<tbody>
-                <td><a href="contact_back.php?id='.$id.'">'.$contact['nom'].'</a></td>
+                <td><a href="b_contact_back.php?id='.$id.'">'.$contact['nom'].'</a></td>
                 <td>'.$contact['objet'].'</td>
                 <td>'.$contact['created_at'].'</td>
               </tbody>';}?>
@@ -97,4 +117,13 @@ $sql = "SELECT *
   </table>
 </div>
 
-<?php  include 'inc/footer.php';
+<?php
+// liens de pagination
+for ($i = 1; $i <=  $nbPages; $i++) {
+  if ($i==$cPage) {
+    echo $i, '/';
+  }else {
+    echo ' <a href="b_back.php?p='.$i.'">'.$i.'</a>/';
+  }
+}
+include 'inc/footer.php';

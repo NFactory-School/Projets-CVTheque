@@ -1,7 +1,9 @@
 <?php
 include ('inc/pdo.php');
 include ('inc/fonction.php');
-
+if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
+  header('Location:403.php');
+}
 
 $id = $_GET['id'];
 $sql = "UPDATE vax_vaccins
@@ -10,4 +12,4 @@ $sql = "UPDATE vax_vaccins
 $query = $pdo -> prepare($sql);
 $query -> execute();
 
-header('Location:vaccins_back.php');
+header('Location:b_vaccins_back.php');

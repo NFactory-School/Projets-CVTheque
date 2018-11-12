@@ -41,12 +41,17 @@ if(islogged()){
         'status' => $user['status'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
+<<<<<<< HEAD
       if (!empty($user['status'])){
           if($user['status'] == 'admin'){
             header('Location:back.php');
           }elseif($user['status'] == 'user'){
             header('Location:carnet.php');
           }
+=======
+      if($user['status'] == 'admin'){
+        header('Location:b_back.php');
+>>>>>>> 9e8ba62094599fbef187aad5c42b83c2aeae9c2c
       }else{
           header('Location:403.php');
       }

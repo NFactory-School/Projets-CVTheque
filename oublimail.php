@@ -12,7 +12,7 @@ if(!empty($_POST['submit'])){
         $errors['mail'] = "Veuillez entrer un mail valide";
       }else{
         // requete sql
-        $sql = "SELECT mail, token FROM nf_user WHERE mail = :mail";
+        $sql = "SELECT mail, token FROM vax_profils WHERE mail = :mail";
         $query = $pdo -> prepare($sql);
         $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
         $query -> execute();

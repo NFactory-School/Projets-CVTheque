@@ -3,7 +3,9 @@ include 'inc/pdo.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 
-
+if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
+  header('Location:403.php');
+}
 // verif soumission
 $errors = array();
 if(!empty($_POST['submit'])){
@@ -42,7 +44,7 @@ if(!empty($_POST['submit'])){
       $query -> bindValue(':labo', $labo, PDO::PARAM_STR);
       $query -> bindValue(':info', $info, PDO::PARAM_STR);
       $query -> execute();
-      header('Location:vaccins_back.php');
+      header('Location:b_vaccins_back.php');
     }
 
   }
@@ -64,4 +66,4 @@ if(!empty($_POST['submit'])){
   	<span class="error"><?php error($errors,'info');?></span><?php br(); ?>
   <input type="submit" name="submit" value="Ajouter">
 </form>
-<a href="vaccins_back.php">Retour</a>
+<a href="b_vaccins_back.php">Retour</a>

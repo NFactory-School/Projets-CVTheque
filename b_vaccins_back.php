@@ -2,7 +2,9 @@
 include 'inc/pdo.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
-
+if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
+  header('Location:403.php');
+}
 // Requete sql pagination
 $sql ="SELECT COUNT(*) as nbVaccins
       FROM vax_vaccins";
@@ -12,7 +14,7 @@ $countVaccins = $query -> fetch();
 
 // Variables pagination
 $nbVaccins = $countVaccins['nbVaccins'];
-$vaccinsParPages = 2;
+$vaccinsParPages = 4;
 $nbPages = ceil($nbVaccins/$vaccinsParPages);
 
 if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
@@ -33,7 +35,7 @@ for ($i = 1; $i <=  $nbPages; $i++) {
   if ($i==$cPage) {
     echo $i, '/';
   }else {
-    echo ' <a href="vaccins_back.php?p='.$i.'">'.$i.'</a>/';
+    echo ' <a href="b_vaccins_back.php?p='.$i.'">'.$i.'</a>/';
   }
 }
 ?>
@@ -56,15 +58,15 @@ for ($i = 1; $i <=  $nbPages; $i++) {
       <td><?php echo $vaccin['maladie_cible'] ?></td>
       <td><?php echo $vaccin['labo'] ?></td>
       <td><?php echo $vaccin['info'] ?></td>
-      <td> <a href="rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
-           <a href="cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
+      <td> <a href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
+           <a href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
       <td><?php echo $vaccin['status'] ?></td>
     </tbody>
   <?php endforeach; ?>
 </table>
 
 <!-- Boutons pratiques -->
-<a href="add_vaccin.php">Ajouter un vaccin</a>
-<a href="back.php">Retour à l'accueil</a>
+<a href="b_add_vaccin.php">Ajouter un vaccin</a>
+<a href="b_back.php">Retour à l'accueil</a>
 
 <?php include 'inc/footer.php'; ?>
