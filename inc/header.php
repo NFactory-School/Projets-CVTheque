@@ -14,7 +14,7 @@
 	<body>
 		<header class="header">
 			<div class="header-limiter">
-			<a href="index.php"> <img class ="logo-header" src="img/logo.svg" alt=""> </a>
+			<a href="index.php"> <img class ="logo-header" src="img/logo_footer.svg" alt=""> </a>
 				<?php include 'nav.php' ?>
 			</div>
 		</header>

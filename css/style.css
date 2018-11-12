@@ -75,14 +75,13 @@ body {
 }
 
 .logo-header{
-  height : 64px;
-  width : 64px;
+  width : 100px;
 }
 
 /* header fixé */
 body.fixed .header {
 	padding: 10px 40px;
-	height: 50px;
+	height: 80px;
 	position: fixed;
 	width: 100%;
 	top: 0;
