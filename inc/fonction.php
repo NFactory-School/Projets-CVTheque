@@ -96,22 +96,19 @@ function error($errors,$key){
   }
 }
 
-function age(){
-  if (!empty($GET['ddn'])){
-      $periodes=array('jour','semaine','mois','année');
-      $temps=array('7','4.35','12','10');
+function ageUser(){
+  echo $_SESSION['user']['ddn'];
+  if (!empty($_SESSION['user']['ddn'])){
 
-      $timestamp = strtotime($_GET['ddn']);
+      $timestamp = strtotime($_SESSION['user']['ddn']);
       $now = time();
       $difference = var_dump((int)($now-$timestamp));
 
-      for($j = 0; $difference >= $temps[$j] && $j < count($temps)-1; $j++) {
-          $difference /= $temps[$j];
-      }
+      $difference /= 12;
 
       $difference = round($difference);
 
-      return "$difference $periods[$j]";
+      return "$difference mois";
   }else{
       echo "Veuillez renseigner votre âge";
   }
