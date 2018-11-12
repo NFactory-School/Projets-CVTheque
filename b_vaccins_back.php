@@ -14,7 +14,7 @@ $countVaccins = $query -> fetch();
 
 // Variables pagination
 $nbVaccins = $countVaccins['nbVaccins'];
-$vaccinsParPages = 2;
+$vaccinsParPages = 4;
 $nbPages = ceil($nbVaccins/$vaccinsParPages);
 
 if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){

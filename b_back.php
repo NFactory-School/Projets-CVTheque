@@ -21,12 +21,32 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $count_vaccins = $query->fetch();
 
-// requête contacts
-$sql = "SELECT *
-        FROM vax_contact";
+// Requete pagination contacts
+$sql ="SELECT COUNT(*) as nbContact
+      FROM vax_contact";
+$query = $pdo -> prepare($sql);
+$query -> execute();
+$countMsg = $query -> fetch();
+
+// Variables pagination
+$nbContact = $countMsg['nbContact'];
+$msgParPages = 4;
+$nbPages = ceil($nbContact/$msgParPages);
+
+if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
+  $cPage = $_GET['p'];
+}else{
+  $cPage = 1;
+}
+
+// requête affichage contacts
+$sql = "SELECT * FROM vax_contact
+        ORDER BY id DESC LIMIT ".(($cPage - 1) * $msgParPages).", $msgParPages";
   $query = $pdo -> prepare($sql);
   $query -> execute();
   $contacts = $query -> fetchAll();
+
+
 ?>
 
 <!-- Boite nbre users -->
@@ -97,4 +117,13 @@ $sql = "SELECT *
   </table>
 </div>
 
-<?php  include 'inc/footer.php';
+<?php
+// liens de pagination
+for ($i = 1; $i <=  $nbPages; $i++) {
+  if ($i==$cPage) {
+    echo $i, '/';
+  }else {
+    echo ' <a href="b_back.php?p='.$i.'">'.$i.'</a>/';
+  }
+}
+include 'inc/footer.php';

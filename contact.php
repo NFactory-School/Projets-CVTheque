@@ -68,7 +68,7 @@ if(!empty($_POST['submit'])) {
     $query -> bindValue(':name', $name, PDO::PARAM_STR);
     $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
     $query -> execute();
-    // header('Location:index.php');
+    header('Location:profil.php');
   }
 } ?>
 
