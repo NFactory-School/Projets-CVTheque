@@ -42,7 +42,7 @@ if(islogged()){
         'ip' => $_SERVER['REMOTE_ADDR']
       );
       if($user['status'] == 'admin'){
-        header('Location:back/back_office.php');
+        header('Location:back.php');
       }else{
        header('Location:carnet.php');
      }
