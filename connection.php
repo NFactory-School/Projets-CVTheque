@@ -18,7 +18,7 @@ if(islogged()){
     $query = $pdo -> prepare($sql);
     $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
     $query -> execute();
-  $user = $query -> fetch();
+    $user = $query -> fetch();
 
   if(!empty($user)){
 

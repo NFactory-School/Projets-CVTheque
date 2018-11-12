@@ -14,8 +14,8 @@
 	<body>
 		<header class="header">
 			<div class="header-limiter">
-				<h1><a href="index.php">Company<span>logo</span></a></h1>
-<?php include 'nav.php' ?>
+			<a href="index.php"> <img class ="logo-header" src="img/logo.svg" alt=""> </a>
+				<?php include 'nav.php' ?>
 			</div>
 		</header>
 		<div class="header-fixed-placeholder"></div>
@@ -38,4 +38,5 @@
 			});
 
 		</script>
+		<div class="clear"></div>
 		</header>

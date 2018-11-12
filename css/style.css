@@ -11,7 +11,7 @@ body {
 	background-color:#292c2f;
 	box-shadow:0 1px 1px #ccc;
 	padding: 20px 40px;
-	height: 80px;
+	height: 110px;
 	color: #ffffff;
 	box-sizing: border-box;
 	top:-100px;
@@ -39,10 +39,6 @@ body {
 	margin: 0;
 }
 
-.header .header-limiter h1 span {
-	color: #608bd2;
-}
-
 /* nav */
 .header .header-limiter a {
 	color: #ffffff;
@@ -53,9 +49,18 @@ body {
 	font:16px Arial, Helvetica, sans-serif;
 	line-height: 40px;
 	float: right;
+  width : 70%;
 }
 
-.header .header-limiter nav a{
+.header .header-limiter nav p{
+	display: inline-block;
+	padding: 0 5px;
+	text-decoration:none;
+	color: #ffffff;
+	opacity: 0.9;
+  transition:.4s;
+}
+.header .header-limiter nav p a{
 	display: inline-block;
 	padding: 0 5px;
 	text-decoration:none;
@@ -69,6 +74,10 @@ body {
   color: #608bd2;
 }
 
+.logo-header{
+  height : 64px;
+  width : 64px;
+}
 
 /* header fixé */
 body.fixed .header {
