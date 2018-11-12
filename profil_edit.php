@@ -29,7 +29,14 @@
 
   <?php 
   if(!empty($_POST['taille']) && !empty($_POST['poids'])){
-    $imc = 
+    $taille = $_POST['taille'];
+    $poids = $_POST['poids'];
+    $imc = $tailles*$taille;
+    $imc = $poids/$imc;
+
+    if ($imc<20){
+      $resultimc = 0;
+    }
   }
   ?>
 
