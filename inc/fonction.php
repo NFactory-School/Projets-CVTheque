@@ -33,7 +33,7 @@ if (!empty($data)){
 
 function vMail($error,$value,$min,$max,$key) {
   if (!empty($value)) {
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+    if (filter_var($value, FILTER_VALIDATE_EMAIL)){
       $value = trim(strip_tags($value));
       if (is_string($value) && strlen($value) <= $min) {
         $error[$key] = 'error : moins de '.$min.' caractères';
