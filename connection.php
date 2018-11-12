@@ -51,19 +51,6 @@ if(islogged()){
       );
         header('Location:profil.php');
       }
+      header('Location:index.php');
     }
-  }
-
-
-      if (!empty($user['status'])){
-          if($user['status'] == 'admin'){
-            header('Location:b_back.php');
-          }elseif($user['status'] == 'user'){
-            header('Location:carnet.php');
-          }
-      }
-
-    
-
-
-?>
+  }?>

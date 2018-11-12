@@ -26,10 +26,6 @@ include ('inc/header.php');
   </ul>
 </div>
 
-<p>
-  <?php echo ageUser(); ?>
-</p>
-
 <div class="clear"></div>
 
 <?php include 'inc/footer.php';

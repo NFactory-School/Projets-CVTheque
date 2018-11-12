@@ -96,7 +96,7 @@ function error($errors,$key){
   }
 }
 
-function ageUser(){
+function rappel($datevaccin,$intervalle){
   if (!empty($_SESSION['user']['ddn'])){
 
       $timestamp = strtotime($_SESSION['user']['ddn']);
@@ -106,10 +106,9 @@ function ageUser(){
       $difference /= 60*60*24*7*4.35;
 
       $difference = floor($difference);
+      echo $difference;
 
-      return "$difference mois";
-  }else{
-      echo "Veuillez renseigner votre âge";
+
   }
 }
 

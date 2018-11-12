@@ -65,6 +65,7 @@ if(!empty($_POST['submit'])){
     $query -> execute();
     header('Location:redirection.php');
   }
+  header('Location:index.php');
 }
 
 ?>
