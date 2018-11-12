@@ -53,15 +53,15 @@ if(!empty($_POST['submit'])){
   <legend>Ajouter un vaccin</legend>
   <label for="nom">Nom du vaccin</label>
   <input type="text" name="nom" value=""><br/>
-  <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];};?></span><?php br(); ?>
+  <span class="error"><?php error($errors,'nom');?></span><?php br(); ?>
   <label for="cible">Maladie ciblée</label>
   <input type="text" name="cible" value=""><br/>
-  	<span class="error"><?php if(!empty($errors['cible'])){echo $errors['cible'];};?></span><?php br(); ?>
+  	<span class="error"><?php error($errors,'cible');?></span><?php br(); ?>
   <label for="labo">Laboratoire de production</label>
   <input type="text" name="labo" value=""><br/>
   <label for="info">Informations Complémentaires</label>
   <input type="text" name="info" value=""><br/>
-  	<span class="error"><?php if(!empty($errors['info'])){echo $errors['info'];};?></span><?php br(); ?>
+  	<span class="error"><?php error($errors,'info');?></span><?php br(); ?>
   <input type="submit" name="submit" value="Ajouter">
 </form>
 <a href="vaccins_back.php">Retour</a>

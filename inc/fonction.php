@@ -90,4 +90,22 @@ function isAdmin() {
   }
 }
 
+function error($errors,$key){
+  if(!empty($errors[$key])){
+    echo $errors[$key];
+  }
+}
+
+function age(){
+  if (!empty($GET['ddn'])){
+      $periodes=array('jour','semaine','mois','année');
+      $temps=array('7','4.35','12','10');
+      $timestamp = strtotime($_GET['ddn']);
+      $now = time();
+      $difference = var_dump((int)($now-$timestamp));
+  }else{
+      echo "Veuillez renseigner votre âge";
+  }
+}
+
 ?>
