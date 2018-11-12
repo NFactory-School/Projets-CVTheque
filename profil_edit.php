@@ -24,8 +24,14 @@
   <p>Votre taille:</p>  <input type="number" name="taille"> <p>en cm</p>
   <br>
 
-    <p>Votre poids:</p><input type="number" name="poids"> <p>en kg</p>
+  <p>Votre poids:</p><input type="number" name="poids"> <p>en kg</p>
   <br>
+
+  <?php 
+  if(!empty($_POST['taille']) && !empty($_POST['poids'])){
+    $imc = 
+  }
+  ?>
 
     <input type="checkbox" name="notif" value="notif" checked><span>Voulez vous recevoir les notifications </span><br>
 
