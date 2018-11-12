@@ -33,7 +33,7 @@ for ($i = 1; $i <=  $nbPages; $i++) {
   if ($i==$cPage) {
     echo $i, '/';
   }else {
-    echo ' <a href="vaccins_back.php?p='.$i.'">'.$i.'</a>/';
+    echo ' <a href="b_vaccins_back.php?p='.$i.'">'.$i.'</a>/';
   }
 }
 ?>
@@ -56,15 +56,15 @@ for ($i = 1; $i <=  $nbPages; $i++) {
       <td><?php echo $vaccin['maladie_cible'] ?></td>
       <td><?php echo $vaccin['labo'] ?></td>
       <td><?php echo $vaccin['info'] ?></td>
-      <td> <a href="rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
-           <a href="cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
+      <td> <a href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
+           <a href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
       <td><?php echo $vaccin['status'] ?></td>
     </tbody>
   <?php endforeach; ?>
 </table>
 
 <!-- Boutons pratiques -->
-<a href="add_vaccin.php">Ajouter un vaccin</a>
-<a href="back.php">Retour à l'accueil</a>
+<a href="b_add_vaccin.php">Ajouter un vaccin</a>
+<a href="b_back.php">Retour à l'accueil</a>
 
 <?php include 'inc/footer.php'; ?>

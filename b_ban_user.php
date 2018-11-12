@@ -10,4 +10,4 @@ $sql = "UPDATE vax_profils
 $query = $pdo -> prepare($sql);
 $query -> execute();
 
-header('Location:user_back.php');
+header('Location:b_user_back.php');

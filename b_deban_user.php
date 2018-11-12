@@ -4,10 +4,10 @@ include ('inc/fonction.php');
 
 
 $id = $_GET['id'];
-$sql = "UPDATE vax_vaccins
-        SET status = '0'
+$sql = "UPDATE vax_profils
+        SET status = 'user'
         WHERE id = $id";
 $query = $pdo -> prepare($sql);
 $query -> execute();
 
-header('Location:vaccins_back.php');
+header('Location:b_user_back.php');

@@ -47,7 +47,7 @@ if (isLogged()){
 				</div>
 
 				<div class="group">
-					<input type="submit" name="submit" value="S'inscrire">
+					<input type="submit" class="myButton" name="submit" value="S'inscrire">
 				</div>
 				<div class="hr"></div>
 			</div>
@@ -59,7 +59,7 @@ if (isLogged()){
 			<div class="sign-up-htm">
 
 				<div class="group">
-					<input type="text" placeholder="mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>"><br>
+					<input type="text" placeholder="Adresse E-mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>"><br>
 					<span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span><?php br(); ?>
 				</div>
 
