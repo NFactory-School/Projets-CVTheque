@@ -12,12 +12,12 @@
     <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
   <input type="text" name="prenom" placeholder="prenom" required="required"><br>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 4884d7aed05f0b89a7bfdbac12b6643c15f2a53e
     <label for="ddn">Votre date de naissance:</label>
-  <input type="date" name="ddn"  value="01-01-2001"><br>
+  <input type="number" name="jj"  value="jj" min=1 max=31><span>/</span>
+  <input type="number" name="mm"  value="mm" min=1 max=12><span>/</span>
+  <input type="number" name="aaaa"  value="aaaa" min=1990 max=2018>
+   <br>
 
   <select form="profil" class="select_sexe" name="sexe">
     <option name ="homme" value=1>homme</option>
