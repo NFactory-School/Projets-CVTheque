@@ -3,7 +3,9 @@ include 'inc/pdo.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 
-
+if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
+  header('Location:403.php');
+}
 // verif soumission
 $errors = array();
 if(!empty($_POST['submit'])){

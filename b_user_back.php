@@ -2,6 +2,9 @@
 include 'inc/pdo.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
+if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
+  header('Location:403.php');
+}
 
 // Requete sql pagination
 $sql ="SELECT COUNT(*) as nbUsers
