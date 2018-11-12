@@ -31,14 +31,6 @@ $query = $pdo -> prepare($sql);
 $query -> execute();
 $Users = $query -> fetchAll();
 
-// liens de pagination
-for ($i = 1; $i <=  $nbPages; $i++) {
-  if ($i==$cPage) {
-    echo $i, '/';
-  }else {
-    echo ' <a href="b_user_back.php?p='.$i.'">'.$i.'</a>/';
-  }
-}
 ?>
 
 <table>
@@ -55,7 +47,7 @@ for ($i = 1; $i <=  $nbPages; $i++) {
     <th>Poids</th>
     <th>Notifications</th>
     <th>Statut</th>
-    <th> Modifier un utilisateur </th>
+    <th> Modifier un statut utilisateur </th>
   </thead>
   <?php foreach ($Users as $User):?>
     <tbody>
@@ -71,14 +63,23 @@ for ($i = 1; $i <=  $nbPages; $i++) {
       <td><?php echo $User['poids']?></td>
       <td><?php echo $User['notif']?></td>
       <td><?php echo $User['status']?></td>
-      <td><a href="b_ban_user.php?id=<?php echo $User['id'] ?>">Bannir</a>
-          <a href="b_deban_user.php?id=<?php echo $User['id'] ?>">Annuler</a>
-          <a href="b_user_admin.php?id=<?php echo $User['id'] ?>">Passer administrateur</a> </td>
+      <td><a href="b_ban_user.php?id=<?php echo $User['id'] ?>">Banni</a>
+          <a href="b_deban_user.php?id=<?php echo $User['id'] ?>">Utilisateur</a>
+          <a href="b_user_admin.php?id=<?php echo $User['id'] ?>">Administrateur</a> </td>
     </tbody>
   <?php endforeach; ?>
 </table>
 
-<a href="b_back.php">Retour au back-office</a>
+<?php
+// liens de pagination
+for ($i = 1; $i <=  $nbPages; $i++) {
+  if ($i==$cPage) {
+    echo $i, '/';
+  }else {
+    echo ' <a href="b_user_back.php?p='.$i.'">'.$i.'</a>/';
+  }
+}?>
 
+<br/><a href="b_back.php">Retour au back-office</a>
 
 <?php include 'inc/footer.php';

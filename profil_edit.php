@@ -12,10 +12,6 @@
     <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
   <input type="text" name="prenom" placeholder="prenom" required="required"><br>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4884d7aed05f0b89a7bfdbac12b6643c15f2a53e
     <label for="ddn">Votre date de naissance:</label>
   <input type="date" name="ddn"  value="01-01-2001"><br>
 

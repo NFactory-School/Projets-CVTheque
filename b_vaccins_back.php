@@ -29,15 +29,6 @@ $sql = "SELECT * FROM vax_vaccins
 $query = $pdo -> prepare($sql);
 $query -> execute();
 $vaccins = $query -> fetchAll();
-
-// liens de pagination
-for ($i = 1; $i <=  $nbPages; $i++) {
-  if ($i==$cPage) {
-    echo $i, '/';
-  }else {
-    echo ' <a href="b_vaccins_back.php?p='.$i.'">'.$i.'</a>/';
-  }
-}
 ?>
 
 <!-- Affichage des vaccins en tableau -->
@@ -46,18 +37,18 @@ for ($i = 1; $i <=  $nbPages; $i++) {
     <th>id</th>
     <th>nom du vaccin</th>
     <th>maladie ciblée</th>
-    <th>laboratoire de production</th>
     <th>Informations complémentaires</th>
+    <th>Age de 1e prise recommandé (en mois)</th>
     <th>Supprimer un vaccin</th>
-    <th>statut (0 = supprimé, 1 = visible)</th>
+    <th>statut</th>
   </thead>
   <tbody>
     <?php foreach ($vaccins as $vaccin):?>
       <td><?php echo $vaccin['id'] ?></td>
       <td><?php echo $vaccin['nom'] ?></td>
       <td><?php echo $vaccin['maladie_cible'] ?></td>
-      <td><?php echo $vaccin['labo'] ?></td>
       <td><?php echo $vaccin['info'] ?></td>
+      <td><?php echo $vaccin['age_recommandé'] ?></td>
       <td> <a href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
            <a href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
       <td><?php echo $vaccin['status'] ?></td>
@@ -65,8 +56,17 @@ for ($i = 1; $i <=  $nbPages; $i++) {
   <?php endforeach; ?>
 </table>
 
+<?php // liens de pagination
+for ($i = 1; $i <=  $nbPages; $i++) {
+  if ($i==$cPage) {
+    echo $i, '/';
+  }else {
+    echo ' <a href="b_vaccins_back.php?p='.$i.'">'.$i.'</a>/';
+  }
+} ?>
+
 <!-- Boutons pratiques -->
-<a href="b_add_vaccin.php">Ajouter un vaccin</a>
-<a href="b_back.php">Retour à l'accueil</a>
+<br/><a href="b_add_vaccin.php">Ajouter un vaccin</a>
+<br/><a href="b_back.php">Retour à l'accueil</a>
 
 <?php include 'inc/footer.php'; ?>

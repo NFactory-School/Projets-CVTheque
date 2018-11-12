@@ -18,12 +18,6 @@ if(!empty($_POST['sub'])){
     $notif = 2;
   }
 
-tab($_POST);
-<<<<<<< HEAD
-tab($_SESSION);
-=======
-
->>>>>>> 18d7a04c1d2d8c036b8f5f0b0748259d477305e4
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
 

@@ -7,13 +7,19 @@
           }else {
             echo '<p>'.$_SESSION['user']['mail'] .' </p><br/>';
           }
+          if($_SESSION['user']['status'] == 'admin'){
+            echo '<a href="b_back.php">Back-Office | </a>
+                  <a href="profil.php">Votre profil | </a>
+                  <a href="carnet.php">Votre carnet | </a>
+                  <a href="contact.php">Contact | </a>
+                  <a href="deconnection.php"> Deconnexion </a>';
+          }elseif($_SESSION['user']['status'] == 'user'){
+            echo '<a href="profil.php">Votre profil | </a>
+                  <a href="carnet.php">Votre carnet | </a>
+                  <a href="contact.php">Contact | </a>
+                  <a href="deconnection.php"> Deconnexion </a>';
+          }
+      }
 
-          echo '<a href="profil.php">Votre profil |</a>
-                <a href="carnet.php">Votre carnet | </a>
-                <a href="contact.php">Contact | </a>
-                <a href="deconnection.php"> Deconnexion </a>';
-        }else{
-          echo '<p>vax beta</p>';
-        }
   ?>
 </nav>
