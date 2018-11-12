@@ -3,6 +3,10 @@ include 'inc/pdo.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 
+if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
+  header('Location:403.php');
+}
+
 // Requête count users
 $sql = "SELECT COUNT(*)
         FROM vax_profils";
