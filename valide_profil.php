@@ -46,13 +46,13 @@ $id = $_SESSION['user']['id'];
      $_SESSION['user'] = array(
        'id' => $user['id'],
        'status' => $user['status'],
-       'ip' => $_SERVER['REMOTE_ADDR'],
        'nom' => $user['nom'],
        'prenom' => $user['prenom'],
        'ddn' => $user['ddn'],
        'taille' => $user['taille'],
        'poids' => $user['poids'],
-       'notif' => $user['notif']
+       'notif' => $user['notif'],
+       'ip' => $_SERVER['REMOTE_ADDR']
      );
      header('Location:profil.php');
    }
