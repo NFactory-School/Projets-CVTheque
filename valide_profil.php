@@ -19,7 +19,11 @@ if(!empty($_POST['sub'])){
   }
 
 tab($_POST);
+<<<<<<< HEAD
+tab($_SESSION);
+=======
 
+>>>>>>> 18d7a04c1d2d8c036b8f5f0b0748259d477305e4
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
 
@@ -38,12 +42,17 @@ $id = $_SESSION['user']['id'];
      $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
      $query -> bindValue(':ddn', $ddn, PDO::PARAM_INT);
      $query -> execute();
+
+     $sql = "SELECT * FROM vax_profils
+             WHERE  id = $id";
+     $query = $pdo -> prepare($sql);
+     $query -> execute();
      $user = $query -> fetch();
 
      $_SESSION['user'] = array(
        'id' => $user['id'],
        'status' => $user['status'],
-       'ip' => $_SERVER['REMOTE_ADDR']
+       'ip' => $_SERVER['REMOTE_ADDR'],
        'nom' => $user['nom'],
        'prenom' => $user['prenom'],
        'ddn' => $user['ddn'],
@@ -51,7 +60,6 @@ $id = $_SESSION['user']['id'];
        'poids' => $user['poids'],
        'notif' => $user['notif']
      );
-     // header('Location:redirection.php');
+     header('Location:profil.php');
    }
 }
-tab($errors);

@@ -2,7 +2,7 @@
 <?php include ('inc/fonction.php') ?>
 <?php include ('inc/header.php') ?>
 
-<form id="profil" action="valide_profil.php" method="post">
+<form id="profil" action="valide_profil.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
 
     <label for="nom">Votre nom:</label>
     <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
