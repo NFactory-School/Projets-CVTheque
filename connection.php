@@ -18,7 +18,7 @@ if(islogged()){
     $query = $pdo -> prepare($sql);
     $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
     $query -> execute();
-  $user = $query -> fetch();
+    $user = $query -> fetch();
 
   if(!empty($user)){
 
@@ -31,7 +31,9 @@ if(islogged()){
 
     $errors['mail'] = 'Vous n\'êtes pas inscrit';
   }
-
+  // if(!empty($_POST['remember'])){
+  //   setcookie('user_id',$user -> id,time()+3600*24)
+  // }
 
     if(count($errors) == 0){
 
