@@ -38,6 +38,19 @@ $id = $_SESSION['user']['id'];
      $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
      $query -> bindValue(':ddn', $ddn, PDO::PARAM_INT);
      $query -> execute();
+     $user = $query -> fetch();
+
+     $_SESSION['user'] = array(
+       'id' => $user['id'],
+       'status' => $user['status'],
+       'ip' => $_SERVER['REMOTE_ADDR']
+       'nom' => $user['nom'],
+       'prenom' => $user['prenom'],
+       'ddn' => $user['ddn'],
+       'taille' => $user['taille'],
+       'poids' => $user['poids'],
+       'notif' => $user['notif']
+     );
      // header('Location:redirection.php');
    }
 }

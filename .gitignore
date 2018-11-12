@@ -2,5 +2,6 @@
 pdo.php
 *.sql
 *.zip
+*.ai
 .*
 !.gitignore

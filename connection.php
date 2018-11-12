@@ -18,7 +18,7 @@ if(islogged()){
     $query = $pdo -> prepare($sql);
     $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
     $query -> execute();
-  $user = $query -> fetch();
+    $user = $query -> fetch();
 
   if(!empty($user)){
 
@@ -43,14 +43,15 @@ if(islogged()){
         'status' => $user['status'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
+
+
       if($user['status'] == 'admin'){
-        header('Location:back.php');
+        header('Location:b_back.php');
       }else{
-       header('Location:carnet.php');
-     }
-
-
+          header('Location:403.php');
+      }
     }
   }
 }
+
 ?>

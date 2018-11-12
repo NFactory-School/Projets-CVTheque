@@ -15,7 +15,7 @@ $countUsers = $query -> fetch();
 
 // Variables pagination
 $nbUsers = $countUsers['nbUsers'];
-$UsersParPages = 2;
+$UsersParPages = 4;
 $nbPages = ceil($nbUsers/$UsersParPages);
 
 if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
