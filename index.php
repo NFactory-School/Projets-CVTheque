@@ -17,7 +17,6 @@ if(islogged()){
     $mdpV = trim(strip_tags($_POST['mdpV']));
 
 
-
     // Verif mail
     if(!empty($_POST['mail'])){
       if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
