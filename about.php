@@ -2,7 +2,10 @@
 include 'inc/pdo.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
-?>
+
+if($_SESSION['user']['status'] == 'banni'){
+  header('Location:403.php');
+}?>
 
 <a class="back" href ="index.php">
   <div class="container">

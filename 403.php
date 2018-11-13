@@ -1,4 +1,4 @@
-<?php 
+<?php
 include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php'); ?>
@@ -21,6 +21,8 @@ include ('inc/header.php'); ?>
     </div>
   </a>
     <h2 class ="noAccess">Access not granted ! <br/>
-    <span>click me to go home</span></h2>
+    <span>click me to go home.</span><br>
+  </h2>
+  <span>Si le fantôme ne fonctionne pas, c'est que vous êtes banni du site</span>
 
 <?php include ('inc/footer.php') ?>

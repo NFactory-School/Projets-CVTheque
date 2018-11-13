@@ -3,6 +3,10 @@ include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
 
+if($_SESSION['user']['status'] == 'banni'){
+  header('Location:403.php');
+}
+
 if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
   $taille = $_SESSION['user']['taille']/100;
   $poids = $_SESSION['user']['poids'];
