@@ -1,5 +1,6 @@
 <?php
 include 'inc/pdo.php';
+include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 require 'vendor/autoload.php';
@@ -16,11 +17,7 @@ $query->execute();
 $count_users = $query->fetchColumn();
 
 // requête count vaccins
-$sql = "SELECT COUNT(*)
-        FROM vax_vaccins";
-$query = $pdo->prepare($sql);
-$query->execute();
-$count_vaccins = $query->fetch();
+$count_vaccins = b_back1();
 
 // Requete pagination contacts
 $sql ="SELECT COUNT(id) FROM vax_contact";

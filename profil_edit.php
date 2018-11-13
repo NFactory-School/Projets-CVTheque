@@ -1,7 +1,8 @@
-<?php
-include ('inc/pdo.php');
-include ('inc/fonction.php');
-include ('inc/header.php');
+
+<?php include 'inc/pdo.php';
+include 'inc/request.php';
+ include 'inc/fonction.php';
+ include 'inc/header.php';
 
 if($_SESSION['user']['status'] == 'banni'){
   header('Location:403.php');
@@ -35,23 +36,12 @@ if(!empty($_POST['sub'])){
 $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
-     $sql = "UPDATE vax_profils
-            SET modified_at = NOW(), nom = :nom, prenom = :prenom, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
-            WHERE id = $id";
-     $query = $pdo -> prepare($sql);
 
-     $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
-     $query -> bindValue(':prenom', $prenom, PDO::PARAM_STR);
-     $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
-     $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
-     $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
-     $query -> execute();
+    profil_edit($id, $nom, $prenom, $taille, $poids, $sexe, $notif);
 
-     $sql = "SELECT * FROM vax_profils
-             WHERE  id = $id";
-     $query = $pdo -> prepare($sql);
-     $query -> execute();
-     $user = $query -> fetch();
+
+    $user = profil_edit1($id);
+
 
      tab($_SESSION);
      $_SESSION['user']['nom'] = $user['nom'];
