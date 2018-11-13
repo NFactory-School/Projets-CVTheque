@@ -1,8 +1,8 @@
 <?php
-include ('inc/pdo.php');
-include ('inc/fonction.php');
-include ('inc/request.php');
-include ('inc/header.php');
+include 'inc/pdo.php';
+include 'inc/fonction.php';
+include 'inc/request.php';
+include 'inc/header.php';
 
 if($_SESSION['user']['status'] == 'banni'){
   header('Location:403.php');
@@ -58,7 +58,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
     <span>Votre Carnet</span>
     <div class="vaccinFait">
       <?php $vaccinFait = b_select_vaccin_from_user($_SESSION['user']['id']);
-            print_r($vaccinFait); 
+            print_r($vaccinFait);
       ?>
     </div>
     <div class="vaccinFait">

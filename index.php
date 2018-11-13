@@ -1,7 +1,7 @@
 <?php
-include ('inc/pdo.php');
-include ('inc/request.php');
-include ('inc/fonction.php');
+include 'inc/pdo.php';
+include 'inc/request.php';
+include 'inc/fonction.php';
 
 if(islogged()){
   header('Location:carnet.php');

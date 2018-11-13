@@ -1,15 +1,13 @@
 <?php
 include 'inc/pdo.php';
+include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
   header('Location:403.php');
 }
 $id = $_GET['id'];
-$sql = "SELECT * FROM vax_contact WHERE id = $id";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$contacts = $query -> fetch();
+$contacts = b_contact_back($id);
 
 ?>
 
