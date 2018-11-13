@@ -232,9 +232,14 @@ body {
 }
 
 .logo-header{
+  padding:5px;
+  border: 2px solid #608BD2;
+  border-radius:2px;
   width : 100px;
 }
-
+.logo-header:hover{
+    opacity:0.8;
+}
 /* header fixé */
 body.fixed .header {
 	padding: 10px 40px;
@@ -322,7 +327,10 @@ body {
 
 /* The company logo */
 .footer .footer-logo{
-  width : 40%;
+  padding :10px;
+  border: 2px solid #608BD2;
+  border-radius:3px;
+  width : 55%;
 	margin: 0;
 }
 
