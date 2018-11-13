@@ -15,6 +15,7 @@ if(!empty($_POST['sub'])){
 
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
+  $ddn = $_POST['ddn'];
 
   $sexe = $_POST['sexe'];
   $poids = trim(strip_tags($_POST['poids']));
@@ -37,7 +38,7 @@ $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
 
-    profil_edit($id, $nom, $prenom, $taille, $poids, $sexe, $notif);
+    profil_edit($id, $nom, $prenom, $ddn, $taille, $poids, $sexe, $notif);
 
 
     $user = profil_edit1($id);
@@ -46,6 +47,7 @@ $id = $_SESSION['user']['id'];
      tab($_SESSION);
      $_SESSION['user']['nom'] = $user['nom'];
      $_SESSION['user']['prenom'] = $user['prenom'];
+     $_SESSION['user']['ddn'] = $user['ddn'];
      $_SESSION['user']['taille'] = $user['taille'];
      $_SESSION['user']['poids'] = $user['poids'];
      $_SESSION['user']['notif'] = $user['notif'];
@@ -67,7 +69,7 @@ $id = $_SESSION['user']['id'];
 
 
     <label for="ddn">Votre date de naissance:
-  <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>" ><span>
+  <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>"><span>
    <br></label>
 
 

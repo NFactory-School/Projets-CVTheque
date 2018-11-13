@@ -142,15 +142,16 @@ function b_vaccins_back1($cPage, $vaccinsParPages){
   return $vaccins;
 }
 
-function profil_edit($id, $nom, $prenom, $taille, $poids, $sexe, $notif){
+function profil_edit($id, $nom, $prenom, $ddn, $taille, $poids, $sexe, $notif){
   global $pdo;
   $sql = "UPDATE vax_profils
-         SET modified_at = NOW(), nom = :nom, prenom = :prenom, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
+         SET modified_at = NOW(), nom = :nom, prenom = :prenom, ddn = :ddn, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
          WHERE id = $id";
   $query = $pdo -> prepare($sql);
 
   $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
   $query -> bindValue(':prenom', $prenom, PDO::PARAM_STR);
+  $query -> bindValue(':ddn', $ddn, PDO::PARAM_STR);
   $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
   $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
   $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
