@@ -213,7 +213,7 @@ function b_user_back(){
   return $countUsers;
 }
 
-function b_user_back($cPage, $UsersParPages){
+function b_user_back1($cPage, $UsersParPages){
   global $pdo;
   $sql = "SELECT * FROM vax_profils
           ORDER BY id DESC LIMIT ".(($cPage - 1) * $UsersParPages).", $UsersParPages";
@@ -221,4 +221,60 @@ function b_user_back($cPage, $UsersParPages){
   $query -> execute();
   $Users = $query -> fetchAll();
   return $Users;
+}
+
+function contact($obj, $msg, $name, $mail){
+  global $pdo;
+  $sql = "INSERT INTO vax_contact (objet, message, nom, mail, created_at)
+          VALUES (:obj, :msg, :name, :mail, NOW())";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':obj', $obj, PDO::PARAM_STR);
+  $query -> bindValue(':msg', $msg, PDO::PARAM_STR);
+  $query -> bindValue(':name', $name, PDO::PARAM_STR);
+  $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
+  $query -> execute();
+}
+
+function oublimail($mail){
+  global $pdo;
+  $sql = "SELECT mail, token FROM vax_profils WHERE mail = :mail";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
+  $query -> execute();
+  $user = $query -> fetch();
+  return $user;
+}
+
+function oublimdp($token, $mail){
+  global $pdo;
+  $sql = "SELECT id FROM vax_profils
+          WHERE mail = :mail AND token = :token";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':token', $token);
+  $query -> bindValue(':mail', $mail);
+  $query -> execute();
+  $user = $query -> fetch();
+  return $user;
+}
+
+function oublimdp1($hash, $token, $userid){
+  global $pdo;
+  $sql = "UPDATE vax_profils
+          SET mdp = :hash, token = :token
+          WHERE id = :id";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':hash', $hash);
+  $query -> bindValue(':token', $token);
+  $query -> bindValue(':id', $userid);
+  $query -> execute();
+}
+
+function profil($id){
+  global $pdo;
+  $sql = "SELECT * FROM vax_profils
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $user = $query -> fetch();
+  return $user;
 }

@@ -1,6 +1,6 @@
 <?php
 include 'inc/pdo.php';
-include ('inc/request.php');
+include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
@@ -22,7 +22,7 @@ if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
 }
 
 // Requete d'affichage
-$Users = b_user_back($cPage, $UsersParPages);
+$Users = b_user_back1($cPage, $UsersParPages);
 
 ?>
 

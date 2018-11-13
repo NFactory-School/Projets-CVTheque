@@ -1,8 +1,9 @@
 <?php
-include('inc/pdo.php');
-include('inc/fonction.php');
+include 'inc/pdo.php';
+include 'inc/request.php';
+include 'inc/fonction.php';
 
-include ('inc/header.php');
+include 'inc/header.php';
 
 $errors = array();
 if(!empty($_POST['submit'])){
@@ -12,11 +13,7 @@ if(!empty($_POST['submit'])){
         $errors['mail'] = "Veuillez entrer un mail valide";
       }else{
         // requete sql
-        $sql = "SELECT mail, token FROM vax_profils WHERE mail = :mail";
-        $query = $pdo -> prepare($sql);
-        $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-        $query -> execute();
-        $user = $query -> fetch();
+        $user = oublimail($mail);
         if(!empty($user)){
           $body = '<p>Veuillez cliquer sur ce <a class="myButton" href = "oublimdp.php?mail='.urlencode($user['mail']).'&token='.urlencode($user['token']).'">lien</a></p>';
         }else {
