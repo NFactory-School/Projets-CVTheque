@@ -85,24 +85,17 @@ if(islogged()){
   // }
 
     if(count($errors) == 0){
-
       $_SESSION['user'] = array(
         'id' => $user['id'],
         'mail' => $user['mail'],
         'status' => $user['status'],
-        'nom' => $user['nom'],
-        'prenom' => $user['prenom'],
-        'ddn' => $user['ddn'],
-        'taille' => $user['taille'],
-        'poids' => $user['poids'],
-        'notif' => $user['notif'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
 
         header('Location:profil.php');
       }
     }
-    // header('Location:index.php');
+    header('Location:index.php');
   }
 
   include ('inc/header.php');
