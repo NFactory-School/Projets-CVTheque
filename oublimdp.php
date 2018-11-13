@@ -7,7 +7,7 @@ include ('inc/header.php');
 if (!empty($_GET['mail']) && !empty($_GET['token'])) {
   $mail = urldecode($_GET['mail']);
   $token = urldecode($_GET['token']);
-  $sql = "SELECT id FROM nf_user
+  $sql = "SELECT id FROM vax_profils
           WHERE mail = :mail AND token = :token";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':token', $token);
@@ -43,10 +43,11 @@ if (!empty($_GET['mail']) && !empty($_GET['token'])) {
       }
     }
   }else {
-    header('Location:404.php');}
+    // header('Location:404.php');}
 }
 // else{
   // header('Location:404.php');}
+}
 ?>
 
 
