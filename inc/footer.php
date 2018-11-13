@@ -42,7 +42,7 @@
 		</div>
 	</div>
 
-	
+
 </footer>
 <script>
 jQuery(document).ready(function($) {

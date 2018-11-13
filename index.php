@@ -10,7 +10,7 @@ if(islogged()){
   $errors = array();
   $success = false;
   if(!empty($_POST['submit'])){
-    
+
     // failles XSS
     $mail = trim(strip_tags($_POST['mail']));
     $mdp = trim(strip_tags($_POST['mdp']));
@@ -118,8 +118,8 @@ if(islogged()){
 
 <div class="form-wrap">
 		<div class="tabs">
-			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Sign Up</a></h3>
-			<h3 class="login-tab"><a href="#login-tab-content">Login</a></h3>
+			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Inscription</a></h3>
+			<h3 class="login-tab"><a href="#login-tab-content">Connexion</a></h3>
 		</div><!--.tabs-->
 
 		<div class="tabs-content">
@@ -129,11 +129,11 @@ if(islogged()){
           <input type="password" name="mdp" class="input" id="user_passS" placeholder="Mot de passe">
           <input type="password" name="mdpV" class="input" id="user_passV" placeholder="Répéter mot de passe">
           <div class="ligne"></div>
-					<input type="submit" name="submit" class="button" value="Sign Up">
+					<input type="submit" name="submit" class="button" value="S'inscrire">
 				</form><!--.login-form-->
 				<div class="help-text">
 					<p>En vous inscrivant vous acceptez nos</p>
-					<p><a class="lienutile" href="404.php">termes et services</a></p>
+					<p><a class="lienutile" href="cgu.php">termes et services</a></p>
 				</div><!--.help-text-->
 			</div><!--.signup-tab-content-->
 
@@ -144,7 +144,7 @@ if(islogged()){
 					<input type="checkbox" name="remember" class="checkbox" id="remember_me">
           <label for="remember_me">Se souvenir de moi</label>
           <div class="ligne"></div>
-          <input type="submit" name="connexion" class="button" value="Login">
+          <input type="submit" name="connexion" class="button" value="Se connecter">
 				</form><!--.login-form-->
 				<div class="help-text">
 					<p><a class="lienutile" href="oublimail.php">Mot de passe oublié ?</a></p>
