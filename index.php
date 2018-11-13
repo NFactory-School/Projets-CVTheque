@@ -67,10 +67,15 @@ if(islogged()){
       $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
       $query -> bindValue(':token', $token, PDO::PARAM_STR);
       $query -> bindValue(':hash', $hash, PDO::PARAM_STR);
+      $query -> execute();
+
       //index1($mail, $token, $hash);
       header('Location:index.php');
+
     }
   }
+
+echo tab($errors);
     if(!empty($_POST['connexion'])){
     $mail = trim(strip_tags($_POST['mail']));
     $mdp = trim(strip_tags($_POST['mdp']));
@@ -114,7 +119,7 @@ if(islogged()){
         'ip' => $_SERVER['REMOTE_ADDR']
       );
 
-        // header('Location:profil.php');
+        header('Location:profil.php');
       }
     }
     // header('Location:index.php');
