@@ -33,6 +33,7 @@ function index($mail){
 }
 
 function index1($mail, $token, $hash){
+  global $pdo;
   $sql = "INSERT INTO vax_profils ( mail, mdp , created_at,token,status)
           VALUES ( :mail, :hash, NOW(), :token,'user')";
   $query = $pdo -> prepare($sql);

@@ -47,7 +47,6 @@ for ($i = 1; $i <=  $nbPages; $i++) {
     <th>id</th>
     <th>nom du vaccin</th>
     <th>maladie ciblée</th>
-    <th>laboratoire de production</th>
     <th>Informations complémentaires</th>
     <th>Supprimer un vaccin</th>
     <th>statut (0 = supprimé, 1 = visible)</th>
@@ -57,7 +56,6 @@ for ($i = 1; $i <=  $nbPages; $i++) {
       <td><?php echo $vaccin['id'] ?></td>
       <td><?php echo $vaccin['nom'] ?></td>
       <td><?php echo $vaccin['maladie_cible'] ?></td>
-      <td><?php echo $vaccin['labo'] ?></td>
       <td><?php echo $vaccin['info'] ?></td>
       <td> <a href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
            <a href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
