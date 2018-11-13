@@ -3,6 +3,10 @@ include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
 
+if($_SESSION['user']['status'] == 'banni'){
+  header('Location:403.php');
+}
+
 $id = $_SESSION['user']['id'];
 $sql = "SELECT * FROM vax_profils
         WHERE id = $id";

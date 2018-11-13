@@ -2,9 +2,9 @@
 include ('inc/fonction.php');
 include ('inc/header.php');
 
-
-
-
+if($_SESSION['user']['status'] == 'banni'){
+  header('Location:403.php');
+}
 
 $errors = array();
 $success = false;

@@ -4,6 +4,10 @@ include 'inc/fonction.php';
 
 include 'inc/header.php';
 
+if($_SESSION['user']['status'] == 'banni'){
+  header('Location:403.php');
+}
+
 $errors = array();
 if(!empty($_POST['submit'])) {
   $obj = trim(strip_tags($_POST['obj']));
