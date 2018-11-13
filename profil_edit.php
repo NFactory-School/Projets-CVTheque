@@ -71,7 +71,7 @@ $id = $_SESSION['user']['id'];
 
 
  ?>
-<form id="profil" action="valide_profil.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
+<form id="profil" action="profil_edit.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
 
     <label for="nom">Votre nom:
     <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
