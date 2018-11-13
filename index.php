@@ -10,8 +10,8 @@ if(islogged()){
   $errors = array();
   $success = false;
   if(!empty($_POST['submit'])){
+    
     // failles XSS
-
     $mail = trim(strip_tags($_POST['mail']));
     $mdp = trim(strip_tags($_POST['mdp']));
     $mdpV = trim(strip_tags($_POST['mdpV']));
@@ -126,8 +126,8 @@ if(islogged()){
 			<div id="signup-tab-content" class="active">
 				<form class="signup-form" action="" method="post">
 					<input type="email" name="mail" class="input" id="user_email" placeholder="Adresse mail">
-          <input type="password" name="mdp" class="input" id="user_pass" placeholder="Mot de passe">
-          <input type="password" name="mdpV" class="input" id="user_pass2" placeholder="Répéter mot de passe">
+          <input type="password" name="mdp" class="input" id="user_passS" placeholder="Mot de passe">
+          <input type="password" name="mdpV" class="input" id="user_passV" placeholder="Répéter mot de passe">
           <div class="ligne"></div>
 					<input type="submit" name="submit" class="button" value="Sign Up">
 				</form><!--.login-form-->
@@ -140,7 +140,7 @@ if(islogged()){
 			<div id="login-tab-content">
 				<form class="login-form" action="" method="post">
           <input type="text" name="mail" class="input" id="user_login" placeholder="Adresse mail">
-					<input type="password" name="mdp" class="input" id="user_pass" placeholder="Mot de passe">
+					<input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
 					<input type="checkbox" name="remember" class="checkbox" id="remember_me">
           <label for="remember_me">Se souvenir de moi</label>
           <div class="ligne"></div>
