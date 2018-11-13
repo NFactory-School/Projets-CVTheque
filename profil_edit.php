@@ -28,9 +28,9 @@ if(!empty($_POST['sub'])){
 
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
-   vnum($error,$poids,1,500,'poids');
-   vnum($error,$age,1,200,'age');
-   vnum($error,$taille,10,300,'taille');
+   vnum($errors,$poids,1,500,'poids');
+   vnum($errors,$age,1,200,'age');
+   vnum($errors,$taille,10,300,'taille');
 
 
 
@@ -38,7 +38,7 @@ $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
      $sql = "UPDATE vax_profils
-            SET modified_at = NOW(), nom = :nom, prenom = :prenom, ddn = :ddn, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
+            SET modified_at = NOW(), nom = :nom, prenom = :prenom, age = :age, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
             WHERE id = $id";
      $query = $pdo -> prepare($sql);
 
@@ -47,7 +47,7 @@ $id = $_SESSION['user']['id'];
      $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
      $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
      $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
-     $query -> bindValue(':ddn', $ddn, PDO::PARAM_STR);
+     $query -> bindValue(':age', $age, PDO::PARAM_STR);
      $query -> execute();
 
      $sql = "SELECT * FROM vax_profils
@@ -61,13 +61,13 @@ $id = $_SESSION['user']['id'];
        'status' => $user['status'],
        'nom' => $user['nom'],
        'prenom' => $user['prenom'],
-       'ddn' => $user['ddn'],
+       'age' => $user['age'],
        'taille' => $user['taille'],
        'poids' => $user['poids'],
        'notif' => $user['notif'],
        'ip' => $_SERVER['REMOTE_ADDR']
      );
-     header('Location:profil.php');
+     // header('Location:profil.php');
    }
 }
 
@@ -84,13 +84,9 @@ $id = $_SESSION['user']['id'];
   <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>" required="required"><br></label>
 
 
-<<<<<<< HEAD
+
     <label for="age">Votre age:
-  <input type="date" name="age"  value="value="<?php if(!empty($_POST['age'])){echo $_POST['age'];} ?>"" ><span>
-=======
-    <label for="ddn">Votre date de naissance:
-  <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>" ><span>
->>>>>>> 193829b1fefb7ce1f152947fe3740b8fd45791d8
+  <input type="number" name="age"  value="value="<?php if(!empty($_POST['age'])){echo $_POST['age'];} ?>"" ><span><?php if(!empty($errors['age'])){echo $errors['age'];}?></span>
    <br></label>
 
 
@@ -101,26 +97,20 @@ $id = $_SESSION['user']['id'];
     <option name ="autre" value=3 selected>autre</option>
   </select><br></label>
 
-<<<<<<< HEAD
-  <label for="taille">Votre taille:  <input type="number" name="taille"> <span>en cm</span>
+
+  <label for="taille">Votre taille:  <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"> <span>en cm</span>
   <?php if(!empty($errors['taille'])){echo $errors['taille'];}?></span></label>
   <br>
 
-    <label for="poids">Votre poids:<input type="number" name="poids"> <span>en kg</span>
-    <?php if(!empty($errors['poids'])){echo $errors['poids'];}?></label>
-=======
-  <label for="taille">Votre taille:  <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"> <span>en cm</span></label>
-  <br>
-
     <label for="poids">Votre poids:<input type="number" name="poids" value="<?php if(!empty($_SESSION['user']['poids'])){echo $_SESSION['user']['poids'];} ?>"> <span>en kg</span>
->>>>>>> 193829b1fefb7ce1f152947fe3740b8fd45791d8
+    <?php if(!empty($errors['poids'])){echo $errors['poids'];}?></label>
   <br>
 
   <?php
   if(!empty($_POST['taille']) && !empty($_POST['poids'])){
     $taille = $_POST['taille'];
     $poids = $_POST['poids'];
-    $imc = $tailles*$taille;
+    $imc = $taille*$taille;
     $imc = $poids/$imc;
 
     if ($imc<20){

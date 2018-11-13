@@ -20,13 +20,13 @@ $errors = array();
 function vTxt($errors,$data,$min,$max,$key,$empty = true){
 if (!empty($data)){
   if(strlen($data) < $min){
-    $errors[$key]= 'min  '.$min.' caracteres ';
+  echo  $errors[$key]= 'min  '.$min.' caracteres ';
   }elseif (strlen($data) > $max ) {
-    $errors=[$key]='max '.$max.' caractere';
+  echo  $errors=[$key]='max '.$max.' caractere';
   }
 }else {
   if($empty){
-  $errors[$key]='Veuillez renseigner ce champ';}
+echo  $errors[$key]='Veuillez renseigner ce champ';}
 }
   return $errors;
 }
@@ -36,13 +36,13 @@ function vMail($error,$value,$min,$max,$key) {
     if (filter_var($value, FILTER_VALIDATE_EMAIL)){
       $value = trim(strip_tags($value));
       if (is_string($value) && strlen($value) <= $min) {
-        $error[$key] = 'error : moins de '.$min.' caractères';
+      echo  $error[$key] = 'error : moins de '.$min.' caractères';
       }
       elseif (is_string($value) && strlen($value) >= $max ){
-        $error[$key] = 'error : plus de '.$max.' caractères';
+      echo  $error[$key] = 'error : plus de '.$max.' caractères';
       }
       else {
-        $error[$key] = 'error : vide';
+      echo  $error[$key] = 'error : vide';
       }
     return $error;
     }
@@ -52,14 +52,14 @@ function vMail($error,$value,$min,$max,$key) {
 function vMdp($error,$data,$min,$max,$key){
   if (!empty($data)) {
     if (is_string($data) && strlen($data) <= $min) {
-      $error[$key] = 'error : moins de '.$min.' caractères';
+    echo  $error[$key] = 'error : moins de '.$min.' caractères';
     }
     elseif (is_string($data) && strlen($data) >= $max ){
-      $error[$key] = 'error : plus de '.$max.' caractères';
+    echo  $error[$key] = 'error : plus de '.$max.' caractères';
     }
   }
   else {
-    $error[$key] = 'error : vide';
+  echo  $error[$key] = 'error : vide';
   }
   return $error;
 }
@@ -114,16 +114,16 @@ function rappel(){
   }
 }
 function vnum($error,$data,$min,$max,$key){
-  if(!empty($data)) {
-if(!is_numeric($data)) {
-$error[$key] = 'Ce champ doit etre un nombre';
-}
-elseif($data < $min) {
-$error[$key] = 'Ce champ doit etre plus grand';
-}
-elseif($data > $max) {
-$error[$key] = 'Ce champ doit etre plus petit';
+    if(!empty($data)) {
+  if(!is_numeric($data)) {
+  echo $error[$key] = 'Ce champ doit etre un nombre';
+  }
+  elseif($data < $min) {
+  echo $error[$key] = 'Ce champ doit etre plus grand';
+  }
+  elseif($data > $max) {
+  echo $error[$key] = 'Ce champ doit etre plus petit';
+      }
     }
-  } 
-}
+  }
 ?>
