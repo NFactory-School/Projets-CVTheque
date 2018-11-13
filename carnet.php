@@ -36,7 +36,9 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
       <div class="clear"></div>
       <h3>Informations du profil : </h3>
 
-        <?php if(!empty($_SESSION['user']['prenom'])){
+        <?php //infos profil
+        
+              if(!empty($_SESSION['user']['prenom'])){
                 echo '<p>'.$_SESSION['user']['prenom'].'</p>';
               }
               if(!empty($_SESSION['user']['nom'])){
@@ -51,17 +53,32 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
               if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                 echo '<p>IMC = '.$imc.'</p>';
               }
+
+              if (!empty($_POST['mesVaccins'])){
+
+              }
         ?>
 
   </aside>
   <div class="carnet">
-    <span>Votre Carnet</span>
+    <h2>Votre Carnet</h2>
+
     <div class="vaccinFait">
-      <?php $vaccinFait = b_select_vaccin_from_user($_SESSION['user']['id']);
-            print_r($vaccinFait); 
-      ?>
+      <form class="form" action="carnet.php" method="post">
+          <?php 
+            $listeVaccin = array();
+            $listeVaccin = b_select_vaccin_from_vaccins();
+            $counter = 0;
+
+            foreach($listeVaccin as $valeur){
+              echo '<input type="checkbox" name="'.$counter.'"><span>'.$listeVaccin[$counter]['nom'].'</span>';
+              $counter = $counter+1;
+            }
+          ?>
+          <input type="submit" name="mesVaccins" class="myButton">
+      </form>
     </div>
-    <div class="vaccinFait">
+
     </div>
     <a class="myButton button"href="profil_edit.php">éditer profil</a>
     <a class="myButton"href="carnet.php">Mon carnet</a>

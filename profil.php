@@ -19,7 +19,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
   $poids = $_SESSION['user']['poids'];
   $imc = $taille*$taille;
   $imc = $poids/$imc;
-  $imc = round($imc, 2);
+  $imc = round($imc, 3);
 
   if ($imc<=20){
     $resultimc = 'insuffisance';
@@ -38,7 +38,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 
 <div class='profil'>
 
-  <span>Votre profil</span>
+  <h2>Votre profil</h2>
 
     <aside>
         <img src='img/avatar.jpg'    alt='avatar'>

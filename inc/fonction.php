@@ -113,6 +113,7 @@ function rappel(){
       echo $difference.' mois ou '.floor($difference/12).' années';;
   }
 }
+
 function vnum($error,$data,$min,$max,$key){
   if (!empty($data)) {
     if (is_int($data) && $data <= $min) {

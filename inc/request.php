@@ -20,6 +20,15 @@ function b_select_vaccin_from_user($id){
   return $vaccinUser;
 }
 
+function b_select_vaccin_from_vaccins(){
+  global $pdo;
+  $sql = "SELECT nom FROM vax_vaccins WHERE status = 1";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $vaccinUser = $query -> fetchAll();
+  return $vaccinUser;
+}
+
 function b_add_vaccin1($nom,$cible,$info,$age){
   global $pdo;
   $sql = "INSERT INTO vax_vaccins(nom, maladie_cible, info, age_recommande)

@@ -729,20 +729,15 @@ body {
   position:relative;
 }
 
-.profil span {
+.profil h2 {
   text-align: center;
   font-size: 2em;
   color: #445566;
   font-family: Georgia, Times, Serif;
   font-weight: normal;
   margin: 0;
-  padding: 20px;
-  text-decoration: underline;
-}
-
-.profil h2 {
-  color: #445566;
   padding: 0px;
+  text-decoration: underline;
 }
 
 .profil h3 {
