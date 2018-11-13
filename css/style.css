@@ -6,6 +6,152 @@ body {
 	background-color: #dcdcdc;
 }
 
+
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
+
+a {
+	text-decoration: none;
+}
+
+.lienutile {
+	color:#608BD2;
+	text-decoration: underline; 
+	font-weight: bold;
+}
+
+.lienutile:hover {
+	color:#230381;
+}
+
+input {
+	font: 16px/26px "Raleway", sans-serif; 
+}
+
+body {
+  color: #666;
+  background-color: #f1f2f2;
+	font: 16px/26px "Raleway", sans-serif; 
+}
+
+.form-wrap {
+  background-color: #fff;
+  width: 320px;
+  margin: 3em auto;
+  box-shadow: 0px 1px 8px #BEBEBE;
+  -webkit-box-shadow: 0px 1px 8px #BEBEBE;
+	-moz-box-shadow: 0px 1px 8px #BEBEBE; 
+}
+  .form-wrap .tabs {
+		overflow: hidden; 
+	}
+    .form-wrap .tabs h3 {
+      float: left;
+			width: 50%; 
+		}
+			.form-wrap .tabs h3 a 
+			{
+        padding: 0.5em 0;
+        text-align: center;
+        font-weight: 400;
+        background-color: #e6e7e8;
+        display: block;
+				color: #666; 
+			}
+				.form-wrap .tabs h3 a.active 
+				{
+					background-color: #fff; 
+				}
+  .form-wrap .tabs-content {
+		padding: 1.5em; 
+	}
+		.form-wrap .tabs-content div[id$="tab-content"] 
+		{
+			display: none; 
+		}
+		.form-wrap .tabs-content .active
+		 {
+			display: block !important; 
+		}
+  .form-wrap form .input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #CFCFCF;
+    outline: 0;
+    display: inline-block;
+    margin-top:15px;
+		width: 100%; 
+	}
+  .form-wrap form .button {
+    width: 100%;
+    padding: .8em 0 10px .8em;
+    background-color: #230381;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+		text-transform: uppercase; 
+	}
+    .form-wrap form .button:hover {
+			background-color: #608BD2; 
+		}
+  .form-wrap form .checkbox {
+    visibility: hidden;
+    padding: 20px;
+		margin: .5em 0 1.5em;
+	}
+    .form-wrap form .checkbox:checked + label:after {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+      filter: alpha(opacity=100);
+			opacity: 1; 
+		}
+  .form-wrap form label[for] {
+    position: relative;
+    padding-left: 20px;
+		cursor: pointer; 
+	}
+    .form-wrap form label[for]:before {
+      content: '';
+      position: absolute;
+      border: 1px solid #CFCFCF;
+      width: 17px;
+      height: 17px;
+      top: 0px;
+			left: -14px; 
+		}
+    .form-wrap form label[for]:after {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+      content: '';
+      position: absolute;
+      width: 9px;
+      height: 5px;
+      background-color: transparent;
+      top: 4px;
+      left: -10px;
+      border: 3px solid #28A55F;
+      border-top: none;
+      border-right: none;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+			transform: rotate(-45deg); 
+		}
+  .form-wrap .help-text {
+		margin-top: .6em; 
+	}
+    .form-wrap .help-text p {
+      text-align: center;
+			font-size: 14px; 
+		}
+
 /* header */
 .header {
 	background-color:#292c2f;
@@ -337,161 +483,6 @@ body {
 	}
 }
 
-/*sous header - titre VAX*/
-.intro {
-	max-width:80%;
-	width: 100%;
-	text-align: center;
-	margin: 0 auto 100px auto;
-	background-color: #608bd2;
-	border-bottom-right-radius: 25px;
-	border-bottom-left-radius: 25px;
-	color:white;
-}
-
-.intro h2{
-	font-size: 1.5em;
-	padding: 10px 0;
-}
-
-.intro h2 span{
-	color:#292C2F;
-	font-weight: bold;
-	font-family: 'Fondamento', cursive;
-	font-size: 1.75em;
-	padding-left: 1%;
-}
-
-.intro p{
-	margin: 0 auto;
-	padding-left: 10%;
-	background-color: #608bd2;
-	font-size: 1.25em;
-}
-
-.texte-intro{
-	margin-left:20%;
-	font-size: 1.4em;
-	font-style: bold;
-}
-
-/* login sign up*/
-.login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:525px;
-	min-height:670px;
-	position:relative;
-}
-
-.login-html{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 50px 70px;
-	background:darkgrey;
-}
-
-.login-html .sign-in-htm,
-.login-html .sign-up-htm{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
-}
-
-.login-html .sign-in,
-.login-html .sign-up,
-.login-form .group .check{
-	display:none;
-}
-
-.login-form .send{
-	text-transform:uppercase;
-}
-
-.login-form input{
-	border-radius:5px;
-	border:none;
-	padding:15px 10px;
-	background-color: #230381;
-	color:white;
-	width:100%;
-	display:block;
-	font-size: 1.1em;
-}
-
-::placeholder {
-	color: white;
-	opacity:0.75;
-  }
-
-.login-html input:focus{
-	background-color: #608BD2;
-	outline: none;
-}
-
-.login-html .tab{
-	font-size:22px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid transparent;
-}
-
-.login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab{
-	border-color:white;
-	color:#230381;
-	font-weight: 2em;
-}
-
-.login-form{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
-}
-
-.login-form .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background:white;
-}
-
-.login-form .group label .icon:before,
-.login-form .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#fff;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
-}
-
-.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
-}
-
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-	transform:rotate(0);
-}
-
-/*barre déco login sign up*/
-.hr{
-	height: 2px;
-	margin: 30px auto;
-	background:white;
-}
-
 /*spooky la mascotte - Fantôme pour les pages erreur*/
 .spooky {
   margin: 10% auto;
@@ -769,4 +760,11 @@ body {
   float: right;
   margin-right: 30px;
   line-height: 20px;
+}
+
+.ligne {
+	background-color: #CFCFCF;
+	width:50%;
+	height: 2px;
+	margin:10px auto;
 }
