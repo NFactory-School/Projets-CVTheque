@@ -21,7 +21,7 @@ a {
 
 .lienutile {
 	color:#608BD2;
-	text-decoration: underline; 
+	text-decoration: underline;
 	font-weight: bold;
 }
 
@@ -30,13 +30,13 @@ a {
 }
 
 input {
-	font: 16px/26px "Raleway", sans-serif; 
+	font: 16px/26px "Raleway", sans-serif;
 }
 
 body {
   color: #666;
   background-color: #f1f2f2;
-	font: 16px/26px "Raleway", sans-serif; 
+	font: 16px/26px "Raleway", sans-serif;
 }
 
 .form-wrap {
@@ -45,38 +45,38 @@ body {
   margin: 3em auto;
   box-shadow: 0px 1px 8px #BEBEBE;
   -webkit-box-shadow: 0px 1px 8px #BEBEBE;
-	-moz-box-shadow: 0px 1px 8px #BEBEBE; 
+	-moz-box-shadow: 0px 1px 8px #BEBEBE;
 }
   .form-wrap .tabs {
-		overflow: hidden; 
+		overflow: hidden;
 	}
     .form-wrap .tabs h3 {
       float: left;
-			width: 50%; 
+			width: 50%;
 		}
-			.form-wrap .tabs h3 a 
+			.form-wrap .tabs h3 a
 			{
         padding: 0.5em 0;
         text-align: center;
         font-weight: 400;
         background-color: #e6e7e8;
         display: block;
-				color: #666; 
+				color: #666;
 			}
-				.form-wrap .tabs h3 a.active 
+				.form-wrap .tabs h3 a.active
 				{
-					background-color: #fff; 
+					background-color: #fff;
 				}
   .form-wrap .tabs-content {
-		padding: 1.5em; 
+		padding: 1.5em;
 	}
-		.form-wrap .tabs-content div[id$="tab-content"] 
+		.form-wrap .tabs-content div[id$="tab-content"]
 		{
-			display: none; 
+			display: none;
 		}
 		.form-wrap .tabs-content .active
 		 {
-			display: block !important; 
+			display: block !important;
 		}
   .form-wrap form .input {
     box-sizing: border-box;
@@ -86,7 +86,7 @@ body {
     outline: 0;
     display: inline-block;
     margin-top:15px;
-		width: 100%; 
+		width: 100%;
 	}
   .form-wrap form .button {
     width: 100%;
@@ -95,25 +95,28 @@ body {
     border: none;
     color: #fff;
     cursor: pointer;
-		text-transform: uppercase; 
+		text-transform: uppercase;
 	}
     .form-wrap form .button:hover {
-			background-color: #608BD2; 
+			background-color: #608BD2;
 		}
+
   .form-wrap form .checkbox {
     visibility: hidden;
     padding: 20px;
 		margin: .5em 0 1.5em;
 	}
+
     .form-wrap form .checkbox:checked + label:after {
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
       filter: alpha(opacity=100);
-			opacity: 1; 
+			opacity: 1;
 		}
+
   .form-wrap form label[for] {
     position: relative;
     padding-left: 20px;
-		cursor: pointer; 
+		cursor: pointer;
 	}
     .form-wrap form label[for]:before {
       content: '';
@@ -122,7 +125,7 @@ body {
       width: 17px;
       height: 17px;
       top: 0px;
-			left: -14px; 
+			left: -14px;
 		}
     .form-wrap form label[for]:after {
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -142,15 +145,23 @@ body {
       -moz-transform: rotate(-45deg);
       -o-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
-			transform: rotate(-45deg); 
+			transform: rotate(-45deg);
 		}
   .form-wrap .help-text {
-		margin-top: .6em; 
+		margin-top: .6em;
 	}
     .form-wrap .help-text p {
       text-align: center;
-			font-size: 14px; 
+			font-size: 14px;
 		}
+
+	.signup-tab{
+
+	}
+
+	.login-tab{
+
+	}
 
 /* header */
 .header {
@@ -706,7 +717,7 @@ body {
   padding-top:10px;
   width: 960px;
   margin: auto;
-  background-color: #E1F1F2;
+  background-color: whitesmoke;
   position:relative;
 }
 
@@ -727,6 +738,7 @@ body {
 }
 
 .profil h3 {
+  text-decoration: underline;
   color: #445566;
   margin: 0px;
 }
@@ -745,13 +757,13 @@ body {
 .profil aside {
   margin:10px;
   width: 220px;
-  height: 350px;
   border: 1px solid #10889E;
   float: left;
   margin-left: 30px;
   padding: 5px;
 }
 .profil aside img {
+  border: 1px solid black;
   width:99%;
 }
 
@@ -767,4 +779,18 @@ body {
 	width:50%;
 	height: 2px;
 	margin:10px auto;
+}
+.profil .trait{
+  margin:0 auto 5px;
+  width : 120px;
+  height : 1px;
+  background-color: grey;
+}
+.carnet{
+  position :relative;
+}
+.carnet a {
+  position :absolute;
+  bottom : 10%;
+  right : 10%;
 }

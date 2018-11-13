@@ -31,8 +31,9 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 <div class="profil">
   <aside class="aside">
     <div class="pp"><img class="bonhomme" src="img/avatar.jpg" alt=""></div>
+      <div class="trait"></div>
       <div class="clear"></div>
-      <h3>Infos du profil</h3>
+      <h3>Informations du profil : </h3>
 
         <?php if(!empty($_SESSION['user']['prenom'])){
                 echo '<p>'.$_SESSION['user']['prenom'].'</p>';
@@ -55,6 +56,9 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
   <div class="carnet">
     <span>Votre Carnet</span>
 
+  <a class="myButton button"href="profil_edit.php">éditer profil</a>
+  <a class="myButton"href="carnet.php">Mon carnet</a>
+  <div class="clear"></div>
   </div>
 </div>
 

@@ -63,7 +63,7 @@ $sql = "SELECT * FROM vax_contact
                                 </div>
                             </div>
                         </div>
-                        <a href="b_user_back.php">
+                        <a class="myButton" href="b_user_back.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -87,7 +87,7 @@ $sql = "SELECT * FROM vax_contact
                                 </div>
                             </div>
                         </div>
-                        <a href="b_vaccins_back.php">
+                        <a class="myButton" href="b_vaccins_back.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
