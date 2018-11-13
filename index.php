@@ -114,73 +114,42 @@ if(islogged()){
 		<span class="texte-intro">en ligne.</span>
     </div>
 
-<div class="login-wrap">
-	<div class="login-html">
-	<form action="index.php" method="post">
+<div class="form-wrap">
+		<div class="tabs">
+			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Sign Up</a></h3>
+			<h3 class="login-tab"><a href="#login-tab-content">Login</a></h3>
+		</div><!--.tabs-->
 
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked>
-		<label for="tab-1" class="tab">S'inscrire</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up">
-		<label for="tab-2" class="tab">Connexion</label>
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+				<form class="signup-form" action="" method="post">
+					<input type="email" name="mail" class="input" id="user_email" placeholder="Adresse mail">
+          <input type="password" name="mdp" class="input" id="user_pass" placeholder="Mot de passe">
+          <input type="password" name="mdpV" class="input" id="user_pass2" placeholder="Répéter mot de passe">
+          <div class="ligne"></div>
+					<input type="submit" name="submit" class="button" value="Sign Up">
+				</form><!--.login-form-->
+				<div class="help-text">
+					<p>En vous inscrivant vous acceptez nos</p>
+					<p><a class="lienutile" href="#">termes et services</a></p>
+				</div><!--.help-text-->
+			</div><!--.signup-tab-content-->
 
-		<div class="login-form">
-
-			<div class="sign-in-htm">
-
-
-
-				<div class="group">
-					<span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
-					<input type="text" placeholder="Adresse E-mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>"><br>
-					<?php br(); ?>
-				</div>
-
-				<div class="group">
-				<span class="error"><?php if(!empty($errors['mdp'])){echo $errors['mdp'];};?></span>
-					<input type="password" placeholder="Mot de passe" name="mdp" value=""><br>
-					<?php br(); ?>
-				</div>
-
-				<div class="group">
-          <span class="error"><?php if(!empty($errors['mdpV'])){echo $errors['mdpV'];};?></span>
-					<input type="password" placeholder="Répéter mot de passe" name="mdpV" value=""><br>
-				</div>
-
-				<div class="group">
-					<input type="submit" class="myButton" name="submit" value="S'inscrire">
-				</div>
-				<div class="hr"></div>
-			</div>
-
-	</form>
-
-	<form action="index.php" method="post">
-
-			<div class="sign-up-htm">
-
-				<div class="group">
-          <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
-          <input type="text" placeholder="Adresse E-mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>">
-				</div>
-
-				<div class="group">
-          <span class="error"><?php if(!empty($errors['mdp'])){echo $errors['mdp'];};?></span>
-          <input type="password" placeholder="Mot de passe" name="mdp" value="">
-				</div>
-
-				<div class="group">
-          <label for="checkbox">
-          <input type="checkbox" name="remember" value="remember">Se souvenir de moi
-        </label>
-					<input type="submit" class="myButton" value="Se connecter" name="connexion">
-          <a href="oublimail.php">mot de passe oublié ?</a>
-				</div>
-				<div class="hr"></div>
-			</div>
-		</div>
-	</form>
-	</div>
-</div>
+			<div id="login-tab-content">
+				<form class="login-form" action="" method="post">
+          <input type="text" name="mail" class="input" id="user_login" placeholder="Adresse mail">
+					<input type="password" name="mdp" class="input" id="user_pass" placeholder="Mot de passe">
+					<input type="checkbox" class="checkbox" id="remember_me">
+          <label for="remember_me">Se souvenir de moi</label>
+          <div class="ligne"></div>
+          <input type="submit" name="connexion" class="button" value="Login">
+				</form><!--.login-form-->
+				<div class="help-text">
+					<p><a class="lienutile" href="oublimail.php">Mot de passe oublié ?</a></p>
+				</div><!--.help-text-->
+			</div><!--.login-tab-content-->
+		</div><!--.tabs-content-->
+  </div><!--.form-wrap-->
 
 <?php
 include 'inc/footer.php'; ?>
