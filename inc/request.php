@@ -22,7 +22,6 @@ function b_add_vaccin1($nom,$cible,$labo,$info){
   $query -> execute();
 }
 
-}
 
 function index($mail){
   global $pdo;
@@ -53,3 +52,4 @@ function index3($mail){
   $query -> execute();
   $user = $query -> fetch();
   return $user;
+}

@@ -711,7 +711,6 @@ body {
 }
 
 /* Niko profil.php */
-
 .profil {
   padding-top:10px;
   width: 960px;
@@ -739,25 +738,6 @@ body {
 .profil h3 {
   color: #445566;
   margin: 0px;
-}
-
-.profil nav {
-  background-color: #45bcd2;
-  height: 30px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.profil nav ul {
-  list-style: none;
-  margin: 0;
-  padding-top: 5px;
-}
-
-.profil nav li {
-  display: inline;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .profil a {
