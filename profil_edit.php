@@ -1,4 +1,4 @@
-<?php 
+<?php
 include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
@@ -14,7 +14,7 @@ if(!empty($_POST['sub'])){
 
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
-  $ddn = $_POST['jj'].'/'.$_POST['mm'].'/'.$_POST['aaaa'];
+  
   $sexe = $_POST['sexe'];
   $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));
