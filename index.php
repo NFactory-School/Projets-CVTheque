@@ -70,13 +70,13 @@ if(islogged()){
 
     }
   }
-  
+
     if(!empty($_POST['connexion'])){
     $mail = trim(strip_tags($_POST['mail']));
     $mdp = trim(strip_tags($_POST['mdp']));
 
   // Vérif  & MDP
-    index3($mail);
+    $user = index3($mail);
 
   if(!empty($user)){
 
@@ -142,7 +142,7 @@ if(islogged()){
 				</form><!--.login-form-->
 				<div class="help-text">
 					<p>En vous inscrivant vous acceptez nos</p>
-					<p><a class="lienutile" href="#">termes et services</a></p>
+					<p><a class="lienutile" href="404.php">termes et services</a></p>
 				</div><!--.help-text-->
 			</div><!--.signup-tab-content-->
 
@@ -150,7 +150,7 @@ if(islogged()){
 				<form class="login-form" action="" method="post">
           <input type="text" name="mail" class="input" id="user_login" placeholder="Adresse mail">
 					<input type="password" name="mdp" class="input" id="user_pass" placeholder="Mot de passe">
-					<input type="checkbox" class="checkbox" id="remember_me">
+					<input type="checkbox" name="remember" class="checkbox" id="remember_me">
           <label for="remember_me">Se souvenir de moi</label>
           <div class="ligne"></div>
           <input type="submit" name="connexion" class="button" value="Login">

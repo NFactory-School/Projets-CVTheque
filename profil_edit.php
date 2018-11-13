@@ -1,6 +1,7 @@
-<?php include ('inc/pdo.php') ?>
-<?php include ('inc/fonction.php') ?>
-<?php include ('inc/header.php')
+<?php 
+include ('inc/pdo.php');
+include ('inc/fonction.php');
+include ('inc/header.php');
 
 
 
