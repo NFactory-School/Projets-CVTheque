@@ -22,7 +22,6 @@ function b_add_vaccin1($nom,$cible,$labo,$info){
   $query -> execute();
 }
 
-
 function index($mail){
   global $pdo;
   $sql = "SELECT mail FROM vax_profils WHERE mail = :mail";
