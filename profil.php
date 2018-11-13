@@ -41,6 +41,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 
     <aside>
         <img src='img/avatar.jpg'    alt='avatar'>
+        <div class="trait"></div>
         <h3>Informations principales : </h3>
         <ol>
           <li><?php echo $user['prenom'] ?></li>

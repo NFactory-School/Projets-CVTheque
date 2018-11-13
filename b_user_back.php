@@ -80,6 +80,6 @@ for ($i = 1; $i <=  $nbPages; $i++) {
   }
 }?>
 
-<br/><a href="b_back.php">Retour au back-office</a>
+<br/><a class="myButton" href="b_back.php">Retour au back-office</a>
 
 <?php include 'inc/footer.php';
