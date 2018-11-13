@@ -1,5 +1,6 @@
 <?php
 include 'inc/pdo.php';
+include ('inc/request.php');
 include 'inc/fonction.php';
 include 'inc/header.php';
 
@@ -7,11 +8,7 @@ if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
   header('Location:403.php');
 }
 // Requete sql pagination
-$sql ="SELECT COUNT(*) as nbVaccins
-      FROM vax_vaccins";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$countVaccins = $query -> fetch();
+  $countVaccins = b_vaccins_back();
 
 // Variables pagination
 $nbVaccins = $countVaccins['nbVaccins'];
@@ -25,11 +22,7 @@ if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
 }
 
 // Requete SQL affichage
-$sql = "SELECT * FROM vax_vaccins
-        ORDER BY id DESC LIMIT ".(($cPage - 1) * $vaccinsParPages).", $vaccinsParPages";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$vaccins = $query -> fetchAll();
+  $vaccins = b_vaccins_back1($cPage, $vaccinsParPages);
 ?>
 
 <!-- Affichage des vaccins en tableau -->

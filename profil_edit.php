@@ -1,16 +1,8 @@
-<<<<<<< HEAD
+
 <?php include ('inc/pdo.php');
+include ('inc/request.php');
  include ('inc/fonction.php');
  include ('inc/header.php');
-
-
-
-=======
-<?php
-include ('inc/pdo.php');
-include ('inc/fonction.php');
-include ('inc/header.php');
->>>>>>> 54afe2f1c1bb857ca9eb2d359f61ed5a3033788b
 
 if($_SESSION['user']['status'] == 'banni'){
   header('Location:403.php');
@@ -23,7 +15,7 @@ if(!empty($_POST['sub'])){
 
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
-  
+
   $sexe = $_POST['sexe'];
   $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));
@@ -37,31 +29,16 @@ if(!empty($_POST['sub'])){
 
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
-   vnum($error,$poids,1,500,'poids');
+   vnum($errors,$poids,1,500,'poids');
 
 
 
 $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
-     $sql = "UPDATE vax_profils
-            SET modified_at = NOW(), nom = :nom, prenom = :prenom, ddn = :ddn, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
-            WHERE id = $id";
-     $query = $pdo -> prepare($sql);
+    profil_edit($id, $nom, $prenom, $taille, $poids, $sexe);
 
-     $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
-     $query -> bindValue(':prenom', $prenom, PDO::PARAM_STR);
-     $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
-     $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
-     $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
-     $query -> bindValue(':ddn', $ddn, PDO::PARAM_STR);
-     $query -> execute();
-
-     $sql = "SELECT * FROM vax_profils
-             WHERE  id = $id";
-     $query = $pdo -> prepare($sql);
-     $query -> execute();
-     $user = $query -> fetch();
+    $user = profil_edit1($id);
 
      $_SESSION['user'] = array(
        'id' => $user['id'],
@@ -80,7 +57,7 @@ $id = $_SESSION['user']['id'];
 
 
  ?>
-<form id="profil" action="valide_profil.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
+<form id="profil" action="profil_edit.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
 
     <label for="nom">Votre nom:
     <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
@@ -89,11 +66,6 @@ $id = $_SESSION['user']['id'];
     <label for="prenom">Votre prénom:
     <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
   <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($user['prenom'])){echo $user['prenom'];} ?>" required="required"><br></label>
-
-
-    <label for="ddn">Votre date de naissance:
-  <input type="date" name="ddn"  value="value="<?php if(!empty($_POST['ddn'])){echo $_POST['ddn'];} ?>"" ><span>
-   <br></label>
 
 
 <label for="sexe">votre sexe:
@@ -113,7 +85,7 @@ $id = $_SESSION['user']['id'];
   if(!empty($_POST['taille']) && !empty($_POST['poids'])){
     $taille = $_POST['taille'];
     $poids = $_POST['poids'];
-    $imc = $tailles*$taille;
+    $imc = $taille*$taille;
     $imc = $poids/$imc;
 
     if ($imc<20){

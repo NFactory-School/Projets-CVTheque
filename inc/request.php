@@ -104,9 +104,55 @@ function b_ban_user($id){
 }
 
 function b_cancel_vaccin($id){
+  global $pdo;
   $sql = "UPDATE vax_vaccins
           SET status = '1'
           WHERE id = $id";
   $query = $pdo -> prepare($sql);
   $query -> execute();
+}
+
+function b_vaccins_back(){
+  global $pdo;
+  $sql ="SELECT COUNT(*) as nbVaccins
+        FROM vax_vaccins";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $countVaccins = $query -> fetch();
+  return $countVaccins;
+}
+
+function b_vaccins_back1($cPage, $vaccinsParPages){
+  global $pdo;
+  $sql = "SELECT * FROM vax_vaccins
+          ORDER BY id DESC LIMIT ".(($cPage - 1) * $vaccinsParPages).", $vaccinsParPages";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $vaccins = $query -> fetchAll();
+  return $vaccins;
+}
+
+function profil_edit($id, $nom, $prenom, $taille, $poids, $sexe){
+  global $pdo;
+  $sql = "UPDATE vax_profils
+         SET modified_at = NOW(), nom = :nom, prenom = :prenom, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
+         WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+
+  $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
+  $query -> bindValue(':prenom', $prenom, PDO::PARAM_STR);
+  $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
+  $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
+  $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
+  $query -> execute();
+}
+
+function profil_edit1($id){
+  global $pdo;
+  $sql = "SELECT * FROM vax_profils
+          WHERE  id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $user = $query -> fetch();
+  return $user;
 }
