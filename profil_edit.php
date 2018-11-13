@@ -61,11 +61,16 @@ $id = $_SESSION['user']['id'];
 
     <label for="nom">Votre nom:
     <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
-  <input type="text" name="nom" placeholder="nom" value="<?php if(!empty($user['nom'])){echo $user['nom'];} ?>" required="required"></label>
+  <input type="text" name="nom" placeholder="nom" value="<?php if(!empty($_SESSION['user']['nom'])){echo $_SESSION['user']['nom'];} ?>" required="required"></label>
 
     <label for="prenom">Votre prénom:
     <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
-  <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($user['prenom'])){echo $user['prenom'];} ?>" required="required"><br></label>
+  <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>" required="required"><br></label>
+
+
+    <label for="ddn">Votre date de naissance:
+  <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>" ><span>
+   <br></label>
 
 
 <label for="sexe">votre sexe:
@@ -75,10 +80,10 @@ $id = $_SESSION['user']['id'];
     <option name ="autre" value=3 selected>autre</option>
   </select><br></label>
 
-  <label for="taille">Votre taille:  <input type="number" name="taille"> <span>en cm</span></label>
+  <label for="taille">Votre taille:  <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"> <span>en cm</span></label>
   <br>
 
-    <label for="poids">Votre poids:<input type="number" name="poids"> <span>en kg</span>
+    <label for="poids">Votre poids:<input type="number" name="poids" value="<?php if(!empty($_SESSION['user']['poids'])){echo $_SESSION['user']['poids'];} ?>"> <span>en kg</span>
   <br>
 
   <?php
