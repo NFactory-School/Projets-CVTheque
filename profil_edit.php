@@ -36,22 +36,37 @@ if(!empty($_POST['sub'])){
 $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
+<<<<<<< HEAD
     profil_edit($id, $nom, $prenom, $taille, $poids, $sexe, $notif);
 
     //$user = profil_edit1($id);
     $user = profil_edit1($id);
+=======
+     $sql = "UPDATE vax_profils
+            SET modified_at = NOW(), nom = :nom, prenom = :prenom, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
+            WHERE id = $id";
+     $query = $pdo -> prepare($sql);
 
-     $_SESSION['user'] = array(
-       'id' => $user['id'],
-       'status' => $user['status'],
-       'nom' => $user['nom'],
-       'prenom' => $user['prenom'],
-       'ddn' => $user['ddn'],
-       'taille' => $user['taille'],
-       'poids' => $user['poids'],
-       'notif' => $user['notif'],
-       'ip' => $_SERVER['REMOTE_ADDR']
-     );
+     $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
+     $query -> bindValue(':prenom', $prenom, PDO::PARAM_STR);
+     $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
+     $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
+     $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
+     $query -> execute();
+
+     $sql = "SELECT * FROM vax_profils
+             WHERE  id = $id";
+     $query = $pdo -> prepare($sql);
+     $query -> execute();
+     $user = $query -> fetch();
+>>>>>>> db2cf57156f9f396433191d2a3289bc50c8ca903
+
+     tab($_SESSION);
+     $_SESSION['user']['nom'] = $user['nom'];
+     $_SESSION['user']['prenom'] = $user['prenom'];
+     $_SESSION['user']['taille'] = $user['taille'];
+     $_SESSION['user']['poids'] = $user['poids'];
+     $_SESSION['user']['notif'] = $user['notif'];
      header('Location:profil.php');
    }
 }
