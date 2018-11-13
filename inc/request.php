@@ -10,6 +10,16 @@ function b_add_vaccin($nom){
   return $nomVaccin;
 }
 
+function b_select_vaccin_from_user($id){
+  global $pdo;
+  $sql = "SELECT id_vaccins FROM vax_pivot WHERE id_profil = :id";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':id', $id, PDO::PARAM_INT);
+  $query -> execute();
+  $vaccinUser = $query -> fetch();
+  return $vaccinUser;
+}
+
 function b_add_vaccin1($nom,$cible,$info,$age){
   global $pdo;
   $sql = "INSERT INTO vax_vaccins(nom, maladie_cible, info, age_recommande)

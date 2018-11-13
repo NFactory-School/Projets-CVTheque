@@ -1,6 +1,7 @@
 <?php
 include ('inc/pdo.php');
 include ('inc/fonction.php');
+include ('inc/request.php');
 include ('inc/header.php');
 
 if($_SESSION['user']['status'] == 'banni'){
@@ -55,10 +56,16 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
   </aside>
   <div class="carnet">
     <span>Votre Carnet</span>
-
-  <a class="myButton button"href="profil_edit.php">éditer profil</a>
-  <a class="myButton"href="carnet.php">Mon carnet</a>
-  <div class="clear"></div>
+    <div class="vaccinFait">
+      <?php $vaccinFait = b_select_vaccin_from_user($_SESSION['user']['id']);
+            print_r($vaccinFait); 
+      ?>
+    </div>
+    <div class="vaccinFait">
+    </div>
+    <a class="myButton button"href="profil_edit.php">éditer profil</a>
+    <a class="myButton"href="carnet.php">Mon carnet</a>
+    <div class="clear"></div>
   </div>
 </div>
 
