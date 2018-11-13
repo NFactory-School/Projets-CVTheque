@@ -95,7 +95,7 @@ if(islogged()){
         header('Location:profil.php');
       }
     }
-    header('Location:index.php');
+    // header('Location:index.php');
   }
 
   include ('inc/header.php');
