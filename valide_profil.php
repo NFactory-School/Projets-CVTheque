@@ -23,8 +23,6 @@ $jj=$_POST['jj'];
 $mm=$_POST['mm'];
 $aaaa=$_POST['aaaa'];
 
-
-
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
    vnum($error,$jj,1,31,'jj');
@@ -56,13 +54,13 @@ $id = $_SESSION['user']['id'];
      $_SESSION['user'] = array(
        'id' => $user['id'],
        'status' => $user['status'],
-       'ip' => $_SERVER['REMOTE_ADDR'],
        'nom' => $user['nom'],
        'prenom' => $user['prenom'],
        'ddn' => $user['ddn'],
        'taille' => $user['taille'],
        'poids' => $user['poids'],
-       'notif' => $user['notif']
+       'notif' => $user['notif'],
+       'ip' => $_SERVER['REMOTE_ADDR']
      );
      header('Location:profil.php');
    }

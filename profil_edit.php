@@ -27,11 +27,7 @@
   <label for="taille">Votre taille:  <input type="number" name="taille"> <span>en cm</span></label>
   <br>
 
-
     <label for="poids">Votre poids:<input type="number" name="poids"> <span>en kg</span>
-
-  <p>Votre poids:</p><input type="number" name="poids"> <p>en kg</p>
-
   <br>
 
   <?php

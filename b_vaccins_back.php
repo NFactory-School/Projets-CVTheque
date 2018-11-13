@@ -36,7 +36,7 @@ for ($i = 1; $i <=  $nbPages; $i++) {
   if ($i==$cPage) {
     echo $i, '/';
   }else {
-    echo ' <a href="b_vaccins_back.php?p='.$i.'">'.$i.'</a>/';
+    echo '<a href="b_vaccins_back.php?p='.$i.'">'.$i.'</a>/';
   }
 }
 ?>
