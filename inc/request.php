@@ -53,3 +53,60 @@ function index2($mail){
   $user = $query -> fetch();
   return $user;
 }
+
+function b_back(){
+  global $pdo;
+  $sql = "SELECT COUNT(*)
+          FROM vax_profils";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $count_users = $query->fetch();
+  return $count_users;
+}
+
+function b_back1(){
+  global $pdo;
+  $sql = "SELECT COUNT(*)
+          FROM vax_vaccins";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $count_vaccins = $query->fetch();
+  return $count_vaccins;
+}
+
+function b_back2(){
+  global $pdo;
+  $sql ="SELECT COUNT(*) as nbContact
+        FROM vax_contact";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $countMsg = $query -> fetch();
+  return $countMsg;
+}
+
+function b_back3($cPage, $msgParPages){
+  global $pdo;
+  $sql = "SELECT * FROM vax_contact
+          ORDER BY id DESC LIMIT ".(($cPage - 1) * $msgParPages).", $msgParPages";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $contacts = $query -> fetchAll();
+  return $contacts;
+}
+
+function b_ban_user($id){
+  global $pdo;
+  $sql = "UPDATE vax_profils
+          SET status = 'banni'
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+
+function b_cancel_vaccin($id){
+  $sql = "UPDATE vax_vaccins
+          SET status = '1'
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
