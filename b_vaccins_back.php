@@ -38,8 +38,7 @@ for ($i = 1; $i <=  $nbPages; $i++) {
   }else {
     echo '<a href="b_vaccins_back.php?p='.$i.'">'.$i.'</a>/';
   }
-}
-?>
+}?>
 
 <!-- Affichage des vaccins en tableau -->
 <table>
@@ -48,6 +47,7 @@ for ($i = 1; $i <=  $nbPages; $i++) {
     <th>nom du vaccin</th>
     <th>maladie ciblée</th>
     <th>Informations complémentaires</th>
+    <th>Âge Recommandé</th>
     <th>Supprimer un vaccin</th>
     <th>statut (0 = supprimé, 1 = visible)</th>
   </thead>
@@ -57,6 +57,7 @@ for ($i = 1; $i <=  $nbPages; $i++) {
       <td><?php echo $vaccin['nom'] ?></td>
       <td><?php echo $vaccin['maladie_cible'] ?></td>
       <td><?php echo $vaccin['info'] ?></td>
+      <td><?php echo $vaccin['age_recommande'] ?></td>
       <td> <a href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
            <a href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
       <td><?php echo $vaccin['status'] ?></td>

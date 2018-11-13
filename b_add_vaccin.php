@@ -39,7 +39,7 @@ if(!empty($_POST['submit'])){
   // si le formulaire ne contient pas d'erreurs
     if(count($errors)==0){
 
-      b_add_vaccin1($nom,$cible,$labo,$info);
+      b_add_vaccin1($nom,$cible,$info,$age);
 
       header('Location:b_vaccins_back.php');
     }
