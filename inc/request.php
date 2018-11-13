@@ -142,7 +142,7 @@ function b_vaccins_back1($cPage, $vaccinsParPages){
   return $vaccins;
 }
 
-function profil_edit($id, $nom, $prenom, $taille, $poids, $sexe){
+function profil_edit($id, $nom, $prenom, $taille, $poids, $sexe, $notif){
   global $pdo;
   $sql = "UPDATE vax_profils
          SET modified_at = NOW(), nom = :nom, prenom = :prenom, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
@@ -165,4 +165,60 @@ function profil_edit1($id){
   $query -> execute();
   $user = $query -> fetch();
   return $user;
+}
+
+function b_contact_back($id){
+  global $pdo;
+  $sql = "SELECT * FROM vax_contact WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $contacts = $query -> fetch();
+  return $contacts;
+}
+
+function b_deban_user($id){
+  global $pdo;
+  $sql = "UPDATE vax_profils
+          SET status = 'user'
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+
+function b_rm_vaccin($id){
+  global $pdo;
+  $sql = "UPDATE vax_vaccins
+          SET status = 2
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+
+function b_user_admin($id){
+  global $pdo;
+  $sql = "UPDATE vax_profils
+          SET status = 'admin'
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+
+function b_user_back(){
+  global $pdo;
+  $sql ="SELECT COUNT(*) as nbUsers
+        FROM vax_profils";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $countUsers = $query -> fetch();
+  return $countUsers;
+}
+
+function b_user_back($cPage, $UsersParPages){
+  global $pdo;
+  $sql = "SELECT * FROM vax_profils
+          ORDER BY id DESC LIMIT ".(($cPage - 1) * $UsersParPages).", $UsersParPages";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $Users = $query -> fetchAll();
+  return $Users;
 }

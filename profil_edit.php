@@ -36,8 +36,9 @@ if(!empty($_POST['sub'])){
 $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
-    profil_edit($id, $nom, $prenom, $taille, $poids, $sexe);
+    profil_edit($id, $nom, $prenom, $taille, $poids, $sexe, $notif);
 
+    //$user = profil_edit1($id);
     $user = profil_edit1($id);
 
      $_SESSION['user'] = array(
