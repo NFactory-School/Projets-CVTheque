@@ -22,8 +22,6 @@ function b_add_vaccin1($nom,$cible,$labo,$info){
   $query -> execute();
 }
 
-}
-
 function index($mail){
   global $pdo;
   $sql = "SELECT mail FROM vax_profils WHERE mail = :mail";
@@ -35,6 +33,7 @@ function index($mail){
 }
 
 function index1($mail, $token, $hash){
+  global $pdo;
   $sql = "INSERT INTO vax_profils ( mail, mdp , created_at,token,status)
           VALUES ( :mail, :hash, NOW(), :token,'user')";
   $query = $pdo -> prepare($sql);
@@ -53,3 +52,4 @@ function index3($mail){
   $query -> execute();
   $user = $query -> fetch();
   return $user;
+}
