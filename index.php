@@ -17,14 +17,13 @@ if(islogged()){
     $mdpV = trim(strip_tags($_POST['mdpV']));
 
 
-
     // Verif mail
     if(!empty($_POST['mail'])){
       if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
         if(strlen($mail) < 5 || (strlen($mail) >150)){
           $errors['mail'] = "Veuillez entrer un mail valide";
         }else{
-          index($mail);
+              $userMail = index($mail);
           if(!empty($userMail)){
             $errors['mail'] = "Adresse mail déja utilisée";
           }
@@ -51,32 +50,24 @@ if(islogged()){
     }
 
 
-    // S'il n'y a pas d'erreurs
+    // S'il n'y a pas d'erreurs INCRIPTION
     if(count($errors) == 0){
       $success = true;
       $hash = password_hash($mdp, PASSWORD_DEFAULT);
       $token = generateRandomString(120);
-
-      $sql = "INSERT INTO vax_profils ( mail, mdp , created_at,token,status)
-              VALUES ( :mail, :hash, NOW(), :token,'user')";
-      $query = $pdo -> prepare($sql);
-      $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-      $query -> bindValue(':token', $token, PDO::PARAM_STR);
-      $query -> bindValue(':hash', $hash, PDO::PARAM_STR);
-      $query -> execute();
-
-      //index1($mail, $token, $hash);
+      index1($mail, $token, $hash);
       header('Location:index.php');
 
     }
   }
 
+    // CONNECTION
     if(!empty($_POST['connexion'])){
     $mail = trim(strip_tags($_POST['mail']));
     $mdp = trim(strip_tags($_POST['mdp']));
 
   // Vérif  & MDP
-    $user = index3($mail);
+  $user = index2($mail);
 
   if(!empty($user)){
 
@@ -161,8 +152,8 @@ if(islogged()){
 			</div><!--.login-tab-content-->
 		</div><!--.tabs-content-->
   </div><!--.form-wrap-->
-  
-  
+
+
 
 <?php
 include 'inc/footer.php'; ?>

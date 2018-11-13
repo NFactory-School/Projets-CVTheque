@@ -16,7 +16,7 @@ if(!empty($_POST['submit'])){
   $info = trim(strip_tags($_POST['info']));
   $age = $_POST['age'];
     if (!empty($_POST['nom'])) {
-      b_add_vaccin($nom);
+      $nomVaccin = b_add_vaccin($nom);
       if(!empty($nomVaccin)){
         $errors['nom'] = "Ce vaccin est déjà présent dans la base de données.";
       }
@@ -39,7 +39,7 @@ if(!empty($_POST['submit'])){
   // si le formulaire ne contient pas d'erreurs
     if(count($errors)==0){
 
-      b_add_vaccin1(($nom,$cible,$labo,$info));
+      b_add_vaccin1($nom,$cible,$labo,$info);
 
       header('Location:b_vaccins_back.php');
     }

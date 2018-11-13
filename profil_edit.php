@@ -3,10 +3,6 @@ include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
 
-
-
-
-
 $errors = array();
 $success = false;
 

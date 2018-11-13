@@ -43,7 +43,7 @@ function index1($mail, $token, $hash){
   $query -> execute();
 }
 
-function index3($mail){
+function index2($mail){
   global $pdo;
   $sql = "SELECT * FROM vax_profils
           WHERE mail = :mail";
