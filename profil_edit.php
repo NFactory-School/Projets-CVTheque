@@ -54,11 +54,11 @@ $id = $_SESSION['user']['id'];
      $user = $query -> fetch();
 
      tab($_SESSION);
-     $_SESSION['user']['nom'];
-     $_SESSION['user']['prenom'];
-     $_SESSION['user']['taille'];
-     $_SESSION['user']['poids'];
-     $_SESSION['user']['notif'];
+     $_SESSION['user']['nom'] = $user['nom'];
+     $_SESSION['user']['prenom'] = $user['prenom'];
+     $_SESSION['user']['taille'] = $user['taille'];
+     $_SESSION['user']['poids'] = $user['poids'];
+     $_SESSION['user']['notif'] = $user['notif'];
      header('Location:profil.php');
    }
 }
@@ -98,7 +98,7 @@ $id = $_SESSION['user']['id'];
   if(!empty($_POST['taille']) && !empty($_POST['poids'])){
     $taille = $_POST['taille'];
     $poids = $_POST['poids'];
-    $imc = $tailles*$taille;
+    $imc = $taille*$taille;
     $imc = $poids/$imc;
 
     if ($imc<20){
