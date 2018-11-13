@@ -1,5 +1,6 @@
 <?php
 include 'inc/pdo.php';
+include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
@@ -7,11 +8,7 @@ if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
 }
 
 // Requete sql pagination
-$sql ="SELECT COUNT(*) as nbUsers
-      FROM vax_profils";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$countUsers = $query -> fetch();
+$countUsers = b_user_back();
 
 // Variables pagination
 $nbUsers = $countUsers['nbUsers'];
@@ -25,11 +22,7 @@ if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
 }
 
 // Requete d'affichage
-$sql = "SELECT * FROM vax_profils
-        ORDER BY id DESC LIMIT ".(($cPage - 1) * $UsersParPages).", $UsersParPages";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$Users = $query -> fetchAll();
+$Users = b_user_back1($cPage, $UsersParPages);
 
 ?>
 

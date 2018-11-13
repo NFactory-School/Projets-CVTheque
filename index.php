@@ -1,7 +1,7 @@
 <?php
-include ('inc/pdo.php');
-include ('inc/request.php');
-include ('inc/fonction.php');
+include 'inc/pdo.php';
+include 'inc/request.php';
+include 'inc/fonction.php';
 
 if(islogged()){
   header('Location:carnet.php');
@@ -85,17 +85,10 @@ if(islogged()){
   // }
 
     if(count($errors) == 0){
-
       $_SESSION['user'] = array(
         'id' => $user['id'],
         'mail' => $user['mail'],
         'status' => $user['status'],
-        'nom' => $user['nom'],
-        'prenom' => $user['prenom'],
-        'ddn' => $user['ddn'],
-        'taille' => $user['taille'],
-        'poids' => $user['poids'],
-        'notif' => $user['notif'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
 

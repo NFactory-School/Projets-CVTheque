@@ -1,18 +1,15 @@
 <?php
-include ('inc/pdo.php');
-include ('inc/fonction.php');
-include ('inc/header.php');
+include 'inc/pdo.php';
+include 'inc/request.php';
+include 'inc/fonction.php';
+include 'inc/header.php';
 
 if($_SESSION['user']['status'] == 'banni'){
   header('Location:403.php');
 }
 
 $id = $_SESSION['user']['id'];
-$sql = "SELECT * FROM vax_profils
-        WHERE id = $id";
-        $query = $pdo -> prepare($sql);
-        $query -> execute();
-$user = $query -> fetch();
+$user = profil($id);
 
 if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
   $taille = $_SESSION['user']['taille']/100;

@@ -1,5 +1,6 @@
 <?php
 include 'inc/pdo.php';
+include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 
@@ -8,25 +9,13 @@ if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
 }
 
 // Requête count users
-$sql = "SELECT COUNT(*)
-        FROM vax_profils";
-$query = $pdo->prepare($sql);
-$query->execute();
-$count_users = $query->fetch();
+$count_users = b_back();
 
 // requête count vaccins
-$sql = "SELECT COUNT(*)
-        FROM vax_vaccins";
-$query = $pdo->prepare($sql);
-$query->execute();
-$count_vaccins = $query->fetch();
+$count_vaccins = b_back1();
 
 // Requete pagination contacts
-$sql ="SELECT COUNT(*) as nbContact
-      FROM vax_contact";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$countMsg = $query -> fetch();
+$countMsg = b_back2();
 
 // Variables pagination
 $nbContact = $countMsg['nbContact'];
@@ -40,11 +29,7 @@ if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
 }
 
 // requête affichage contacts
-$sql = "SELECT * FROM vax_contact
-        ORDER BY id DESC LIMIT ".(($cPage - 1) * $msgParPages).", $msgParPages";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $contacts = $query -> fetchAll();
+$contacts = b_back3($cPage, $msgParPages);
 
 
 ?>
