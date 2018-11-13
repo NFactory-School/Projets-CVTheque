@@ -38,7 +38,6 @@ if(!empty($_POST['submit'])){
 
   // si le formulaire ne contient pas d'erreurs
     if(count($errors)==0){
-
       b_add_vaccin1($nom,$cible,$info,$age);
 
       header('Location:b_vaccins_back.php');
@@ -65,7 +64,8 @@ if(!empty($_POST['submit'])){
   <input type="number" name="age" value="" min="0" max="1560">
   <span class="error"><?php error($errors,'age');?></span><?php br(); ?>
 
-  <input type="submit" name="submit" value="Ajouter">
+  <input type="submit" name="submit" value="Ajouter" onclick="return confirm('Voulez vous vraiment ajouter ce vaccin a la base de données ? Il ne pourra plus être supprimé depuis le back-office')"
+ >
 </form>
 
 <a href="b_vaccins_back.php">Retour</a>
