@@ -22,7 +22,8 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
   else{
     $resultimc = 'risque';
   }
-}?>
+}
+?>
 
 <div class="profil">
   <aside class="aside">
