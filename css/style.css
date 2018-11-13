@@ -81,14 +81,11 @@ body {
   .form-wrap form .input {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    color: inherit;
-    font-family: inherit;
-    padding: .8em 0 10px .8em;
+    padding: 10px 10px 10px 10px;
     border: 1px solid #CFCFCF;
     outline: 0;
     display: inline-block;
-    margin: 0 0 .8em 0;
-    padding-right: 2em;
+    margin-top:15px;
 		width: 100%; 
 	}
   .form-wrap form .button {
@@ -106,7 +103,7 @@ body {
   .form-wrap form .checkbox {
     visibility: hidden;
     padding: 20px;
-		margin: .5em 0 1.5em; 
+		margin: .5em 0 1.5em;
 	}
     .form-wrap form .checkbox:checked + label:after {
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
