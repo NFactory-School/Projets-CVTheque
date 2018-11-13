@@ -14,8 +14,8 @@ if(!empty($_POST['sub'])){
 
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
-  
-  $sexe = $_POST['sexe'];
+  $age   = trim(strip_tags($_POST['age']));
+  $sexe =trim(strip_tags( $_POST['sexe']));
   $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));
   if(!empty($_POST['notif'])){
@@ -29,6 +29,8 @@ if(!empty($_POST['sub'])){
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
    vnum($error,$poids,1,500,'poids');
+   vnum($error,$age,1,200,'age');
+   vnum($error,$taille,10,300,'taille');
 
 
 
@@ -71,7 +73,7 @@ $id = $_SESSION['user']['id'];
 
 
  ?>
-<form id="profil" action="valide_profil.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
+<form id="profil" action="profil_edit.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
 
     <label for="nom">Votre nom:
     <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
@@ -82,8 +84,8 @@ $id = $_SESSION['user']['id'];
   <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($user['prenom'])){echo $user['prenom'];} ?>" required="required"><br></label>
 
 
-    <label for="ddn">Votre date de naissance:
-  <input type="date" name="ddn"  value="value="<?php if(!empty($_POST['ddn'])){echo $_POST['ddn'];} ?>"" ><span>
+    <label for="age">Votre age:
+  <input type="date" name="age"  value="value="<?php if(!empty($_POST['age'])){echo $_POST['age'];} ?>"" ><span>
    <br></label>
 
 
@@ -94,10 +96,12 @@ $id = $_SESSION['user']['id'];
     <option name ="autre" value=3 selected>autre</option>
   </select><br></label>
 
-  <label for="taille">Votre taille:  <input type="number" name="taille"> <span>en cm</span></label>
+  <label for="taille">Votre taille:  <input type="number" name="taille"> <span>en cm</span>
+  <?php if(!empty($errors['taille'])){echo $errors['taille'];}?></span></label>
   <br>
 
     <label for="poids">Votre poids:<input type="number" name="poids"> <span>en kg</span>
+    <?php if(!empty($errors['poids'])){echo $errors['poids'];}?></label>
   <br>
 
   <?php

@@ -110,21 +110,20 @@ function rappel(){
 
 
       return "$difference $periods[$j]";
-      echo $difference.' mois ou '.floor($difference/12).' années';;
+      echo $difference.' mois ou '.floor($difference/12).' années';
   }
 }
 function vnum($error,$data,$min,$max,$key){
-  if (!empty($data)) {
-    if (is_int($data) && $data <= $min) {
-      $error[$key] = 'error : entre  '.$min.'et'.$max;
+  if(!empty($data)) {
+if(!is_numeric($data)) {
+$error[$key] = 'Ce champ doit etre un nombre';
+}
+elseif($data < $min) {
+$error[$key] = 'Ce champ doit etre plus grand';
+}
+elseif($data > $max) {
+$error[$key] = 'Ce champ doit etre plus petit';
     }
-    elseif (is_int($data) && $data <= $min) {
-      $error[$key] = 'error : entre  '.$min.'et'.$max;
-    }
-  }
-  else {
-    $error[$key] = 'error : vide';
-  }
-  return $error;
+  } 
 }
 ?>
