@@ -19,6 +19,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
   $poids = $_SESSION['user']['poids'];
   $imc = $taille*$taille;
   $imc = $poids/$imc;
+  $imc = round($imc, 2);
 
   if ($imc<=20){
     $resultimc = 'insuffisance';
