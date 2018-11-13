@@ -1,10 +1,20 @@
+<<<<<<< HEAD
 <?php include ('inc/pdo.php');
  include ('inc/fonction.php');
  include ('inc/header.php');
 
 
 
+=======
+<?php
+include ('inc/pdo.php');
+include ('inc/fonction.php');
+include ('inc/header.php');
+>>>>>>> 54afe2f1c1bb857ca9eb2d359f61ed5a3033788b
 
+if($_SESSION['user']['status'] == 'banni'){
+  header('Location:403.php');
+}
 
 $errors = array();
 $success = false;
@@ -13,7 +23,7 @@ if(!empty($_POST['sub'])){
 
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
-  $ddn = $_POST['jj'].'/'.$_POST['mm'].'/'.$_POST['aaaa'];
+  
   $sexe = $_POST['sexe'];
   $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));

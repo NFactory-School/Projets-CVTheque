@@ -18,7 +18,7 @@ if(!empty($_POST['submit'])){
         $query -> execute();
         $user = $query -> fetch();
         if(!empty($user)){
-          $body = '<p>Veuillez cliquer sur ce '.'<a class="myButton" href = "oublimdp.php?mail='.urlencode($user['mail']).'&token='.urlencode($user['token']).'">lien</a>'.'</p>';
+          $body = '<p>Veuillez cliquer sur ce <a class="myButton" href = "oublimdp.php?mail='.urlencode($user['mail']).'&token='.urlencode($user['token']).'">lien</a></p>';
         }else {
           $errors['mail'] = 'Cette adresse mail n\'est pas présente dans notre base de données';
         }
@@ -34,7 +34,7 @@ if(!empty($_POST['submit'])){
 <fieldset>
 <legend>Mot de passe oublié </legend>
 <?php if(!empty($_POST['mail']) && !empty($user)){
-  echo $body = '<p>Veuillez cliquer sur ce '.'<a class="myButton" href = "oublimdp.php?mail='.urlencode($user['mail']).'&token='.urlencode($user['token']).'">lien</a>'.'</p>';
+  echo $body = '<p>Veuillez cliquer sur ce <a class="myButton" href = "oublimdp.php?mail='.urlencode($user['mail']).'&token='.urlencode($user['token']).'">lien</a></p>';
 }else{?>
 <label for="mail">Mail </label>
 <input type="text" name="mail" value="">
