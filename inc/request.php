@@ -10,15 +10,15 @@ function b_add_vaccin($nom){
   return $nomVaccin;
 }
 
-function b_add_vaccin1($nom,$cible,$labo,$info){
+function b_add_vaccin1($nom,$cible,$info,$age){
   global $pdo;
-  $sql = "INSERT INTO vax_vaccins(nom, maladie_cible, labo, info)
-          VALUES (:nom, :cible, :labo, :info)";
+  $sql = "INSERT INTO vax_vaccins(nom, maladie_cible, info, age_recommande)
+          VALUES (:nom, :cible, :info, :age)";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
   $query -> bindValue(':cible', $cible, PDO::PARAM_STR);
-  $query -> bindValue(':labo', $labo, PDO::PARAM_STR);
   $query -> bindValue(':info', $info, PDO::PARAM_STR);
+  $query -> bindValue(':age', $age, PDO::PARAM_STR);
   $query -> execute();
 }
 
