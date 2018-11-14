@@ -2,7 +2,7 @@
 include 'inc/pdo.php';
 include 'inc/request.php';
 include 'inc/fonction.php';
-include 'inc/header.php';
+include 'inc/header_back.php';
 require 'vendor/autoload.php';
 use JasonGrimes\Paginator;
 
@@ -35,33 +35,41 @@ $query -> execute();
 $vaccins = $query -> fetchAll();
 ?>
 
-<table>
-  <thead>
-    <th>id</th>
-    <th>nom du vaccin</th>
-    <th>maladie ciblée</th>
-    <th>Informations complémentaires</th>
-    <th>Âge Recommandé</th>
-    <th>Supprimer un vaccin</th>
-    <th>statut (0 = supprimé, 1 = visible)</th>
-  </thead>
-  <tbody>
-    <?php foreach ($vaccins as $vaccin):?>
-      <td><?php echo $vaccin['id'] ?></td>
-      <td><?php echo $vaccin['nom'] ?></td>
-      <td><?php echo $vaccin['maladie_cible'] ?></td>
-      <td><?php echo $vaccin['info'] ?></td>
-      <td><?php echo $vaccin['age_recommande'] ?></td>
-      <td> <a class="myButton" href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>">Supprimer</a>
-           <a class="myButton" href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>">Annuler</a> </td>
-      <td><?php echo $vaccin['status'] ?></td>
-    </tbody>
-  <?php endforeach; ?>
-</table>
+<div id="wrapper">
+  <div class="col-lg-6">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              Profils
+          </div>
+          <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <th>id</th>
+                    <th>nom du vaccin</th>
+                    <th>maladie ciblée</th>
+                    <th>Informations complémentaires</th>
+                    <th>Âge Recommandé</th>
+                    <th>Supprimer un vaccin</th>
+                    <th>Statut</th>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($vaccins as $vaccin):?>
+                      <td><?php echo $vaccin['id'] ?></td>
+                      <td><?php echo $vaccin['nom'] ?></td>
+                      <td><?php echo $vaccin['maladie_cible'] ?></td>
+                      <td><?php echo $vaccin['info'] ?></td>
+                      <td><?php echo $vaccin['age_recommande'] ?></td>
+                      <td> <a class="myButton" href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>"><button type ="button" class="btn btn-danger btn-circle"><i class ="fas fa-eye-slash"></i></button></a>
+                           <a class="myButton" href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>"><button type ="button" class="btn btn-success btn-circle"><i class ="fas fa-eye"></i></button></a> </td>
+                      <td><?php echo $vaccin['status'] ?></td>
+                    </tbody>
+                  <?php endforeach; ?>
+                </table>
 
 <?php echo $paginator ?>
 
-<br><a href="b_add_vaccin.php">Ajouter un vaccin</a>
-<br><a href="b_back.php">Retour à l'accueil</a>
+<br><a href="b_add_vaccin.php"><button type="button" class ="btn btn-outline btn-success"> Ajouter un vaccin</button></a>
+<br><br/><a href="b_back.php"><button type="button" class="btn btn-outline btn-default">Retour au back-office</button></a>
 
-<?php include 'inc/footer.php'; ?>
+<?php include 'inc/footer_back.php'; ?>

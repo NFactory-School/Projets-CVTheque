@@ -132,6 +132,23 @@ function b_vaccins_back(){
   return $countVaccins;
 }
 
+function b_contact_lu($id){
+  global $pdo;
+  $sql = "UPDATE vax_contact
+          SET statut = 2
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+function b_contact_nonlu($id){
+  global $pdo;
+  $sql = "UPDATE vax_contact
+          SET statut = 1
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+
 function b_vaccins_back1($cPage, $vaccinsParPages){
   global $pdo;
   $sql = "SELECT * FROM vax_vaccins
@@ -225,8 +242,8 @@ function b_user_back1($cPage, $UsersParPages){
 
 function contact($obj, $msg, $name, $mail){
   global $pdo;
-  $sql = "INSERT INTO vax_contact (objet, message, nom, mail, created_at)
-          VALUES (:obj, :msg, :name, :mail, NOW())";
+  $sql = "INSERT INTO vax_contact (objet, message, nom, mail, created_at, statut)
+          VALUES (:obj, :msg, :name, :mail, NOW(), 'non lu')";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':obj', $obj, PDO::PARAM_STR);
   $query -> bindValue(':msg', $msg, PDO::PARAM_STR);
