@@ -50,7 +50,7 @@ function b_insert_vaccin_in_pivot ($id_profil,$id_vaccins){
   $query -> execute();
 }
 
-function b_insert_rappel_in_pivot ($rappel){ //lui
+function b_insert_rappel_in_pivot ($rappel){
   global $pdo;
   $sql = "INSERT INTO vax_pivot (rappel)
           VALUES (:rappel)";
