@@ -4,6 +4,10 @@ include 'inc/request.php';
  include 'inc/fonction.php';
  include 'inc/header.php';
 
+ if (isLogged()==false){
+  header('Location:403.php');
+ }
+
 if($_SESSION['user']['status'] == 'banni'){
   header('Location:403.php');
 }
@@ -16,6 +20,9 @@ if(!empty($_POST['sub'])){
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
 
+
+  $ddn = $_POST['ddn'];
+
   $sexe = $_POST['sexe'];
   $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));
@@ -24,6 +31,7 @@ if(!empty($_POST['sub'])){
   }else{
     $notif = 2;
   }
+
 
 
 
@@ -37,18 +45,19 @@ $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
 
-    profil_edit($id, $nom, $prenom, $taille, $poids, $sexe, $notif);
+    profil_edit($id, $nom, $prenom, $ddn, $taille, $poids, $sexe, $notif);
 
 
     $user = profil_edit1($id);
 
-
      tab($_SESSION);
      $_SESSION['user']['nom'] = $user['nom'];
      $_SESSION['user']['prenom'] = $user['prenom'];
+     $_SESSION['user']['ddn'] = $user['ddn'];
      $_SESSION['user']['taille'] = $user['taille'];
      $_SESSION['user']['poids'] = $user['poids'];
      $_SESSION['user']['notif'] = $user['notif'];
+
      header('Location:profil.php');
    }
 }
@@ -59,17 +68,17 @@ $id = $_SESSION['user']['id'];
 
     <label for="nom">Votre nom:
     <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
-  <input type="text" name="nom" placeholder="nom" value="<?php if(!empty($_SESSION['user']['nom'])){echo $_SESSION['user']['nom'];} ?>" required="required"></label>
+  <input type="text" name="nom" placeholder="nom" value="<?php if(!empty($_SESSION['user']['nom'])){echo $_SESSION['user']['nom'];} ?>" ></label>
 
     <label for="prenom">Votre prénom:
     <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
-  <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>" required="required"><br></label>
+  <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>"><br></label>
 
-
+  <?php if (empty($_SESSION['user']['ddn'])){ ?>
     <label for="ddn">Votre date de naissance:
-  <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>" ><span>
+  <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>"><span>
    <br></label>
-
+ <?php }?>
 
 <label for="sexe">votre sexe:
   <select form="profil" class="select_sexe" name="sexe">

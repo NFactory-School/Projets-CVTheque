@@ -10,13 +10,23 @@ function b_add_vaccin($nom){
   return $nomVaccin;
 }
 
-function b_select_vaccin_from_user($id){
+function b_select_vaccin_from_vaccins(){
   global $pdo;
-  $sql = "SELECT id_vaccins FROM vax_pivot WHERE id_profil = :id";
+  $sql = "SELECT nom FROM vax_vaccins WHERE status = 1";
   $query = $pdo -> prepare($sql);
-  $query -> bindValue(':id', $id, PDO::PARAM_INT);
   $query -> execute();
-  $vaccinUser = $query -> fetch();
+  $vaccinUser = $query -> fetchAll();
+  return $vaccinUser;
+}
+
+function b_insert_vaccin_from_users($tab){
+  global $pdo;
+  $sql = "INSERT INTO vax_pivot (id_profils, id_vaccins, date, rappel)   VALUES (, , NOW(), )";
+  $query = $pdo -> prepare($sql);
+  $idUser == $tab['id'];
+  $idVaccin == $tab['vaccin'];
+  $query -> execute();
+  $vaccinUser = $query -> fetchAll();
   return $vaccinUser;
 }
 
@@ -159,15 +169,16 @@ function b_vaccins_back1($cPage, $vaccinsParPages){
   return $vaccins;
 }
 
-function profil_edit($id, $nom, $prenom, $taille, $poids, $sexe, $notif){
+function profil_edit($id, $nom, $prenom, $ddn, $taille, $poids, $sexe, $notif){
   global $pdo;
   $sql = "UPDATE vax_profils
-         SET modified_at = NOW(), nom = :nom, prenom = :prenom, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
+         SET modified_at = NOW(), nom = :nom, prenom = :prenom, ddn = :ddn, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
          WHERE id = $id";
   $query = $pdo -> prepare($sql);
 
   $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
   $query -> bindValue(':prenom', $prenom, PDO::PARAM_STR);
+  $query -> bindValue(':ddn', $ddn, PDO::PARAM_STR);
   $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
   $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
   $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
@@ -287,6 +298,16 @@ function oublimdp1($hash, $token, $userid){
 }
 
 function profil($id){
+  global $pdo;
+  $sql = "SELECT * FROM vax_profils
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $user = $query -> fetch();
+  return $user;
+}
+
+function allVaccin(){
   global $pdo;
   $sql = "SELECT * FROM vax_profils
           WHERE id = $id";

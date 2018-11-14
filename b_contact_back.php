@@ -2,10 +2,14 @@
 include 'inc/pdo.php';
 include 'inc/request.php';
 include 'inc/fonction.php';
-include 'inc/header_back.php';
-if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
-  header('Location:403.php');
+include 'inc/header.php';
+
+isAdmin();
+
+if (isLogged()==false){
+ header('Location:403.php');
 }
+
 $id = $_GET['id'];
 $contacts = b_contact_back($id);
 

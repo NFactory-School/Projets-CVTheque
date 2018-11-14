@@ -4,8 +4,10 @@ include ('inc/request.php');
 include 'inc/fonction.php';
 include 'inc/header_back.php';
 
-if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
-  header('Location:403.php');
+isAdmin();
+
+if (isLogged()==false){
+ header('Location:403.php');
 }
 // verif soumission
 $errors = array();

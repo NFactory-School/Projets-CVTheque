@@ -6,8 +6,10 @@ include 'inc/header_back.php';
 require 'vendor/autoload.php';
 use JasonGrimes\Paginator;
 
-if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
-  header('Location:403.php');
+isAdmin();
+
+if (isLogged()==false){
+ header('Location:403.php');
 }
 
 // Requête count contacts
