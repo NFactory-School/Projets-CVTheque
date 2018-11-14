@@ -19,8 +19,12 @@ if(!empty($_POST['sub'])){
 
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
+<<<<<<< HEAD
   $ddn = $_POST['ddn'];
 
+=======
+  $ddn =$_POST['ddn'];
+>>>>>>> e7a39b836c2505d9a5ab5ddba54096f9c289f431
   $sexe = $_POST['sexe'];
   $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));
@@ -30,6 +34,7 @@ if(!empty($_POST['sub'])){
     $notif = 2;
   }
 
+  
 
 
    vTxt($errors,$nom,3,100,'nom',$empty = true);
@@ -65,11 +70,11 @@ $id = $_SESSION['user']['id'];
 
     <label for="nom">Votre nom:
     <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
-  <input type="text" name="nom" placeholder="nom" value="<?php if(!empty($_SESSION['user']['nom'])){echo $_SESSION['user']['nom'];} ?>" required="required"></label>
+  <input type="text" name="nom" placeholder="nom" value="<?php if(!empty($_SESSION['user']['nom'])){echo $_SESSION['user']['nom'];} ?>" ></label>
 
     <label for="prenom">Votre prénom:
     <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
-  <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>" required="required"><br></label>
+  <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>"><br></label>
 
 
     <label for="ddn">Votre date de naissance:

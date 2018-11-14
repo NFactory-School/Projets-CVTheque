@@ -55,7 +55,7 @@ function index1($mail, $token, $hash){
 
 function index2($mail){
   global $pdo;
-  $sql = "SELECT * FROM vax_profils
+  $sql = "SELECT mail FROM vax_profils
           WHERE mail = :mail";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
