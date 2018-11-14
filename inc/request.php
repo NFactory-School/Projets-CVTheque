@@ -10,20 +10,21 @@ function b_add_vaccin($nom){
   return $nomVaccin;
 }
 
-function b_select_vaccin_from_user($id){
-  global $pdo;
-  $sql = "SELECT id_vaccins FROM vax_pivot WHERE id_profil = :id";
-  $query = $pdo -> prepare($sql);
-  $query -> bindValue(':id', $id, PDO::PARAM_INT);
-  $query -> execute();
-  $vaccinUser = $query -> fetch();
-  return $vaccinUser;
-}
-
 function b_select_vaccin_from_vaccins(){
   global $pdo;
   $sql = "SELECT nom FROM vax_vaccins WHERE status = 1";
   $query = $pdo -> prepare($sql);
+  $query -> execute();
+  $vaccinUser = $query -> fetchAll();
+  return $vaccinUser;
+}
+
+function b_insert_vaccin_from_users($tab){
+  global $pdo;
+  $sql = "INSERT INTO vax_pivot (id_profils, id_vaccins, date, rappel)   VALUES (, , NOW(), )";
+  $query = $pdo -> prepare($sql);
+  $idUser == $tab['id'];
+  $idVaccin == $tab['vaccin'];
   $query -> execute();
   $vaccinUser = $query -> fetchAll();
   return $vaccinUser;

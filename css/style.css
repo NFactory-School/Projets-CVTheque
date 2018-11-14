@@ -797,3 +797,9 @@ body {
   bottom : 10%;
   right : 10%;
 }
+.check{
+  color:orange;
+}
+.rappel {
+	margin:0 auto;
+}

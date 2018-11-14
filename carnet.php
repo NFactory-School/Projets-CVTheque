@@ -53,31 +53,44 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
               if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                 echo '<p>IMC = '.$imc.'</p>';
               }
-
-              if (!empty($_POST['mesVaccins'])){
-
-              }
         ?>
 
   </aside>
   <div class="carnet">
     <h2>Votre Carnet</h2>
 
-    <div class="vaccinFait">
-      <form class="form" action="carnet.php" method="post">
-          <?php 
-            $listeVaccin = array();
-            $listeVaccin = b_select_vaccin_from_vaccins();
-            $counter = 0;
+    <div class="listeVaccin">
+      <form action="carnet.php" method="post">
 
-            foreach($listeVaccin as $valeur){
-              echo '<input type="checkbox" name="'.$counter.'"><span>'.$listeVaccin[$counter]['nom'].'</span>';
-              $counter = $counter+1;
-            }
-          ?>
-          <input type="submit" name="mesVaccins" class="myButton">
-      </form>
+          <?php 
+            $listeVaccin = b_select_vaccin_from_vaccins();
+
+            foreach($listeVaccin as $key=>$valeur){
+              $listeVaccin[$key] = $listeVaccin[$key]['nom'];
+              $cle = $listeVaccin[$key];
+            ?>
+            <input type="checkbox" name=" <?php echo $valeur['nom'];?>" 
+            <?php if(!empty($_POST[$cle])){echo 'checked="checked"';} ?> >
+            <span <?php if(!empty($_POST[$cle])){echo 'class="check"';} ?> > <?php echo $valeur['nom']; ?></span><br/>
+
+            <?php } ?>
     </div>
+
+                <?php
+                    if(!empty($_POST['listeRappel']) && !empty($_SESSION['user'])){
+                      foreach($_POST as $key=>$valeur){
+                        if ($key != 'listeRappel'){
+                          ?> <input class="rappel" type="date" name="<?php echo $key?>" value="<?php if(!empty($_POST[$key])){echo $_POST[$key];} ?>" ><span> Date de rappel pour "<?php echo $key ?>"</span><br/> <?php
+                          
+                        }
+                        
+                      }
+                      
+                    }
+                    echo '<input type="submit" name="listeRappel" value="confirmer">';
+                ?>
+      </form>
+    
 
     </div>
     <a class="myButton button"href="profil_edit.php">éditer profil</a>
