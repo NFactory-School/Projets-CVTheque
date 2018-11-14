@@ -68,8 +68,14 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 
           <?php 
             $listeVaccin = b_select_vaccin_from_vaccins();
+            $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);  
+            print_r($listeVaccinUser);
+            br();
+            
+            br();
 
             foreach($listeVaccin as $key=>$valeur){
+              echo '  '.$listeVaccinUser[$key]['id_vaccins'];
               $listeVaccin[$key] = $listeVaccin[$key]['nom'];
               $cle = $listeVaccin[$key];
             ?>
