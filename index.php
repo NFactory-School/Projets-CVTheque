@@ -101,7 +101,10 @@ if(islogged()){
       // }
 
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 90963637eaf7ae3207c3fec2e418277157467009
   }
   include ('inc/header.php');
 ?>

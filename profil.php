@@ -36,13 +36,18 @@ if(!empty($user['taille']) && !empty($user['poids'])){
   }
 }
 ?>
-
 <div class='profil'>
 
-  <h2>Votre profil</h2>
 
     <aside>
-        <img src='img/avatar.jpg'    alt='avatar'>
+      <?php if(!empty($user['sexe']) && $user['sexe'] == 'homme'){
+        echo '<img src="img/avatar.jpg"    alt="avatar">';
+      }elseif(!empty($user['sexe'] && $user['sexe'] == 'femme')){
+        echo '<img src="img/avatar2.jpg" alt="avatar">';
+      }else{
+        echo '<img src="img/avatar3.jpg" alt="avatar">';
+
+      } ?>
         <div class="trait"></div>
         <h3>Informations principales : </h3>
         <ol>
@@ -52,20 +57,21 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         </ol>
     </aside>
 
-    <section id='main'>
-        <h2>Informations à remplir :</h2>
+    <h2>Votre profil</h2>
+    <div class='main'>
+        <h3>Informations à remplir :</h3>
         <ul>
-          <li>date de naissance : <?php echo $user['ddn'] ?></li>
-          <li>sexe : <?php echo $user['sexe'] ?></li>
-          <li>taille : <?php echo $user['taille'] ?></li>
-          <li>poids : <?php echo $user['poids'] ?></li>
-          <li>statut : <?php echo $user['status'] ?></li>
-          <li class="<?php echo $resultimc ?>">Indice de masse corporelle : <?php if(!empty($imc)){ echo $imc; } ?></li>
+          <li><span class="bleu">date de naissance : </span><?php echo $user['ddn'] ?></li>
+          <li><span class="bleu">sexe : </span><?php echo $user['sexe'] ?></li>
+          <li><span class="bleu">taille : </span><?php echo $user['taille'] ?></li>
+          <li><span class="bleu">poids : </span><?php echo $user['poids'] ?></li>
+          <li><span class="bleu">statut : </span><?php echo $user['status'] ?></li>
+          <li><span class="bleu">Indice de masse corporelle : </span><?php if(!empty($imc)){ echo $imc; } ?></li>
           <li><a class="myButton button"href="profil_edit.php">éditer profil</a></li>
           <li><a class="myButton" href="carnet.php">Mon carnet</a></li>
         </ul>
-    </section>
-<div class="clear"></div>
+  </div>
+  <div class="clear"></div>
 </div>
 
 

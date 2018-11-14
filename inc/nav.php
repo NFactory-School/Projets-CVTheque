@@ -2,10 +2,10 @@
   <?php
         if (islogged()) {
           if(!empty($_SESSION['user']['prenom'])){
-            echo '<p>'. $_SESSION['user']['prenom'] .' </p>
-                  <p>'. $_SESSION['user']['nom'] .' </p><br/>';
+            echo '<p class="bolder">'. $_SESSION['user']['prenom'] .' </p>
+                  <p class="bolder">'. $_SESSION['user']['nom'] .' </p><br/>';
           }else {
-            echo '<p>'.$_SESSION['user']['mail'] .' </p><br/>';
+            echo '<p class="bolder">'.$_SESSION['user']['mail'] .' </p><br/>';
           }
           if($_SESSION['user']['status'] == 'admin'){
             echo '<a href="b_back.php">Back-Office - </a>
