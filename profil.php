@@ -15,9 +15,9 @@ if($_SESSION['user']['status'] == 'banni'){
 $id = $_SESSION['user']['id'];
 $user = profil($id);
 
-if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
-  $taille = $_SESSION['user']['taille']/100;
-  $poids = $_SESSION['user']['poids'];
+if(!empty($user['taille']) && !empty($user['poids'])){
+  $taille = $user['taille']/100;
+  $poids = $user['poids'];
   $imc = $taille*$taille;
   $imc = $poids/$imc;
   $imc = round($imc, 3);
@@ -60,9 +60,9 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
           <li>taille : <?php echo $user['taille'] ?></li>
           <li>poids : <?php echo $user['poids'] ?></li>
           <li>statut : <?php echo $user['status'] ?></li>
-          <li>Indice de masse corporelle : <?php if(!empty($imc)){ echo $imc; } ?></li>
+          <li class="<?php echo $resultimc ?>">Indice de masse corporelle : <?php if(!empty($imc)){ echo $imc; } ?></li>
           <li><a class="myButton button"href="profil_edit.php">éditer profil</a></li>
-          <li><a class="myButton"href="carnet.php">Mon carnet</a></li>
+          <li><a class="myButton" href="carnet.php">Mon carnet</a></li>
         </ul>
     </section>
 <div class="clear"></div>
