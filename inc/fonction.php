@@ -85,8 +85,8 @@ return false;
 }
 
 function isAdmin() {
-  if (!isLogged() && $_SESSION['user']['status']!='admin'){
-    header('Location:../403.php');
+  if ($_SESSION['user']['status']!='admin'){
+    header('Location:403.php');
   }
 }
 
