@@ -69,18 +69,19 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
           <?php 
             $listeVaccin = b_select_vaccin_from_vaccins();
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
-            $check = array();
+            $counter =0;
 
             foreach($listeVaccin as $key=>$valeur){
               
               $nom = $listeVaccin[$key]['nom'];
               $id = $listeVaccin[$key]['id'];
               
+              
               foreach($listeVaccinUser as $key=>$valeur){
                 $vaccin = $listeVaccinUser[$key]['id_vaccins'];
                 
                 if (!empty($listeVaccinUser[$key]) && $listeVaccinUser[$key]['id_vaccins'] == $id){ 
-                  $check[] = $key; ?>
+                  ?>
                   <input type="checkbox" name=" <?php echo $valeur['nom'];?>" checked="checked"disabled="disabled">
                   <span class="check"><?php echo $nom; ?></span><br/>
 
@@ -97,9 +98,11 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
             br();
             ?>
             
-            <?php if ($listeVaccinUser[$key]['id_vaccins'] != $id){ ?>
+            <?php if ($listeVaccinUser[$counter]['id_vaccins'] != $id){ ?>
             <input type="checkbox" name=" <?php echo $valeur['nom'];?>">
-            <span <?php if(!empty($_POST[$nom])){echo 'class="check"';} ?> > <?php echo $nom; ?></span><br/><?php
+            <span <?php if(!empty($_POST[$nom])){echo 'class="check"';} ?> > <?php echo $nom; ?></span><br/>
+
+            <?php $counter = $counter+1;
             } ?>
            <?php } ?>
     </div>
