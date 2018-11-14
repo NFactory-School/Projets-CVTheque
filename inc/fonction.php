@@ -136,5 +136,9 @@ function vnum($error,$data,$min,$max,$key){
    }
  }
 
+ function sameVaccin(){
+   
+ }
+
 
 ?>
