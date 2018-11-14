@@ -1,47 +1,44 @@
 <?php
 include 'inc/pdo.php';
+include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
+require 'vendor/autoload.php';
+use JasonGrimes\Paginator;
 
 if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
   header('Location:403.php');
 }
 
-// Requête count users
-$sql = "SELECT COUNT(*)
-        FROM vax_profils";
+// Requête count contacts
+$sql = "SELECT COUNT(*) FROM vax_contact";
 $query = $pdo->prepare($sql);
 $query->execute();
-$count_users = $query->fetch();
+$count_users = $query->fetchColumn();
 
 // requête count vaccins
-$sql = "SELECT COUNT(*)
-        FROM vax_vaccins";
-$query = $pdo->prepare($sql);
-$query->execute();
-$count_vaccins = $query->fetch();
+$count_vaccins = b_back1();
 
 // Requete pagination contacts
-$sql ="SELECT COUNT(*) as nbContact
-      FROM vax_contact";
+$sql ="SELECT COUNT(id) FROM vax_contact";
 $query = $pdo -> prepare($sql);
 $query -> execute();
-$countMsg = $query -> fetch();
+$totalItems = $query -> fetchColumn();
 
-// Variables pagination
-$nbContact = $countMsg['nbContact'];
-$msgParPages = 4;
-$nbPages = ceil($nbContact/$msgParPages);
-
-if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
-  $cPage = $_GET['p'];
-}else{
-  $cPage = 1;
+// Définition des variables
+$itemsPerPage = 4;
+$currentPage = 1;
+$urlPattern = '?page=(:num)';
+$offset = 0;
+if(!empty($_GET['page']) && is_numeric($_GET['page'])){
+  $currentPage = $_GET['page'];
+  $offset = $currentPage * $itemsPerPage - $itemsPerPage;
 }
+$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
 // requête affichage contacts
 $sql = "SELECT * FROM vax_contact
-        ORDER BY id DESC LIMIT ".(($cPage - 1) * $msgParPages).", $msgParPages";
+        ORDER BY id DESC LIMIT $offset, $itemsPerPage";
   $query = $pdo -> prepare($sql);
   $query -> execute();
   $contacts = $query -> fetchAll();
@@ -58,12 +55,12 @@ $sql = "SELECT * FROM vax_contact
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $count_users['COUNT(*)'] ?></div>
+                                    <div class="huge"><?php echo $count_users ?></div>
                                     <div>Utilisateurs</div>
                                 </div>
                             </div>
                         </div>
-                        <a class="myButton" href="b_user_back.php">
+                        <a href="b_user_back.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -87,7 +84,7 @@ $sql = "SELECT * FROM vax_contact
                                 </div>
                             </div>
                         </div>
-                        <a class="myButton" href="b_vaccins_back.php">
+                        <a href="b_vaccins_back.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -114,16 +111,9 @@ $sql = "SELECT * FROM vax_contact
                 <td>'.$contact['created_at'].'</td>
               </tbody>';}?>
   <br/>
+  <?php echo $paginator; ?>
   </table>
 </div>
 
 <?php
-// liens de pagination
-for ($i = 1; $i <=  $nbPages; $i++) {
-  if ($i==$cPage) {
-    echo $i, '/';
-  }else {
-    echo ' <a href="b_back.php?p='.$i.'">'.$i.'</a>/';
-  }
-}
 include 'inc/footer.php';

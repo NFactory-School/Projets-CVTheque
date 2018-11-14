@@ -1,19 +1,17 @@
 <?php
-include('inc/pdo.php');
-include('inc/fonction.php');
+include 'inc/pdo.php';
+include 'inc/request.php';
+include 'inc/fonction.php';
+include 'inc/header.php';
 
-include ('inc/header.php');
+if($_SESSION['user']['status'] == 'banni'){
+  header('Location:403.php');
+}
 
 if (!empty($_GET['mail']) && !empty($_GET['token'])) {
   $mail = urldecode($_GET['mail']);
   $token = urldecode($_GET['token']);
-  $sql = "SELECT id FROM vax_profils
-          WHERE mail = :mail AND token = :token";
-  $query = $pdo -> prepare($sql);
-  $query -> bindValue(':token', $token);
-  $query -> bindValue(':mail', $mail);
-  $query -> execute();
-  $user = $query -> fetch();
+  $user = oublimdp($token, $mail);
   if(!empty($user)){
     if(!empty($_POST['submit'])) {
       $mdp = trim(strip_tags($_POST['mdp']));
@@ -31,14 +29,8 @@ if (!empty($_GET['mail']) && !empty($_GET['token'])) {
       if(count($errors) == 0){
         $hash = password_hash($mdp, PASSWORD_DEFAULT);
         $token = generateRandomString(120);
-        $sql = "UPDATE vax_profils
-                SET mdp = :hash, token = :token
-                WHERE id = :id";
-        $query = $pdo -> prepare($sql);
-        $query -> bindValue(':hash', $hash);
-        $query -> bindValue(':token', $token);
-        $query -> bindValue(':id', $user['id']);
-        $query -> execute();
+        $userid = $user['id'];
+        oublimdp1($hash, $token, $userid);
         header('Location:index.php');
       }
     }

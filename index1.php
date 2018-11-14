@@ -24,7 +24,6 @@ if(islogged()){
           $errors['mail'] = "Veuillez entrer un mail valide";
         }else{
               $userMail = index($mail);
-
           if(!empty($userMail)){
             $errors['mail'] = "Adresse mail déja utilisée";
           }
@@ -61,7 +60,8 @@ if(islogged()){
 
     }
   }
-      $error = array();
+
+  $error = array();
     // CONNECTION
     if(!empty($_POST['connexion'])){
     $mail = trim(strip_tags($_POST['mail']));
@@ -69,7 +69,7 @@ if(islogged()){
 
   // Vérif  & MDP
   $user = index2($mail);
- tab($user);
+  tab($user);
   if(!empty($user)){
 
     if(!password_verify($mdp, $user['mdp'])){
@@ -96,7 +96,7 @@ if(islogged()){
         header('Location:profil.php');
       }
     }
-     header('Location:index1.php');
+    // header('Location:index.php');
   }
 
   include ('inc/header.php');
@@ -112,13 +112,13 @@ if(islogged()){
 
 <div class="form-wrap">
 		<div class="tabs">
-			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Inscription</a></h3>
-			<h3 class="login-tab"><a href="#login-tab-content">Connexion</a></h3>
+			<h3 class="signup-tab"><a href="#signup-tab-content">Inscription</a></h3>
+			<h3 class="login-tab"><a class="active" href="#login-tab-content">Connexion</a></h3>
 		</div><!--.tabs-->
 
 		<div class="tabs-content">
-			<div id="signup-tab-content" class="active">
-				<form class="signup-form" action="" method="post">
+			<div id="signup-tab-content">
+        <form class="signup-form" action="" method="post">
 					<input type="email" name="mail" class="input" id="user_email" placeholder="Adresse mail">
           <span class="error"><?php if(!empty($errors['mail'])) { echo $errors['mail']; } ?></span>
           <input type="password" name="mdp" class="input" id="user_passS" placeholder="Mot de passe">
@@ -134,17 +134,17 @@ if(islogged()){
 				</div><!--.help-text-->
 			</div><!--.signup-tab-content-->
 
-			<div id="login-tab-content">
-				<form class="login-form" action="" method="post">
+			<div id="login-tab-content" class="active">
+        <form class="login-form" action="" method="post">
           <input type="text" name="mail" class="input" id="user_login" placeholder="Adresse mail">
           <span class="error"><?php if(!empty($error['mail'])) { echo $error['mail']; } ?></span>
-					<input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
+          <input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
           <span class="error"><?php if(!empty($error['mdp'])) { echo $error['mdp']; } ?></span>
-					<input type="checkbox" name="remember" class="checkbox" id="remember_me">
+          <input type="checkbox" name="remember" class="checkbox" id="remember_me">
           <label for="remember_me">Se souvenir de moi</label>
           <div class="ligne"></div>
           <input type="submit" name="connexion" class="button" value="Se connecter">
-				</form><!--.login-form-->
+        </form><!--.login-form-->
 				<div class="help-text">
 					<p><a class="lienutile" href="oublimail.php">Mot de passe oublié ?</a></p>
 				</div><!--.help-text-->

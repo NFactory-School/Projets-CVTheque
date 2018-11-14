@@ -1,8 +1,12 @@
 <?php
 include 'inc/pdo.php';
 include 'inc/fonction.php';
-
+include 'inc/request.php';
 include 'inc/header.php';
+
+if (isLogged()==false){
+ header('Location:403.php');
+}
 
 if($_SESSION['user']['status'] == 'banni'){
   header('Location:403.php');
@@ -64,14 +68,7 @@ if(!empty($_POST['submit'])) {
 
 // Si pas d'erreurs dans formulaire
     if (count($errors) == 0) {
-    $sql = "INSERT INTO vax_contact (objet, message, nom, mail, created_at)
-            VALUES (:obj, :msg, :name, :mail, NOW())";
-    $query = $pdo -> prepare($sql);
-    $query -> bindValue(':obj', $obj, PDO::PARAM_STR);
-    $query -> bindValue(':msg', $msg, PDO::PARAM_STR);
-    $query -> bindValue(':name', $name, PDO::PARAM_STR);
-    $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-    $query -> execute();
+    contact($obj, $msg, $name, $mail);
     header('Location:profil.php');
   }
 } ?>

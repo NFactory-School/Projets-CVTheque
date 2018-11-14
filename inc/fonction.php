@@ -115,10 +115,10 @@ function rappel(){
 }
 function vnum($error,$data,$min,$max,$key){
   if (!empty($data)) {
-    if (is_int($data) && $data <= $min) {
+    if (is_numeric($data) && $data <= $min) {
       $error[$key] = 'error : entre  '.$min.'et'.$max;
     }
-    elseif (is_int($data) && $data <= $min) {
+    elseif (is_numeric($data) && $data <= $min) {
       $error[$key] = 'error : entre  '.$min.'et'.$max;
     }
   }
@@ -127,4 +127,21 @@ function vnum($error,$data,$min,$max,$key){
   }
   return $error;
 }
+
+ function ddn(){
+   if(!empty($ddn)){
+     if($ddn < 01-01-1900){
+       $errors['ddn']='trop vieux';
+     }
+     elseif($ddn > NOW()){
+       $errors['ddn']='n\'existe pas';
+     }
+   }
+ }
+
+ function sameVaccin(){
+
+ }
+
+
 ?>

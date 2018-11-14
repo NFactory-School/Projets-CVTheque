@@ -1,36 +1,38 @@
 <?php
 include 'inc/pdo.php';
+include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
+require 'vendor/autoload.php';
+use JasonGrimes\Paginator;
+
 if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
   header('Location:403.php');
 }
 
-// Requete sql pagination
-$sql ="SELECT COUNT(*) as nbUsers
-      FROM vax_profils";
+// Requete pagination user
+$sql ="SELECT COUNT(id) FROM vax_profils";
 $query = $pdo -> prepare($sql);
 $query -> execute();
-$countUsers = $query -> fetch();
+$totalItems = $query -> fetchColumn();
 
-// Variables pagination
-$nbUsers = $countUsers['nbUsers'];
-$UsersParPages = 4;
-$nbPages = ceil($nbUsers/$UsersParPages);
-
-if(!empty($_GET['p']) && $_GET['p']>0 && $_GET['p'] <= $nbPages){
-  $cPage = $_GET['p'];
-}else{
-  $cPage = 1;
-}
+  // Définition des variables
+  $itemsPerPage = 4;
+  $currentPage = 1;
+  $urlPattern = '?page=(:num)';
+  $offset = 0;
+  if(!empty($_GET['page']) && is_numeric($_GET['page'])){
+    $currentPage = $_GET['page'];
+    $offset = $currentPage * $itemsPerPage - $itemsPerPage;
+  }
+  $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
 // Requete d'affichage
 $sql = "SELECT * FROM vax_profils
-        ORDER BY id DESC LIMIT ".(($cPage - 1) * $UsersParPages).", $UsersParPages";
+        ORDER BY id DESC LIMIT $offset, $itemsPerPage";
 $query = $pdo -> prepare($sql);
 $query -> execute();
 $Users = $query -> fetchAll();
-
 ?>
 
 <table>
@@ -70,16 +72,7 @@ $Users = $query -> fetchAll();
   <?php endforeach; ?>
 </table>
 
-<?php
-// liens de pagination
-for ($i = 1; $i <=  $nbPages; $i++) {
-  if ($i==$cPage) {
-    echo $i, '/';
-  }else {
-    echo ' <a href="b_user_back.php?p='.$i.'">'.$i.'</a>/';
-  }
-}?>
-
+<?php echo $paginator ?>
 <br/><a class="myButton" href="b_back.php">Retour au back-office</a>
 
 <?php include 'inc/footer.php';

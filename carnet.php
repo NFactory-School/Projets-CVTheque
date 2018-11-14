@@ -1,8 +1,12 @@
 <?php
-include ('inc/pdo.php');
-include ('inc/fonction.php');
-include ('inc/request.php');
-include ('inc/header.php');
+include 'inc/pdo.php';
+include 'inc/fonction.php';
+include 'inc/request.php';
+include 'inc/header.php';
+
+if (isLogged()==false){
+ header('Location:403.php');
+}
 
 if($_SESSION['user']['status'] == 'banni'){
   header('Location:403.php');
@@ -36,7 +40,9 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
       <div class="clear"></div>
       <h3>Informations du profil : </h3>
 
-        <?php if(!empty($_SESSION['user']['prenom'])){
+        <?php //infos profil
+        
+              if(!empty($_SESSION['user']['prenom'])){
                 echo '<p>'.$_SESSION['user']['prenom'].'</p>';
               }
               if(!empty($_SESSION['user']['nom'])){
@@ -55,13 +61,41 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 
   </aside>
   <div class="carnet">
-    <span>Votre Carnet</span>
-    <div class="vaccinFait">
-      <?php $vaccinFait = b_select_vaccin_from_user($_SESSION['user']['id']);
-            print_r($vaccinFait); 
-      ?>
+    <h2>Votre Carnet</h2>
+
+    <div class="listeVaccin">
+      <form action="carnet.php" method="post">
+
+          <?php 
+            $listeVaccin = b_select_vaccin_from_vaccins();
+
+            foreach($listeVaccin as $key=>$valeur){
+              $listeVaccin[$key] = $listeVaccin[$key]['nom'];
+              $cle = $listeVaccin[$key];
+            ?>
+            <input type="checkbox" name=" <?php echo $valeur['nom'];?>" 
+            <?php if(!empty($_POST[$cle])){echo 'checked="checked"';} ?> >
+            <span <?php if(!empty($_POST[$cle])){echo 'class="check"';} ?> > <?php echo $valeur['nom']; ?></span><br/>
+
+            <?php } ?>
     </div>
-    <div class="vaccinFait">
+
+                <?php
+                    if(!empty($_POST['listeRappel']) && !empty($_SESSION['user'])){
+                      foreach($_POST as $key=>$valeur){
+                        if ($key != 'listeRappel'){
+                          ?> <input class="rappel" type="date" name="<?php echo $key?>" value="<?php if(!empty($_POST[$key])){echo $_POST[$key];} ?>" ><span> Date de rappel pour "<?php echo $key ?>"</span><br/> <?php
+                          
+                        }
+                        
+                      }
+                      
+                    }
+                    echo '<input type="submit" name="listeRappel" value="confirmer">';
+                ?>
+      </form>
+    
+
     </div>
     <a class="myButton button"href="profil_edit.php">éditer profil</a>
     <a class="myButton"href="carnet.php">Mon carnet</a>
