@@ -69,7 +69,7 @@ if(islogged()){
 
   // Vérif  & MDP
   $user = index2($mail);
-  tab($user);
+  
   if(!empty($user)){
 
     if(!password_verify($mdp, $user['mdp'])){
