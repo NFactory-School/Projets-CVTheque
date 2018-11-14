@@ -38,7 +38,6 @@ if(!empty($user['taille']) && !empty($user['poids'])){
 ?>
 <div class='profil'>
 
-  <h2>Votre profil</h2>
 
     <aside>
       <?php if(!empty($user['sexe']) && $user['sexe'] == 'homme'){
@@ -58,19 +57,21 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         </ol>
     </aside>
 
+    <h2>Votre profil</h2>
     <div class='main'>
         <h3>Informations à remplir :</h3>
         <ul>
-          <li>date de naissance : <?php echo $user['ddn'] ?></li>
-          <li>sexe : <?php echo $user['sexe'] ?></li>
-          <li>taille : <?php echo $user['taille'] ?></li>
-          <li>poids : <?php echo $user['poids'] ?></li>
-          <li>statut : <?php echo $user['status'] ?></li>
-          <li class="<?php echo $resultimc ?>">Indice de masse corporelle : <?php if(!empty($imc)){ echo $imc; } ?></li>
+          <li><span class="bleu">date de naissance : </span><?php echo $user['ddn'] ?></li>
+          <li><span class="bleu">sexe : </span><?php echo $user['sexe'] ?></li>
+          <li><span class="bleu">taille : </span><?php echo $user['taille'] ?></li>
+          <li><span class="bleu">poids : </span><?php echo $user['poids'] ?></li>
+          <li><span class="bleu">statut : </span><?php echo $user['status'] ?></li>
+          <li><span class="bleu">Indice de masse corporelle : </span><?php if(!empty($imc)){ echo $imc; } ?></li>
           <li><a class="myButton button"href="profil_edit.php">éditer profil</a></li>
           <li><a class="myButton" href="carnet.php">Mon carnet</a></li>
         </ul>
   </div>
+  <div class="clear"></div>
 </div>
 
 

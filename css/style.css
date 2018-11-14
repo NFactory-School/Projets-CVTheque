@@ -10,6 +10,9 @@ body {
   font-weight: bold;
   color:#5383d3;
 }
+.bleu{
+  color:#5383d3;
+}
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
 img{
   width:100%;
@@ -247,6 +250,7 @@ body {
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
+  margin-top: 80px;
 	padding: 55px 50px;
   position:relative;
   bottom: 0;
@@ -676,30 +680,35 @@ body {
 
 /* Niko profil.php */
 .profil {
-  background-color: black;
+  background-color: #F8F8F8;
   opacity:.8;
   padding-top:10px;
   width: 960px;
-  height:500px;
-  margin: 0 auto;
+  margin: 80px auto;
   position:relative;
 }
 
+.profil aside img{
+  margin:20px auto;
+}
+
+
 .profil h2 {
-  text-align: center;
   font-size: 2em;
-  color: #445566;
+  color: #5383d3;
   font-family: Georgia, Times, Serif;
   font-weight: normal;
-  margin: 0;
+  margin: auto 5%;;
   padding: 1%;
   text-decoration: underline;
 }
 
 .profil h3 {
-  text-decoration: underline;
-  color: #445566;
+  font-weight: bold;
+  font-size: 1.2em;
+  color:  #5383d3;
   margin: 0px;
+  -right:15%;
 }
 
 .profil a {
@@ -729,10 +738,12 @@ body {
 .profil .main {
   width: 650px;
   float: right;
-  margin-right: 30px;
+  margin: 20px 0;
   line-height: 20px;
 }
-
+.profil .main li{
+  line-height: 2em;
+}
 .ligne {
 	background-color: #CFCFCF;
 	width:50%;
