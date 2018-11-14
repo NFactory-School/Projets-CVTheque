@@ -18,7 +18,22 @@ if(islogged()){
 
 
     // Verif mail
-    $errors = vMail($errors, $mail, 5, 150, 'mail');
+    if(!empty($mail)){
+      if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
+        if(strlen($mail) < 5 || (strlen($mail) >150)){
+          $errors['mail'] = "Veuillez entrer un mail valide";
+        }else{
+              $userMail = index($mail);
+          if(!empty($userMail)){
+            $errors['mail'] = "Adresse mail déja utilisée";
+          }
+        }
+      }else{
+        $errors['mail'] = 'Veuillez entrer une adresse mail valide';
+      }
+    }else{
+        $errors['mail'] = "Veuillez renseigner une adresse mail";
+    }
 
     // Verif taille mdp
     $errors = vMdp($errors, $mdp, $mdpV, 6, 100, 'mdp');

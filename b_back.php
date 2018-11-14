@@ -12,20 +12,15 @@ if (isLogged()==false){
  header('Location:403.php');
 }
 
-// Requête count contacts
-$sql = "SELECT COUNT(*) FROM vax_contact";
-$query = $pdo->prepare($sql);
-$query->execute();
-$count_users = $query->fetchColumn();
+// Requête count profils
+
+$count_users = b_back();
 
 // requête count vaccins
 $count_vaccins = b_back1();
 
-// Requete pagination contacts
-$sql ="SELECT COUNT(id) FROM vax_contact";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$totalItems = $query -> fetchColumn();
+// Requete pagination profils
+$totalItems = b_back2();
 
 // Définition des variables
 $itemsPerPage = 4;
@@ -39,11 +34,7 @@ if(!empty($_GET['page']) && is_numeric($_GET['page'])){
 $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
 // requête affichage contacts
-$sql = "SELECT * FROM vax_contact
-        ORDER BY statut ASC LIMIT $offset, $itemsPerPage";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $contacts = $query -> fetchAll();
+$contacts = b_back3($offset, $itemsPerPage);
 ?>
 
 <div id="wrapper">
@@ -60,7 +51,7 @@ $sql = "SELECT * FROM vax_contact
             </div>
 
             <div class="col-xs-9 text-right">
-              <div class="huge"><?php echo $count_users ?></div>
+              <div class="huge"><?php echo $count_users['COUNT(*)'] ?></div>
               <div>Utilisateurs</div>
             </div>
 

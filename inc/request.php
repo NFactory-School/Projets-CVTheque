@@ -48,7 +48,7 @@ function b_add_vaccin1($nom,$cible,$info,$age){
   $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
   $query -> bindValue(':cible', $cible, PDO::PARAM_STR);
   $query -> bindValue(':info', $info, PDO::PARAM_STR);
-  $query -> bindValue(':age', $age, PDO::PARAM_STR);
+  $query -> bindValue(':age', $age, PDO::PARAM_INT);
   $query -> execute();
 }
 
@@ -106,21 +106,20 @@ function b_back1(){
 
 function b_back2(){
   global $pdo;
-  $sql ="SELECT COUNT(*) as nbContact
-        FROM vax_contact";
+  $sql ="SELECT COUNT(id) FROM vax_profils";
   $query = $pdo -> prepare($sql);
   $query -> execute();
-  $countMsg = $query -> fetch();
-  return $countMsg;
+  $totalItems = $query -> fetchColumn();
+  return $totalItems;
 }
 
-function b_back3($cPage, $msgParPages){
+function b_back3($offset, $itemsPerPage){
   global $pdo;
   $sql = "SELECT * FROM vax_contact
-          ORDER BY id DESC LIMIT ".(($cPage - 1) * $msgParPages).", $msgParPages";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $contacts = $query -> fetchAll();
+          ORDER BY statut ASC LIMIT $offset, $itemsPerPage";
+    $query = $pdo -> prepare($sql);
+    $query -> execute();
+    $contacts = $query -> fetchAll();
   return $contacts;
 }
 
