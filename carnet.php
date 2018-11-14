@@ -69,30 +69,39 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
           <?php 
             $listeVaccin = b_select_vaccin_from_vaccins();
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
-            print_r($listeVaccinUser);
-            br();
+            $check = array();
 
             foreach($listeVaccin as $key=>$valeur){
               
-              $listeVaccin[$key] = $listeVaccin[$key]['nom'];
-              $cle = $listeVaccin[$key];
-
-              echo '$key : '.$key;
-              br();
-              echo 'listeVaccin[$key] : '.$cle;
-              br();
-              echo '$listeVaccinUser[$key][id_vaccins] : '.$listeVaccinUser[$key]['id_vaccins'];
-              br();
-
+              $nom = $listeVaccin[$key]['nom'];
+              $id = $listeVaccin[$key]['id'];
+              
               foreach($listeVaccinUser as $key=>$valeur){
+                $vaccin = $listeVaccinUser[$key]['id_vaccins'];
                 
-              }
-            ?>
-            <input type="checkbox" name=" <?php echo $valeur['nom'];?>" 
-            <?php if(!empty($_POST[$cle])){echo 'checked="checked"';} ?> >
-            <span <?php if(!empty($_POST[$cle])){echo 'class="check"';} ?> > <?php echo $valeur['nom']; ?></span><br/>
+                if (!empty($listeVaccinUser[$key]) && $listeVaccinUser[$key]['id_vaccins'] == $id){ 
+                  $check[] = $key; ?>
+                  <input type="checkbox" name=" <?php echo $valeur['nom'];?>" checked="checked"disabled="disabled">
+                  <span class="check"><?php echo $nom; ?></span><br/>
 
-            <?php } ?>
+         <?php } ?>
+
+                
+            <?php }
+
+            print_r($listeVaccinUser);
+            br();
+            echo $key;
+            br();
+            echo $listeVaccinUser[$key]['id_vaccins'];
+            br();
+            ?>
+            
+            <?php if ($listeVaccinUser[$key]['id_vaccins'] != $id){ ?>
+            <input type="checkbox" name=" <?php echo $valeur['nom'];?>">
+            <span <?php if(!empty($_POST[$nom])){echo 'class="check"';} ?> > <?php echo $nom; ?></span><br/><?php
+            } ?>
+           <?php } ?>
     </div>
 
                 <?php
