@@ -2,7 +2,7 @@
 include 'inc/pdo.php';
 include 'inc/request.php';
 include 'inc/fonction.php';
-include 'inc/header.php';
+include 'inc/header_back.php';
 
 isAdmin();
 
@@ -31,12 +31,11 @@ $contacts = b_contact_back($id);
       </div>
 
       <div class="panel-footer">
-        <?php echo $contacts['mail'] ?>
+        <?php echo $contacts['mail'] ?><br/>
+        <a href="b_back.php"><button type="button" class="btn btn-outline btn-default">Retour au back-office</button></a>
       </div>
 
     </div>
-
-    <a href="b_back.php"><button type="button" class="btn btn-outline btn-default">Retour au back-office</button></a>
 
   </div>
 </div>

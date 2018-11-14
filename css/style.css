@@ -4,25 +4,26 @@ body {
   font: 400 16px/1.3 verdana, arial, sans-serif;
 	color:#000;
 	background-color: #dcdcdc;
+  background:url('../img/index.png') no-repeat center center fixed;
+  background-size:cover;
 }
-
-
-
-
-
-
-
-
+.bolder{
+  font-weight: bold;
+}
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
-
+img{
+  width:100%;
+}
 a {
 	text-decoration: none;
+}
+.panel-footer{
+  float:right;
 }
 .index{
   height:100%;
   width:100%;
-  background:url('../img/index.png') no-repeat center center fixed;
-  background-size:cover;
+
   padding-bottom: 180px;
 }
 .lienutile {
@@ -46,10 +47,11 @@ body {
 }
 
 .form-wrap {
+  margin:0 auto;
+  float:right;
   opacity:.9;
   background-color: #fff;
-  width: 320px;
-  margin: 3em auto;
+  width: 20%;
   box-shadow: 0px 1px 8px #BEBEBE;
   -webkit-box-shadow: 0px 1px 8px #BEBEBE;
 	-moz-box-shadow: 0px 1px 8px #BEBEBE;
@@ -164,11 +166,12 @@ body {
 
 /* header */
 .header {
-	background-color:#292c2f;
+  opacity:.9;
+	background-color:#C0C0C0;
 	box-shadow:0 1px 1px #ccc;
 	padding: 20px 40px;
-	height: 110px;
 	color: #ffffff;
+  max-height: 110px;
 	box-sizing: border-box;
 	top:-100px;
 
@@ -224,8 +227,9 @@ body {
 }
 
 .logo-header{
+  margin-right: 80%;
   padding:5px;
-  width : 100px;
+  width : 150px;
 }
 .logo-header:hover{
   opacity:0.8;
@@ -233,13 +237,17 @@ body {
 
 /* Footer */
 .footer{
-	background-color: #292c2f;
+  opacity:.8;
+	background-color:#C0C0C0;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
 	padding: 55px 50px;
+  position:relative;
+  bottom: 0;
+  left:0;
 }
 
 .footer .footer-left,
@@ -373,18 +381,31 @@ body {
 
 /*lien RSX*/
 .facebook {
-	background: url('../img/rsx.png') no-repeat -23px -24px;
+  background: url('../img/rsx.png') no-repeat -37px -120px;
+	width: 51px;
+	height: 51px;
+  border-radius: 100%;
 }
 
-.twitter {
-	background: url('../img/rsx.png') no-repeat -202px -208px;
+.twitter {background: url('../img/rsx.png') no-repeat -96px -120px;
+	width: 51px;
+	height: 51px;
+  border-radius: 100%;
 }
 
+.facebook:hover{
+  background: url('../img/rsx.png') no-repeat -37px -39px;
+  	width: 51px;
+  	height: 51px;
+}
+.twitter:hover{
+  background: url('../img/rsx.png') no-repeat -96px -39px;
+	width: 51px;
+	height: 51px;
+}
 .rsx {
 	margin:5px 5px 0 0;
 	float:left;
-	width: 65px;
-	height: 65px;
 }
 
 @keyframes bounce {
@@ -728,6 +749,55 @@ body {
 .check{
   color:orange;
 }
+
 .rappel {
 	margin:0 auto;
+}
+
+
+/* minislider */
+.minislider{
+  opacity:.8;
+  float:left;
+  width : 50%;
+}
+.item-1, .item-2, .item-3 {
+  background-color: #F6F6F6;
+  opacity:.8;
+  position:relative;
+  display: block;
+  width: 60%;
+	animation-duration: 30s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+.item-1{
+	animation-name: anim-1;
+}
+
+.item-2{
+	animation-name: anim-2;
+}
+
+.item-3{
+	animation-name: anim-3;
+}
+
+@keyframes anim-1 {
+	0%, 8.3% { left: -100%; opacity: 0; }
+  8.3%,25% { left: 25%; opacity: 1; }
+  33.33%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-2 {
+	0%, 33.33% { left: -100%; opacity: 0; }
+  41.63%, 58.29% { left: 25%; opacity: 1; }
+  66.66%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-3 {
+	0%, 66.66% { left: -100%; opacity: 0; }
+  74.96%, 91.62% { left: 25%; opacity: 1; }
+  100% { left: 110%; opacity: 0; }
 }
