@@ -18,23 +18,26 @@ if(islogged()){
 
 
     // Verif mail
-    vMail($errors, $_POST['mail'], 5, 150, 'mail');
-  
+    if(!empty($mail)){
+      if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
+        if(strlen($mail) < 5 || (strlen($mail) >150)){
+          $errors['mail'] = "Veuillez entrer un mail valide";
+        }else{
+              $userMail = index($mail);
+
+          if(!empty($userMail)){
+            $errors['mail'] = "Adresse mail déja utilisée";
+          }
+        }
+      }else{
+        $errors['mail'] = 'Veuillez entrer une adresse mail valide';
+      }
+    }else{
+        $errors['mail'] = "Veuillez renseigner une adresse mail";
+    }
 //
     // Verif taille mdp
-    if(!empty($_POST['mdp'])){
-      if(strlen($mdp) < 6 || strlen($mdp) > 100){
-        $errors['mdp'] = "Veuillez entrer un mot de passe valide";
-      }
-    } else{
-        $errors['mdp'] = "Veuillez entrer un mot de passe valide";
-      }
-
-    // MDPS identiques
-    if($mdp != $mdpV){
-      $errors['mdp'] = "Les mots de passe ne correspondent pas";
-    }
-
+    $errors = vMdp($errors, $mdp, $mdpV, 6, 100, 'mdp');
 
     // S'il n'y a pas d'erreurs INCRIPTION
     if(count($errors) == 0){
@@ -81,6 +84,7 @@ if(islogged()){
         header('Location:profil.php');
       }
     }
+     header('Location:index1.php');
   }
 
   include ('inc/header.php');
