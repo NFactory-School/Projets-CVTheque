@@ -50,10 +50,13 @@ if(!empty($_POST['submit'])){
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
+
       <div class="panel-heading"><h1>Ajouter un vaccin</h1></div>
+
         <div class="panel-body">
           <div class="row">
             <div class="col-lg-6">
+
               <form role ="form" class="add-vaccin" action="" method="post">
                 <div class="form-group has-success">
                   <label class="control-label" for="nom">Nom du vaccin</label>
@@ -67,21 +70,29 @@ if(!empty($_POST['submit'])){
                   <span class="error"><?php error($errors,'cible');?></span><?php br(); ?>
                 </div>
 
-              <div class="form-group">
-                <label class="control-label" for="info">Informations Complémentaires</label>
-                <input class="form-control" type="text" name="info" value=""><br/>
-                <span class="error"><?php error($errors,'info');?></span><?php br(); ?>
-              </div>
+                <div class="form-group">
+                  <label class="control-label" for="info">Informations Complémentaires</label>
+                  <input class="form-control" type="text" name="info" value=""><br/>
+                  <span class="error"><?php error($errors,'info');?></span><?php br(); ?>
+                </div>
 
-              <div class="form-group">
-                <label class="control-label" for="age">Âge de 1e prise recommandé (en mois)</label>
-                <input class="form-control" type="number" name="age" value="" min="0" max="1560">
-                <span class="error"><?php error($errors,'age');?></span><?php br(); ?>
-              </div>
+                <div class="form-group">
+                  <label class="control-label" for="age">Âge de 1e prise recommandé (en mois)</label>
+                  <input class="form-control" type="number" name="age" value="" min="0" max="1560">
+                  <span class="error"><?php error($errors,'age');?></span><?php br(); ?>
+                </div>
 
-                <input  class="btn btn-default" type="submit" name="submit" value="Ajouter" onclick="return confirm('Voulez vous vraiment ajouter ce vaccin a la base de données ? Il ne pourra plus être supprimé depuis le back-office')"
-               >
+                <div class="form-group">
+                  <input  class="btn btn-default" type="submit" name="submit" value="Ajouter" onclick="return confirm('Voulez vous vraiment ajouter ce vaccin a la base de données ? Il ne pourra plus être supprimé depuis le back-office">
+                </div>
+                
               </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
 
 <a href="b_vaccins_back.php"><button type="button" class="btn btn-outline btn-default">Retour</button></a>
 
