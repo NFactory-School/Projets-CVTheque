@@ -8,10 +8,6 @@ use JasonGrimes\Paginator;
 
 isAdmin();
 
-if (isLogged()==false){
- header('Location:403.php');
-}
-
 // Requete pagination vaccins
 $sql ="SELECT COUNT(id) FROM vax_vaccins";
 $query = $pdo -> prepare($sql);

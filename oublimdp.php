@@ -4,10 +4,6 @@ include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 
-if($_SESSION['user']['status'] == 'banni'){
-  header('Location:403.php');
-}
-
 if (!empty($_GET['mail']) && !empty($_GET['token'])) {
   $mail = urldecode($_GET['mail']);
   $token = urldecode($_GET['token']);
@@ -16,16 +12,9 @@ if (!empty($_GET['mail']) && !empty($_GET['token'])) {
     if(!empty($_POST['submit'])) {
       $mdp = trim(strip_tags($_POST['mdp']));
       $mdpV = trim(strip_tags($_POST['mdpV']));
-      if(!empty($_POST['mdp'])){
-        if(strlen($mdp) < 6 || strlen($mdp) > 100){
-          $errors['mdp'] = "Veuillez entrer un mot de passe valide";
-        }
-      } else{
-          $errors['mdp'] = "Veuillez entrer un mot de passe valide";
-        }
-      if($mdp != $mdpV){
-        $errors['mdp'] = "Les mots de passe ne correspondent pas";
-      }
+      
+      $errors = vMdp($errors, $mdp, $mdpV, 6, 100, 'mdp');
+
       if(count($errors) == 0){
         $hash = password_hash($mdp, PASSWORD_DEFAULT);
         $token = generateRandomString(120);

@@ -31,35 +31,44 @@ if (!empty($data)){
   return $errors;
 }
 
-function vMail($error,$value,$min,$max,$key) {
-  if (!empty($value)) {
-    if (filter_var($value, FILTER_VALIDATE_EMAIL)){
-      $value = trim(strip_tags($value));
-      if (is_string($value) && strlen($value) <= $min) {
-        $error[$key] = 'error : moins de '.$min.' caractères';
-      }
-      elseif (is_string($value) && strlen($value) >= $max ){
-        $error[$key] = 'error : plus de '.$max.' caractères';
-      }
-      else {
-        $error[$key] = 'error : vide';
-      }
-    return $error;
-    }
-  }
-}
+// function vMail($error,$value,$min,$max,$key) {
+//   if (!empty($value)) {
+//     if (filter_var($value, FILTER_VALIDATE_EMAIL)){
+//       $value = trim(strip_tags($value));
+//       if (is_string($value) && strlen($value) <= $min) {
+//         $error[$key] = 'Error : Plus de '.$min.' caractères';
+//       }elseif (is_string($value) && strlen($value) >= $max ){
+//         $error[$key] = 'Error : Moins de '.$max.' caractères';
+//       }else{
+//             $userMail = index($value);
+//         if(!empty($userMail)){
+//             $error[$key] = "Error : Adresse mail déja utilisée";
+//         }
+//       }
+//     }else {
+//         $error[$key] = 'error : Email non valide';
+//     }
+//   }else {
+//     $error[$key] = 'error : Le champs de texte est vide';
+//   }
+//   return $error;
+// }
 
-function vMdp($error,$data,$min,$max,$key){
-  if (!empty($data)) {
-    if (is_string($data) && strlen($data) <= $min) {
-      $error[$key] = 'error : moins de '.$min.' caractères';
+function vMdp($error,$value,$value1,$min,$max,$key){
+  if (!empty($value)) {
+    if (is_string($value) && strlen($value) <= $min) {
+      $error[$key] = 'Error : Plus de '.$min.' caractères';
     }
-    elseif (is_string($data) && strlen($data) >= $max ){
-      $error[$key] = 'error : plus de '.$max.' caractères';
+    elseif (is_string($value) && strlen($value) >= $max ){
+      $error[$key] = 'Error : Moins de '.$max.' caractères';
     }
   }
   else {
-    $error[$key] = 'error : vide';
+    $error[$key] = 'Error : Le champs de texte est vide';
+  }
+
+  if($value != $value1){
+    $error[$key] = 'Les mots de passe ne correspondent pas';
   }
   return $error;
 }

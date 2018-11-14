@@ -18,7 +18,7 @@ if(islogged()){
 
 
     // Verif mail
-    if(!empty($_POST['mail'])){
+    if(!empty($mail)){
       if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
         if(strlen($mail) < 5 || (strlen($mail) >150)){
           $errors['mail'] = "Veuillez entrer un mail valide";
@@ -36,18 +36,7 @@ if(islogged()){
     }
 
     // Verif taille mdp
-    if(!empty($_POST['mdp'])){
-      if(strlen($mdp) < 6 || strlen($mdp) > 100){
-        $errors['mdp'] = "Veuillez entrer un mot de passe valide";
-      }
-    } else{
-        $errors['mdp'] = "Veuillez entrer un mot de passe valide";
-      }
-
-    // MDPS identiques
-    if($mdp != $mdpV){
-      $errors['mdp'] = "Les mots de passe ne correspondent pas";
-    }
+    $errors = vMdp($errors, $mdp, $mdpV, 6, 100, 'mdp');
 
 
     // S'il n'y a pas d'erreurs INCRIPTION
@@ -69,7 +58,7 @@ if(islogged()){
 
   // Vérif  & MDP
   $user = index2($mail);
-  tab($user);
+
   if(!empty($user)){
 
     if(!password_verify($mdp, $user['mdp'])){
