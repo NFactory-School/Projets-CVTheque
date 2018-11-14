@@ -14,7 +14,7 @@ if(!empty($_POST['sub'])){
 
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
-  
+
   $sexe = $_POST['sexe'];
   $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));
@@ -65,6 +65,7 @@ $id = $_SESSION['user']['id'];
        'notif' => $user['notif'],
        'ip' => $_SERVER['REMOTE_ADDR']
      );
+     
      header('Location:profil.php');
    }
 }
