@@ -85,8 +85,10 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                     b_insert_vaccin_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id']);
                   }
                   if ($cursor == $date){
-                    
-                    b_insert_rappel_in_pivot ($_POST[$cursor]);
+                    echo $_POST[$cursor];
+                    $rappel = str_replace($_POST[$cursor],"-", "/"); //probleme ps pense a la requete en update
+                    echo $rappel;
+                    //b_update_rappel_in_pivot($rappel);
                   }
                 }
               }
