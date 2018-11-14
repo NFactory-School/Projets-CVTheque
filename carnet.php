@@ -71,14 +71,33 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
             $nope = 0;
 
+            
+
             foreach($listeVaccin as $cle=>$valeur){
+
+              $nom = $listeVaccin[$cle]['nom'];
+              $date = $listeVaccin[$cle]['nom'].'_Rappel';
+
+              if (!empty($_POST)){
+
+                foreach($_POST as $cursor=>$valeur){
+                  if ($cursor == $nom){
+                    b_insert_vaccin_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id']);
+                  }
+                  if ($cursor == $date){
+                    //b_insert_rappel_in_pivot();
+                  }
+                }
+              }
+              
 
               foreach($listeVaccinUser as $key=>$valeur){
 
                   if ($listeVaccin[$cle]['id'] == $listeVaccinUser[$key]['id_vaccins']){
                     ?>
-                    <input type="checkbox" name="<?php echo $listeVaccin[$cle]['nom'];?>" checked="checked" disabled="disabled">
-                    <span class="check"><?php echo $listeVaccin[$cle]['nom']; ?></span><br/> <?php
+                    <input type="checkbox" name="<?php echo $nom;?>" checked="checked" disabled="disabled">
+                    <input type="date" name="<?php echo $nom; ?>_Rappel" value="confirmer">
+                    <span class="check"><?php echo $nom; ?></span><br/> <?php
                     $nope = 0;
                     break;
                   }
@@ -86,6 +105,8 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                     $nope = 1;
                   }
               }
+                  
+
                   if ($nope == 1) {
                   ?>
                   <input type="checkbox" name="<?php echo $listeVaccin[$cle]['nom'];?>">

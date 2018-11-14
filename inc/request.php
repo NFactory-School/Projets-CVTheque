@@ -40,9 +40,28 @@ function b_insert_vaccin_from_pivot($tab){
   return $vaccinUser;
 }
 
+function b_insert_vaccin_in_pivot ($id_profil,$id_vaccins){
+  global $pdo;
+  $sql = "INSERT INTO vax_pivot (id_profil, id_vaccins, date)
+          VALUES (:id_profil, :id_vaccins, NOW())";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':id_profil', $id_profil, PDO::PARAM_INT);
+  $query -> bindValue(':id_vaccins', $id_vaccins, PDO::PARAM_INT);
+  $query -> execute();
+}
+
+function b_insert_rappel_in_pivot ($rappel){ //lui
+  global $pdo;
+  $sql = "INSERT INTO vax_pivot (rappel)
+          VALUES (:rappel)";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':rappel', $rappel, PDO::PARAM_STR);
+  $query -> execute();
+}
+
 function b_add_vaccin1($nom,$cible,$info,$age){
   global $pdo;
-  $sql = "INSERT INTO vax_vaccins(nom, maladie_cible, info, age_recommande)
+  $sql = "INSERT INTO vax_vaccins (nom, maladie_cible, info, age_recommande)
           VALUES (:nom, :cible, :info, :age)";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
