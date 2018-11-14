@@ -2,10 +2,12 @@
 include ('inc/pdo.php');
 include ('inc/request.php');
 include 'inc/fonction.php';
-include 'inc/header.php';
+include 'inc/header_back.php';
 
-if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
-  header('Location:403.php');
+isAdmin();
+
+if (isLogged()==false){
+ header('Location:403.php');
 }
 // verif soumission
 $errors = array();
@@ -45,27 +47,42 @@ if(!empty($_POST['submit'])){
   }
 
 ?>
-<form class="add-vaccin" action="" method="post">
-  <legend>Ajouter un vaccin</legend>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h1>Ajouter un vaccin</h1></div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <form role ="form" class="add-vaccin" action="" method="post">
+                <div class="form-group has-success">
+                  <label class="control-label" for="nom">Nom du vaccin</label>
+                  <input class="form-control" type="text" name="nom" value=""><br/>
+                  <span class="error"><?php error($errors,'nom');?></span><?php br(); ?>
+                </div>
 
-  <label for="nom">Nom du vaccin</label>
-    <input type="text" name="nom" value=""><br/>
-  <span class="error"><?php error($errors,'nom');?></span><?php br(); ?>
+                <div class="form-group">
+                  <label class="control-label" for="cible">Maladie ciblée</label>
+                  <input class="form-control" type="text" name="cible" value=""><br/>
+                  <span class="error"><?php error($errors,'cible');?></span><?php br(); ?>
+                </div>
 
-  <label for="cible">Maladie ciblée</label>
-    <input type="text" name="cible" value=""><br/>
-  <span class="error"><?php error($errors,'cible');?></span><?php br(); ?>
+              <div class="form-group">
+                <label class="control-label" for="info">Informations Complémentaires</label>
+                <input class="form-control" type="text" name="info" value=""><br/>
+                <span class="error"><?php error($errors,'info');?></span><?php br(); ?>
+              </div>
 
-  <label for="info">Informations Complémentaires</label>
-    <input type="text" name="info" value=""><br/>
-  <span class="error"><?php error($errors,'info');?></span><?php br(); ?>
+              <div class="form-group">
+                <label class="control-label" for="age">Âge de 1e prise recommandé (en mois)</label>
+                <input class="form-control" type="number" name="age" value="" min="0" max="1560">
+                <span class="error"><?php error($errors,'age');?></span><?php br(); ?>
+              </div>
 
-  <label for="age">Âge de 1e prise recommandé (en mois)</label>
-  <input type="number" name="age" value="" min="0" max="1560">
-  <span class="error"><?php error($errors,'age');?></span><?php br(); ?>
+                <input  class="btn btn-default" type="submit" name="submit" value="Ajouter" onclick="return confirm('Voulez vous vraiment ajouter ce vaccin a la base de données ? Il ne pourra plus être supprimé depuis le back-office')"
+               >
+              </form>
 
-  <input type="submit" name="submit" value="Ajouter" onclick="return confirm('Voulez vous vraiment ajouter ce vaccin a la base de données ? Il ne pourra plus être supprimé depuis le back-office')"
- >
-</form>
+<a href="b_vaccins_back.php"><button type="button" class="btn btn-outline btn-default">Retour</button></a>
 
-<a href="b_vaccins_back.php">Retour</a>
+<?php include 'inc/footer_back.php'; ?>
