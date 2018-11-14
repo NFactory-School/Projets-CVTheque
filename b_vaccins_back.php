@@ -61,6 +61,8 @@ $vaccins = $query -> fetchAll();
 
             <tbody>
               <?php foreach ($vaccins as $vaccin):?>
+                <tr>
+
                 <td><?php echo $vaccin['id'] ?></td>
                 <td><?php echo $vaccin['nom'] ?></td>
                 <td><?php echo $vaccin['maladie_cible'] ?></td>
@@ -69,13 +71,14 @@ $vaccins = $query -> fetchAll();
                 <td> <a class="myButton" href="b_rm_vaccin.php?id=<?php echo $vaccin['id'] ?>"><button type ="button" class="btn btn-danger btn-circle"><i class ="fas fa-eye-slash"></i></button></a>
                      <a class="myButton" href="b_cancel_vaccin.php?id=<?php echo $vaccin['id'] ?>"><button type ="button" class="btn btn-success btn-circle"><i class ="fas fa-eye"></i></button></a> </td>
                 <td><?php echo $vaccin['status'] ?></td>
+              </tr>
               <?php endforeach; ?>
             </tbody>
           </table>
           <?php echo $paginator ?>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>

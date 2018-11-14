@@ -100,55 +100,56 @@ if(islogged()){
 
   include ('inc/header.php');
 ?>
+<div class="wrap">
+  <div class="index">
+    <div class="intro">
+      <h2>Bienvenue sur <span>VAX</span></h2>
+  		<p>Gérer vos vaccins<br></p>
+  		<span class="texte-intro">en ligne.</span>
+    </div>
 
-<div class="index">
-  <div class="intro">
-    <h2>Bienvenue sur <span>VAX</span></h2>
-		<p>Gérer vos vaccins<br></p>
-		<span class="texte-intro">en ligne.</span>
+    <div class="form-wrap">
+  		<div class="tabs">
+  			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Inscription</a></h3>
+  			<h3 class="login-tab"><a href="#login-tab-content">Connexion</a></h3>
+  		</div><!--.tabs-->
+
+  		<div class="tabs-content">
+  			<div id="signup-tab-content" class="active">
+  				<form class="signup-form" action="" method="post">
+  					<input type="email" name="mail" class="input" id="user_email" placeholder="Adresse mail">
+            <span class="error"><?php if(!empty($errors['mail'])) { echo $errors['mail']; } ?></span>
+            <input type="password" name="mdp" class="input" id="user_passS" placeholder="Mot de passe">
+            <span class="error"><?php if(!empty($errors['mdp'])) { echo $errors['mdp']; } ?></span>
+            <input type="password" name="mdpV" class="input" id="user_passV" placeholder="Répéter mot de passe">
+            <span class="error"><?php if(!empty($errors['mdpV'])) { echo $errors['mdpV']; } ?></span>
+            <div class="ligne"></div>
+  					<input type="submit" name="submit" class="button" value="S'inscrire">
+  				</form><!--.login-form-->
+  				<div class="help-text">
+  					<p>En vous inscrivant vous acceptez nos</p>
+  					<p><a class="lienutile" href="cgu.php">termes et services</a></p>
+  				</div><!--.help-text-->
+  			</div><!--.signup-tab-content-->
+
+  			<div id="login-tab-content">
+  				<form class="login-form" action="" method="post">
+            <input type="text" name="mail" class="input" id="user_login" placeholder="Adresse mail">
+            <span class="error"><?php if(!empty($error['mail'])) { echo $error['mail']; } ?></span>
+  					<input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
+            <span class="error"><?php if(!empty($error['mdp'])) { echo $error['mdp']; } ?></span>
+  					<input type="checkbox" name="remember" class="checkbox" id="remember_me">
+            <label for="remember_me">Se souvenir de moi</label>
+            <div class="ligne"></div>
+            <input type="submit" name="connexion" class="button" value="Se connecter">
+  				</form><!--.login-form-->
+  				<div class="help-text">
+  					<p><a class="lienutile" href="oublimail.php">Mot de passe oublié ?</a></p>
+  				</div><!--.help-text-->
+  			</div><!--.login-tab-content-->
+  		</div><!--.tabs-content-->
+    </div><!--.form-wrap-->
   </div>
-
-  <div class="form-wrap">
-		<div class="tabs">
-			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Inscription</a></h3>
-			<h3 class="login-tab"><a href="#login-tab-content">Connexion</a></h3>
-		</div><!--.tabs-->
-
-		<div class="tabs-content">
-			<div id="signup-tab-content" class="active">
-				<form class="signup-form" action="" method="post">
-					<input type="email" name="mail" class="input" id="user_email" placeholder="Adresse mail">
-          <span class="error"><?php if(!empty($errors['mail'])) { echo $errors['mail']; } ?></span>
-          <input type="password" name="mdp" class="input" id="user_passS" placeholder="Mot de passe">
-          <span class="error"><?php if(!empty($errors['mdp'])) { echo $errors['mdp']; } ?></span>
-          <input type="password" name="mdpV" class="input" id="user_passV" placeholder="Répéter mot de passe">
-          <span class="error"><?php if(!empty($errors['mdpV'])) { echo $errors['mdpV']; } ?></span>
-          <div class="ligne"></div>
-					<input type="submit" name="submit" class="button" value="S'inscrire">
-				</form><!--.login-form-->
-				<div class="help-text">
-					<p>En vous inscrivant vous acceptez nos</p>
-					<p><a class="lienutile" href="cgu.php">termes et services</a></p>
-				</div><!--.help-text-->
-			</div><!--.signup-tab-content-->
-
-			<div id="login-tab-content">
-				<form class="login-form" action="" method="post">
-          <input type="text" name="mail" class="input" id="user_login" placeholder="Adresse mail">
-          <span class="error"><?php if(!empty($error['mail'])) { echo $error['mail']; } ?></span>
-					<input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
-          <span class="error"><?php if(!empty($error['mdp'])) { echo $error['mdp']; } ?></span>
-					<input type="checkbox" name="remember" class="checkbox" id="remember_me">
-          <label for="remember_me">Se souvenir de moi</label>
-          <div class="ligne"></div>
-          <input type="submit" name="connexion" class="button" value="Se connecter">
-				</form><!--.login-form-->
-				<div class="help-text">
-					<p><a class="lienutile" href="oublimail.php">Mot de passe oublié ?</a></p>
-				</div><!--.help-text-->
-			</div><!--.login-tab-content-->
-		</div><!--.tabs-content-->
-  </div><!--.form-wrap-->
 </div>
 
 

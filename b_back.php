@@ -126,11 +126,11 @@ $sql = "SELECT * FROM vax_contact
               </tr>
             </thead>
 
-            <?php foreach($contacts as $contact){
-              $id = $contact['id'];?>
 
               <tbody>
                 <tr>
+                  <?php foreach($contacts as $contact){
+                    $id = $contact['id'];?>
                   <td><a href="b_contact_back.php?id=<?php echo $id ?>"><?php echo $contact['nom'] ?></a></td>
                   <td><?php echo $contact['objet'] ?> </td>
                   <td><?php echo $contact['created_at'] ?></td>
@@ -143,9 +143,9 @@ $sql = "SELECT * FROM vax_contact
                     <?php } ?>
                   </td>
                 </tr>
+              <?php } ?>
               </tbody>
 
-            <?php } ?>
           </table>
           <?php echo $paginator ?>
         </div>

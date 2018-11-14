@@ -6,7 +6,8 @@
  @import 'reset.css';
 
 body {
-  background:url('../../../img/background.png') no-repeat;
+  background:url('../../../img/background.png')  no-repeat center center fixed;
+  background-size:cover;
 }
 #wrapper {
   width: 100%;

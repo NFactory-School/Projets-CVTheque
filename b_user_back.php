@@ -64,19 +64,21 @@ $Users = $query -> fetchAll();
 
             <tbody>
               <?php foreach ($Users as $User):?>
-                <td><?php echo $User['id'] ?></td>
-                <td><?php echo $User['mail']?></td>
-                <td><?php echo $User['created_at']?></td>
-                <td><?php echo $User['modified_at']?></td>
-                <td><?php echo $User['nom']?></td>
-                <td><?php echo $User['prenom']?></td>
-                <td><?php echo $User['sexe']?></td>
-                <td><?php echo $User['notif']?></td>
-                <td><?php echo $User['status']?></td>
-                <td><a href="b_ban_user.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-danger btn-circle">Ban</button></a>
-                    <a href="b_deban_user.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-info btn-circle">User</button></a>
-                    <a href="b_user_admin.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-warning btn-circle">Admin</button></a> </td>
-              <?php endforeach; ?>
+              <tr>
+                  <td><?php echo $User['id'] ?></td>
+                  <td><?php echo $User['mail']?></td>
+                  <td><?php echo $User['created_at']?></td>
+                  <td><?php echo $User['modified_at']?></td>
+                  <td><?php echo $User['nom']?></td>
+                  <td><?php echo $User['prenom']?></td>
+                  <td><?php echo $User['sexe']?></td>
+                  <td><?php echo $User['notif']?></td>
+                  <td><?php echo $User['status']?></td>
+                  <td><a href="b_ban_user.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-danger btn-circle">Ban</button></a>
+                      <a href="b_deban_user.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-info btn-circle">User</button></a>
+                      <a href="b_user_admin.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-warning btn-circle">Admin</button></a> </td>
+              </tr>
+            <?php endforeach; ?>
             </tbody>
           </table>
           <?php echo $paginator ?>
