@@ -56,7 +56,7 @@ if(islogged()){
       $hash = password_hash($mdp, PASSWORD_DEFAULT);
       $token = generateRandomString(120);
       index1($mail, $token, $hash);
-      header('Location:index.php');
+      header('Location:index1.php');
 
     }
   }
@@ -69,7 +69,7 @@ if(islogged()){
 
   // Vérif  & MDP
   $user = index2($mail);
-
+  tab($user);
   if(!empty($user)){
 
     if(!password_verify($mdp, $user['mdp'])){

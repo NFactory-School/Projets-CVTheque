@@ -113,7 +113,6 @@ function rappel(){
       echo $difference.' mois ou '.floor($difference/12).' années';;
   }
 }
-
 function vnum($error,$data,$min,$max,$key){
   if (!empty($data)) {
     if (is_numeric($data) && $data <= $min) {
@@ -134,7 +133,14 @@ function vnum($error,$data,$min,$max,$key){
      if($ddn < 01-01-1900){
        $errors['ddn']='trop vieux';
      }
+     elseif($ddn > NOW()){
+       $errors['ddn']='n\'existe pas';
+     }
    }
+ }
+
+ function sameVaccin(){
+
  }
 
 

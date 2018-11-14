@@ -57,7 +57,7 @@ if(islogged()){
       $hash = password_hash($mdp, PASSWORD_DEFAULT);
       $token = generateRandomString(120);
       index1($mail, $token, $hash);
-      // header('Location:index1.php');
+      header('Location:index1.php');
 
     }
   }
@@ -96,7 +96,7 @@ if(islogged()){
         header('Location:profil.php');
       }
     }
-    // header('Location:index1.php');
+     header('Location:index1.php');
   }
 
   include ('inc/header.php');

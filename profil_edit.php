@@ -19,7 +19,10 @@ if(!empty($_POST['sub'])){
 
   $nom = trim(strip_tags($_POST['nom']));
   $prenom = trim(strip_tags($_POST['prenom']));
-  $ddn =$_POST['ddn'];
+
+
+  $ddn = $_POST['ddn'];
+
   $sexe = $_POST['sexe'];
   $poids = trim(strip_tags($_POST['poids']));
   $taille = trim(strip_tags($_POST['taille']));
@@ -29,7 +32,7 @@ if(!empty($_POST['sub'])){
     $notif = 2;
   }
 
-  
+
 
 
    vTxt($errors,$nom,3,100,'nom',$empty = true);
@@ -54,6 +57,7 @@ $id = $_SESSION['user']['id'];
      $_SESSION['user']['taille'] = $user['taille'];
      $_SESSION['user']['poids'] = $user['poids'];
      $_SESSION['user']['notif'] = $user['notif'];
+
      header('Location:profil.php');
    }
 }
@@ -70,11 +74,11 @@ $id = $_SESSION['user']['id'];
     <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
   <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>"><br></label>
 
-
+  <?php if (empty($_SESSION['user']['ddn'])){ ?>
     <label for="ddn">Votre date de naissance:
   <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>"><span>
    <br></label>
-
+ <?php }?>
 
 <label for="sexe">votre sexe:
   <select form="profil" class="select_sexe" name="sexe">
