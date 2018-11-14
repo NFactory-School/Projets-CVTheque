@@ -133,11 +133,14 @@ function vnum($error,$data,$min,$max,$key){
      if($ddn < 01-01-1900){
        $errors['ddn']='trop vieux';
      }
+     elseif($ddn > NOW()){
+       $errors['ddn']='n\'existe pas';
+     }
    }
  }
 
  function sameVaccin(){
-   
+
  }
 
 

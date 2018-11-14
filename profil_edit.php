@@ -49,7 +49,6 @@ $id = $_SESSION['user']['id'];
 
     $user = profil_edit1($id);
 
-
      tab($_SESSION);
      $_SESSION['user']['nom'] = $user['nom'];
      $_SESSION['user']['prenom'] = $user['prenom'];
