@@ -9,6 +9,7 @@ body {
 }
 .bolder{
   font-weight: bold;
+  color:#5383d3;
 }
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
 img{
@@ -47,7 +48,7 @@ body {
 }
 
 .form-wrap {
-  margin:0 auto;
+  margin-right:20%;
   float:right;
   opacity:.9;
   background-color: #fff;
@@ -127,6 +128,7 @@ body {
     padding-left: 20px;
 		cursor: pointer;
 	}
+
     .form-wrap form label[for]:before {
       content: '';
       position: absolute;
@@ -167,11 +169,10 @@ body {
 /* header */
 .header {
   opacity:.9;
-	background-color:#C0C0C0;
+	background-color:#191970;
 	box-shadow:0 1px 1px #ccc;
 	padding: 20px 40px;
 	color: #ffffff;
-  max-height: 110px;
 	box-sizing: border-box;
 	top:-100px;
 
@@ -180,6 +181,7 @@ body {
 }
 
 .header .header-limiter {
+  background-color: #191970;
 	max-width: 1200px;
 	text-align: center;
 	margin: 0 auto;
@@ -197,10 +199,12 @@ body {
 }
 
 .header .header-limiter nav {
+  padding-top:1%;
 	font:16px Arial, Helvetica, sans-serif;
 	line-height: 40px;
 	float: right;
   width : 70%;
+
 }
 
 .header .header-limiter nav p{
@@ -227,9 +231,9 @@ body {
 }
 
 .logo-header{
-  margin-right: 80%;
+  float:left;
   padding:5px;
-  width : 150px;
+  width:20%;
 }
 .logo-header:hover{
   opacity:0.8;
@@ -238,7 +242,7 @@ body {
 /* Footer */
 .footer{
   opacity:.8;
-	background-color:#C0C0C0;
+	background-color:#191970;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -285,9 +289,11 @@ body {
 	display:inline-block;
 	line-height: 1.8;
 	text-decoration: none;
-	color:  inherit;
+	color:  #5383d3;
+  transition:.8s;
 }
 .footer .footer-links a:hover{
+  color:#ffffff;
   text-decoration:underline;
 }
 
@@ -596,7 +602,7 @@ body {
 	width: 100%;
 	text-align: center;
 	margin: 0 auto 100px auto;
-	background-color: #608bd2;
+	background-color: #4169E1;
 	border-bottom-right-radius: 25px;
 	border-bottom-left-radius: 25px;
 	color:white;
@@ -618,7 +624,7 @@ body {
 .intro p{
 	margin: 0 auto;
 	padding-left: 10%;
-	background-color: #608bd2;
+	background-color: #4169E1;
 	font-size: 1.25em;
 }
 
@@ -671,10 +677,12 @@ body {
 
 /* Niko profil.php */
 .profil {
+  background-color: black;
+  opacity:.8;
   padding-top:10px;
   width: 960px;
-  margin: auto;
-  background-color: whitesmoke;
+  height:500px;
+  margin: 0 auto;
   position:relative;
 }
 
@@ -685,7 +693,7 @@ body {
   font-family: Georgia, Times, Serif;
   font-weight: normal;
   margin: 0;
-  padding: 0px;
+  padding: 1%;
   text-decoration: underline;
 }
 
@@ -719,7 +727,7 @@ body {
   width:99%;
 }
 
-.profil #main {
+.profil .main {
   width: 650px;
   float: right;
   margin-right: 30px;
@@ -762,6 +770,9 @@ body {
   width : 50%;
 }
 .item-1, .item-2, .item-3 {
+  padding:15px;
+  text-align: justify;
+  border-radius: 10px;
   background-color: #F6F6F6;
   opacity:.8;
   position:relative;

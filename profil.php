@@ -36,13 +36,19 @@ if(!empty($user['taille']) && !empty($user['poids'])){
   }
 }
 ?>
-
 <div class='profil'>
 
   <h2>Votre profil</h2>
 
     <aside>
-        <img src='img/avatar.jpg'    alt='avatar'>
+      <?php if(!empty($user['sexe']) && $user['sexe'] == 'homme'){
+        echo '<img src="img/avatar.jpg"    alt="avatar">';
+      }elseif(!empty($user['sexe'] && $user['sexe'] == 'femme')){
+        echo '<img src="img/avatar2.jpg" alt="avatar">';
+      }else{
+        echo '<img src="img/avatar3.jpg" alt="avatar">';
+
+      } ?>
         <div class="trait"></div>
         <h3>Informations principales : </h3>
         <ol>
@@ -52,8 +58,8 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         </ol>
     </aside>
 
-    <section id='main'>
-        <h2>Informations à remplir :</h2>
+    <div class='main'>
+        <h3>Informations à remplir :</h3>
         <ul>
           <li>date de naissance : <?php echo $user['ddn'] ?></li>
           <li>sexe : <?php echo $user['sexe'] ?></li>
@@ -64,8 +70,7 @@ if(!empty($user['taille']) && !empty($user['poids'])){
           <li><a class="myButton button"href="profil_edit.php">éditer profil</a></li>
           <li><a class="myButton" href="carnet.php">Mon carnet</a></li>
         </ul>
-    </section>
-<div class="clear"></div>
+  </div>
 </div>
 
 
