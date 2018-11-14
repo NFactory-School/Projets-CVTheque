@@ -12,14 +12,24 @@ function b_add_vaccin($nom){
 
 function b_select_vaccin_from_vaccins(){
   global $pdo;
-  $sql = "SELECT nom FROM vax_vaccins WHERE status = 1";
+  $sql = "SELECT id, nom FROM vax_vaccins WHERE status = 1";
   $query = $pdo -> prepare($sql);
   $query -> execute();
   $vaccinUser = $query -> fetchAll();
   return $vaccinUser;
 }
 
-function b_insert_vaccin_from_users($tab){
+function b_select_vaccinanduser_from_pivot($id){
+  global $pdo;
+  $sql = "SELECT id_vaccins FROM vax_pivot WHERE id_profil = :id";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':id', $id, PDO::PARAM_INT);
+  $query -> execute();
+  $vaccinUser = $query -> fetchAll();
+  return $vaccinUser;
+}
+
+function b_insert_vaccin_from_pivot($tab){
   global $pdo;
   $sql = "INSERT INTO vax_pivot (id_profils, id_vaccins, date, rappel)   VALUES (, , NOW(), )";
   $query = $pdo -> prepare($sql);
@@ -142,6 +152,23 @@ function b_vaccins_back(){
   return $countVaccins;
 }
 
+function b_contact_lu($id){
+  global $pdo;
+  $sql = "UPDATE vax_contact
+          SET statut = 2
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+function b_contact_nonlu($id){
+  global $pdo;
+  $sql = "UPDATE vax_contact
+          SET statut = 1
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+
 function b_vaccins_back1($cPage, $vaccinsParPages){
   global $pdo;
   $sql = "SELECT * FROM vax_vaccins
@@ -236,8 +263,8 @@ function b_user_back1($cPage, $UsersParPages){
 
 function contact($obj, $msg, $name, $mail){
   global $pdo;
-  $sql = "INSERT INTO vax_contact (objet, message, nom, mail, created_at)
-          VALUES (:obj, :msg, :name, :mail, NOW())";
+  $sql = "INSERT INTO vax_contact (objet, message, nom, mail, created_at, statut)
+          VALUES (:obj, :msg, :name, :mail, NOW(), 'non lu')";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':obj', $obj, PDO::PARAM_STR);
   $query -> bindValue(':msg', $msg, PDO::PARAM_STR);

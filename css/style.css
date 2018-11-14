@@ -232,65 +232,6 @@ body {
 .logo-header:hover{
     opacity:0.8;
 }
-/* header fixé */
-body.fixed .header {
-	padding: 10px 40px;
-	height: 80px;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 1;
-}
-
-body.fixed .header-placeholder {
-	display: block;
-}
-
-body.fixed .header .header-limiter h1 {
-	font-size: 24px;
-	line-height: 30px;
-}
-
-body.fixed .header .header-limiter nav {
-	line-height: 28px;
-	font-size: 13px;
-}
-
-@media all and (max-width: 600px) {
-
-	.header {
-		padding: 20px 0;
-		height: 75px;
-	}
-
-	.header .header-limiter h1 {
-		float: none;
-		margin: -8px 0 10px;
-		text-align: center;
-		font-size: 24px;
-		line-height: 1;
-	}
-
-	.header .header-limiter nav {
-		line-height: 1;
-		float:none;
-	}
-
-	.header .header-limiter nav a {
-		font-size: 13px;
-	}
-
-	body.fixed .header {
-		display: none;
-	}
-
-}
-body {
-	margin: 0;
-	padding: 0;
-	height: 1500px;
-}
 
 /* Footer */
 .footer{
