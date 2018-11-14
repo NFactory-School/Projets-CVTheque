@@ -68,10 +68,25 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 
           <?php 
             $listeVaccin = b_select_vaccin_from_vaccins();
+            $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
+            print_r($listeVaccinUser);
+            br();
 
             foreach($listeVaccin as $key=>$valeur){
+              
               $listeVaccin[$key] = $listeVaccin[$key]['nom'];
               $cle = $listeVaccin[$key];
+
+              echo '$key : '.$key;
+              br();
+              echo 'listeVaccin[$key] : '.$cle;
+              br();
+              echo '$listeVaccinUser[$key][id_vaccins] : '.$listeVaccinUser[$key]['id_vaccins'];
+              br();
+
+              foreach($listeVaccinUser as $key=>$valeur){
+                
+              }
             ?>
             <input type="checkbox" name=" <?php echo $valeur['nom'];?>" 
             <?php if(!empty($_POST[$cle])){echo 'checked="checked"';} ?> >
