@@ -28,7 +28,6 @@
 			<p><a href="mailto:vax@gmail.com">vax@gmail.com</a></p>
 		</div>
 		<div class="maps">
-			<div class="mapouter"><div class="gmap_canvas"><iframe width="500" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=Rouen%207%20place%20saint%20marc&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
 		</div>
 	</div>
 

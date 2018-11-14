@@ -45,60 +45,68 @@ $sql = "SELECT * FROM vax_contact
   $query -> execute();
   $contacts = $query -> fetchAll();
 ?>
+
 <div id="wrapper">
 
-<!-- Boite nbre users -->
-<div class="panel-body">
-<div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-user fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $count_users ?></div>
-                                    <div>Utilisateurs</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="b_user_back.php">
-                            <div class="panel-footer">
-                                <span class="pull-left">Détails</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+  <!-- Boite nbre users -->
+  <div class="panel-body">
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
 
-<!-- boite nbre vaccins -->
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-green">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fas fa-medkit fa-5x"></i>
-          </div>
+            <div class="col-xs-3">
+              <i class="fa fa-user fa-5x"></i>
+            </div>
+
             <div class="col-xs-9 text-right">
-              <div class="huge"><?php echo $count_vaccins['COUNT(*)'] ?></div>
+              <div class="huge"><?php echo $count_users ?></div>
+              <div>Utilisateurs</div>
+            </div>
+
+          </div>
+        </div>
+
+          <a href="b_user_back.php">
+            <div class="panel-footer">
+              <span class="pull-left">Détails</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+  <!-- boite nbre vaccins -->
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-green">
+        <div class="panel-heading">
+          <div class="row">
+
+            <div class="col-xs-3">
+              <i class="fas fa-medkit fa-5x"></i>
+            </div>
+
+              <div class="col-xs-9 text-right">
+                <div class="huge"><?php echo $count_vaccins['COUNT(*)'] ?></div>
                 <div>Vaccins</div>
               </div>
-            </div>
+
+          </div>
         </div>
+
           <a href="b_vaccins_back.php">
             <div class="panel-footer">
               <span class="pull-left">Détails</span>
               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
               <div class="clearfix"></div>
-              <div class="clear">
-
-              </div>
             </div>
           </a>
+
+      </div>
     </div>
   </div>
-</div>
 
 <!-- listing contacts -->
   <div class="row">
@@ -107,6 +115,7 @@ $sql = "SELECT * FROM vax_contact
         <h1>Messages Recus ( <?php echo $totalItems ?> Messages)</h1>
         <div class="table-responsive">
           <table class="table table-hover">
+
             <thead>
               <tr>
                 <th>nom</th>
@@ -116,8 +125,10 @@ $sql = "SELECT * FROM vax_contact
                 <th>statut</th>
               </tr>
             </thead>
+
             <?php foreach($contacts as $contact){
               $id = $contact['id'];?>
+
               <tbody>
                 <tr>
                   <td><a href="b_contact_back.php?id=<?php echo $id ?>"><?php echo $contact['nom'] ?></a></td>
@@ -133,6 +144,7 @@ $sql = "SELECT * FROM vax_contact
                   </td>
                 </tr>
               </tbody>
+
             <?php } ?>
           </table>
           <?php echo $paginator ?>

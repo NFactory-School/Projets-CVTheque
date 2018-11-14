@@ -101,15 +101,14 @@ if(islogged()){
   include ('inc/header.php');
 ?>
 
-
-    <div class="intro">
-
-        <h2>Bienvenue sur <span>VAX</span></h2>
+<div class="index">
+  <div class="intro">
+    <h2>Bienvenue sur <span>VAX</span></h2>
 		<p>Gérer vos vaccins<br></p>
 		<span class="texte-intro">en ligne.</span>
-    </div>
+  </div>
 
-<div class="form-wrap">
+  <div class="form-wrap">
 		<div class="tabs">
 			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Inscription</a></h3>
 			<h3 class="login-tab"><a href="#login-tab-content">Connexion</a></h3>
@@ -150,6 +149,7 @@ if(islogged()){
 			</div><!--.login-tab-content-->
 		</div><!--.tabs-content-->
   </div><!--.form-wrap-->
+</div>
 
 
 
