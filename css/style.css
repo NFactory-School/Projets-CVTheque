@@ -18,7 +18,13 @@ body {
 a {
 	text-decoration: none;
 }
-
+.index{
+  height:100%;
+  width:100%;
+  background:url('../img/index.png') no-repeat center center fixed;
+  background-size:cover;
+  padding-bottom: 180px;
+}
 .lienutile {
 	color:#608BD2;
 	text-decoration: underline;
@@ -40,6 +46,7 @@ body {
 }
 
 .form-wrap {
+  opacity:.9;
   background-color: #fff;
   width: 320px;
   margin: 3em auto;
@@ -180,14 +187,6 @@ body {
 	display: none;
 }
 
-/* Logo */
-.header .header-limiter h1 {
-	float: left;
-	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
-	line-height: 40px;
-	margin: 0;
-}
-
 /* nav */
 .header .header-limiter a {
 	color: #ffffff;
@@ -210,6 +209,7 @@ body {
   transition:.4s;
 }
 .header .header-limiter nav p a{
+
 	display: inline-block;
 	padding: 0 5px;
 	text-decoration:none;
@@ -225,12 +225,10 @@ body {
 
 .logo-header{
   padding:5px;
-  border: 2px solid #608BD2;
-  border-radius:2px;
   width : 100px;
 }
 .logo-header:hover{
-    opacity:0.8;
+  opacity:0.8;
 }
 
 /* Footer */
@@ -242,7 +240,6 @@ body {
 	text-align: left;
 	font: bold 16px sans-serif;
 	padding: 55px 50px;
-	margin-top: 80px;
 }
 
 .footer .footer-left,
@@ -260,9 +257,7 @@ body {
 /* The company logo */
 .footer .footer-logo{
   padding :10px;
-  border: 2px solid #608BD2;
-  border-radius:3px;
-  width : 55%;
+  width : 30%;
 	margin: 0;
 }
 
@@ -575,6 +570,7 @@ body {
 
 /*formulaire sans animation*/
 .intro {
+  opacity:0.8;
 	max-width:80%;
 	width: 100%;
 	text-align: center;
