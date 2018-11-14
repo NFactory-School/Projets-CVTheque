@@ -7,4 +7,3 @@ pdo.php
 !.gitignore
 composer.json
 composer.lock
-vendor/
