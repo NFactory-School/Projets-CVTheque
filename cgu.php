@@ -1,3 +1,7 @@
+<?php include 'inc/pdo.php';
+include 'inc/request.php';
+include 'inc/fonction.php';
+include 'inc/header.php'; ?>
 <div class="cgu">
 
   <strong>Edition du site</strong><br/>
@@ -16,3 +20,5 @@
     <p>VAX <br/> 7 Place St&#45;Marc <br/> 76000 Rouen</p>
     <a href="index.php">Retour au menu</a>
 </div>
+
+<?php include 'inc/footer.php'; ?>

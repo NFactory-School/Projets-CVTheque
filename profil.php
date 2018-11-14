@@ -4,6 +4,10 @@ include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 
+if (isLogged()==false){
+ header('Location:403.php');
+}
+
 if($_SESSION['user']['status'] == 'banni'){
   header('Location:403.php');
 }

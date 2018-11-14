@@ -2,8 +2,11 @@
 include 'inc/pdo.php';
 include 'inc/request.php';
 include 'inc/fonction.php';
-
 include 'inc/header.php';
+
+if($_SESSION['user']['status'] == 'banni'){
+  header('Location:403.php');
+}
 
 if (!empty($_GET['mail']) && !empty($_GET['token'])) {
   $mail = urldecode($_GET['mail']);

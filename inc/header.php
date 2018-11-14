@@ -9,11 +9,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Fondamento" rel="stylesheet">
 	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-	<?php if($_SESSION['user']['status'] == 'admin'){ ?>
+
 	  <link rel="stylesheet" href="css/style.css">
-	<?php }else{ ?>
-		<link rel="stylesheet" href="css/style.css">
-	<?php } ?>
 	</head>
 
 	<body>
