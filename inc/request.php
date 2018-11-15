@@ -29,9 +29,9 @@ function b_select_vaccinanduser_from_pivot($id){
   return $vaccinUser;
 }
 
-function b_select_all_from_pivot($id){
+function b_select_nom_from_pivot($id){
   global $pdo;
-  $sql = "SELECT * FROM vax_pivot WHERE id_profil = :id";
+  $sql = "SELECT nom, rappel FROM vax_vaccins INNER JOIN vax_pivot ON vax_vaccins.id = vax_pivot.id_vaccins WHERE id_profil = :id";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':id', $id, PDO::PARAM_INT);
   $query -> execute();
