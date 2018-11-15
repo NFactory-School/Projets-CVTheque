@@ -70,8 +70,6 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
             $listeVaccin = b_select_vaccin_from_vaccins();
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
             $infopivots = b_select_nom_from_pivot($_SESSION['user']['id']);
-            print_r($infopivots);
-            br();
             $nope = 1;
 
             foreach($listeVaccin as $cle=>$valeur){
@@ -80,13 +78,14 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
               $date = $listeVaccin[$cle]['nom'].'_Rappel';
 
               if (!empty($_POST)){
-
                 foreach($_POST as $cursor=>$valeur){
                   if ($cursor == $nom){
                     b_insert_vaccin_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id']);
+                    header('Location:carnet.php');
                   }
                   if ($cursor == $date){
                     b_update_rappel_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id'],$_POST[$cursor]);
+                    header('Location:carnet.php');
                   }
                 }            
               }
@@ -106,7 +105,6 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                       } ?>">
                       <span class="check"><?php echo $nom; ?></span><br/> <?php
                       $nope = 0;
-                      break;
                     }
                     else {
                       $nope = 1;
