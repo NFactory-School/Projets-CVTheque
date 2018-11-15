@@ -45,10 +45,13 @@ $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
      $success = true;
 
-    profil_edit($id, $nom, $prenom, $ddn, $taille, $poids, $sexe, $notif);
+     if (empty($_SESSION['user']['ddn'])){
+       profil_edit($id, $nom, $prenom, $ddn, $taille, $poids, $sexe, $notif);
+     }
 
+      profil_edit1($id, $nom, $prenom, $taille, $poids, $sexe, $notif);
 
-    $user = profil_edit1($id);
+    $user = profil_edit2($id);
 
      tab($_SESSION);
      $_SESSION['user']['nom'] = $user['nom'];
