@@ -41,7 +41,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
       <h3>Informations principales : </h3>
 
         <?php //infos profil
-        
+
               if(!empty($_SESSION['user']['prenom'])){
                 echo '<p>'.$_SESSION['user']['prenom'].'</p>';
               }
@@ -66,37 +66,45 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
     <div class="listeVaccin">
       <form action="carnet.php" method="post">
 
-          <?php 
+          <?php
             $listeVaccin = b_select_vaccin_from_vaccins();
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
-            $infopivots = b_select_all_from_pivot($_SESSION['user']['id']);
-            print_r($infopivots);
-            br();
+            $infopivots = b_select_nom_from_pivot($_SESSION['user']['id']);
             $nope = 1;
-
+            tab($_POST);
             foreach($listeVaccin as $cle=>$valeur){
-              
+
               $nom = $listeVaccin[$cle]['nom'];
               $date = $listeVaccin[$cle]['nom'].'_Rappel';
 
               if (!empty($_POST)){
 
+
                 foreach($_POST as $cursor=>$valeur){
+                  $valeur = trim(strip_tags($_POST[$cursor]));
                   if ($cursor == $nom){
                     b_insert_vaccin_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id']);
+                    header('Location:carnet.php');
                   }
                   if ($cursor == $date){
                     b_update_rappel_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id'],$_POST[$cursor]);
+                    header('Location:carnet.php');
                   }
                 }
               }
-              
                 foreach($listeVaccinUser as $key=>$valeur){
 
                     if ($listeVaccin[$cle]['id'] == $listeVaccinUser[$key]['id_vaccins']){
                       ?>
                       <input type="checkbox" name="<?php echo $nom;?>" checked="checked" disabled="disabled">
-                      <input type="date" name="<?php echo $nom; ?>_Rappel" value="<?php  ?>">
+                      <input type="date" name="<?php echo $nom; ?>_Rappel" value="<?php
+
+                      foreach($infopivots as $cdt=>$valeur){
+
+                        if($infopivots[$cdt]['nom'] == $nom){
+                          echo $infopivots[$cdt]['rappel'];
+                        }
+                      } ?>">
                       <span class="check"><?php echo $nom; ?></span><br/> <?php
                       $nope = 0;
                       break;
@@ -110,14 +118,12 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                   <input type="checkbox" name="<?php echo $listeVaccin[$cle]['nom'];?>">
                   <span><?php echo $listeVaccin[$cle]['nom']; ?></span><br/> <?php
                 }
-              
+
             } ?>
     </div>
-    
+
           <input type="submit" name="listeRappel" value="confirmer">
       </form>
-    
-
     </div>
     <a class="myButton button"href="profil_edit.php">éditer profil</a>
     <a class="myButton"href="carnet.php">Mon carnet</a>

@@ -60,11 +60,14 @@ if(!empty($user['taille']) && !empty($user['poids'])){
     <div class='main'>
         <h3>Informations à remplir :</h3>
         <ul>
-          <li><span class="bleu">Date de naissance : </span><?php echo $user['ddn'] ?></li>
+
+          <li><span class="bleu">Date de naissance : </span><?php if (!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];}
+          else{ echo '0000-00-00';} ?></li>
           <li><span class="bleu">Sexe : </span><?php echo $user['sexe'] ?></li>
           <li><span class="bleu">Taille : </span><?php echo $user['taille'] ?></li>
           <li><span class="bleu">Poids : </span><?php echo $user['poids'] ?></li>
           <li><span class="bleu">Statut : </span><?php echo $user['status'] ?></li>
+
           <li><span class="bleu">Indice de masse corporelle : </span><?php if(!empty($imc)){ echo $imc; } ?></li>
           <li><a class="myButton button"href="profil_edit.php">Editer profil</a></li>
           <li><a class="myButton" href="carnet.php">Mon carnet</a></li>
