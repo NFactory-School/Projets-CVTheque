@@ -103,8 +103,8 @@ if(islogged()){
     <!-- Formulaire d'inscription -->
   <div class="signlogin-container">
     <div class="a-group">
-        <a href="#sign-in" class="a-sign-in">Sign In</a>
-        <a href="#sign-up" class="a-sign-up">Sign Up</a>
+        <a href="#sign-in" class="a-sign-in">Connexion</a>
+        <a href="#sign-up" class="a-sign-up">Inscription</a>
     </div>
     <div class="form-content">
         <div id="sign-in">

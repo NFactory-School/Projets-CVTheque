@@ -159,10 +159,10 @@ body {
       -ms-transform: rotate(-45deg);
 			transform: rotate(-45deg);
 		}
-  .form-wrap .help-text {
+  .form-content .help-text {
 		margin-top: .6em;
 	}
-    .form-wrap .help-text p {
+    .form-content .help-text p {
       text-align: center;
 			font-size: 14px;
 		}
@@ -872,15 +872,7 @@ body {
 	Float : left;
 	width:40%;
 }
-<<<<<<< HEAD
-.profil-form input[type=text],.profil-form input[type=mail],.profil-form input[type=number],.profil-form input[type=date] {
-=======
-<<<<<<< HEAD
-.profil-form input[type=text],.profil-form input[type=mail],.profil-form input[type=number],.profil-form input[type=date]{
-=======
-.profil-form input[type=text],.profil-form input[type=mail],.profil-form input[type=number],.profil-form input[type=date],.profil-form select,.profil-form textarea {
->>>>>>> 201f1d2177fb544d529ef4853c1f7aaabf615112
->>>>>>> 9aa589527abb9ebdbfcdc80b3159be915ddc1afc
+.profil-form input[type=text],input[type=mail],input[type=number],input[type=date], select, textarea {
   width: 100%;
   padding: 12px;
   border-radius: 4px;
