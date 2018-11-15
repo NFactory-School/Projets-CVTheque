@@ -67,18 +67,9 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
       <form action="carnet.php" method="post">
 
           <?php
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 201f1d2177fb544d529ef4853c1f7aaabf615112
             $listeVaccin = b_select_vaccin_from_vaccins();
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
             $infopivots = b_select_nom_from_pivot($_SESSION['user']['id']);
-            print_r($infopivots);
-            br();
             $nope = 1;
             tab($_POST);
             foreach($listeVaccin as $cle=>$valeur){
@@ -101,10 +92,6 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                   }
                 }
               }
-<<<<<<< HEAD
-
-=======
->>>>>>> 201f1d2177fb544d529ef4853c1f7aaabf615112
                 foreach($listeVaccinUser as $key=>$valeur){
 
                     if ($listeVaccin[$cle]['id'] == $listeVaccinUser[$key]['id_vaccins']){
@@ -137,10 +124,6 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 
           <input type="submit" name="listeRappel" value="confirmer">
       </form>
-<<<<<<< HEAD
-
-=======
->>>>>>> 201f1d2177fb544d529ef4853c1f7aaabf615112
     </div>
     <a class="myButton button"href="profil_edit.php">éditer profil</a>
     <a class="myButton"href="carnet.php">Mon carnet</a>
