@@ -18,7 +18,7 @@ if(!empty($_POST['submit'])){
   $info = trim(strip_tags($_POST['info']));
   $age = $_POST['age'];
     if (!empty($_POST['nom'])) {
-      $nomVaccin = b_add_vaccin($nom);
+      $nomVaccin = basic_where_1('nom', 'vax_vaccins');
       if(!empty($nomVaccin)){
         $errors['nom'] = "Ce vaccin est déjà présent dans la base de données.";
       }
@@ -85,7 +85,7 @@ if(!empty($_POST['submit'])){
                 <div class="form-group">
                   <input  class="btn btn-default" type="submit" name="submit" value="Ajouter" onclick="return confirm('Voulez vous vraiment ajouter ce vaccin a la base de données ? Il ne pourra plus être supprimé depuis le back-office">
                 </div>
-                
+
               </form>
             </div>
           </div>
