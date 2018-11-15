@@ -871,7 +871,7 @@ body {
 	Float : left;
 	width:40%;
 }
-.profil-form input[type=text],input[type=mail],input[type=number],input[type=date], select, textarea {
+.profil-form input[type=text],.profil-form input[type=mail],.profil-form input[type=number],.profil-form input[type=date],.profil-form select,.profil-form textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
