@@ -50,11 +50,12 @@ function b_insert_vaccin_in_pivot ($id_profil,$id_vaccins){
   $query -> execute();
 }
 
-function b_insert_rappel_in_pivot ($rappel){
+function b_update_rappel_in_pivot ($id_profil,$id_vaccins,$rappel){
   global $pdo;
-  $sql = "INSERT INTO vax_pivot (rappel)
-          VALUES (:rappel)";
+  $sql = "UPDATE vax_pivot SET rappel = :rappel WHERE id_profil = :id_profil AND id_vaccins = :id_vaccins";
   $query = $pdo -> prepare($sql);
+  $query -> bindValue(':id_profil', $id_profil, PDO::PARAM_INT);
+  $query -> bindValue(':id_vaccins', $id_vaccins, PDO::PARAM_INT);
   $query -> bindValue(':rappel', $rappel, PDO::PARAM_STR);
   $query -> execute();
 }

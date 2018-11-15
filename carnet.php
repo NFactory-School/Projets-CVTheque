@@ -70,8 +70,6 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
             $listeVaccin = b_select_vaccin_from_vaccins();
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
             $nope = 1;
-            print_r($_POST);
-            br();            
 
             foreach($listeVaccin as $cle=>$valeur){
               
@@ -85,8 +83,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                     b_insert_vaccin_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id']);
                   }
                   if ($cursor == $date){
-                    
-                    b_insert_rappel_in_pivot ($_POST[$cursor]);
+                    b_update_rappel_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id'],$_POST[$cursor]);
                   }
                 }
               }

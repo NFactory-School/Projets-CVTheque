@@ -4,7 +4,7 @@ body {
 	background-color: #dcdcdc;
   background:url('../img/index.png') no-repeat center center fixed;
   background-size:cover;
-  
+
 }
 .bolder{
   font-weight: bold;
@@ -94,7 +94,6 @@ body {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     padding: 10px 10px 10px 10px;
-    border: 1px solid #CFCFCF;
     outline: 0;
     display: inline-block;
     margin-top:15px;
@@ -235,7 +234,7 @@ body {
 .logo-header{
   float:left;
   padding:5px;
-  width:20%;
+  width:10%;
 }
 .logo-header:hover{
   opacity:0.8;
@@ -664,7 +663,6 @@ body {
 
 /*bouton submit*/
 .myButton {
-	box-shadow:inset 0px 0px 15px 3px #230381;
 	background-color:#230381;
 	border-radius:15px;
 	display:inline-block;
@@ -673,9 +671,12 @@ body {
 	font-size:15px;
 	padding:6px 13px;
 	text-decoration:none;
+	transition:.4s;
 }
 .myButton:hover {
-	background-color:#608BD2;
+	background-color:white;
+	border:#230381 1px solid;
+	color:#230381;
 }
 
 /* Niko profil.php */
