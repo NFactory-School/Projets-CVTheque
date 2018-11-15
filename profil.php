@@ -14,6 +14,7 @@ if($_SESSION['user']['status'] == 'banni'){
 
 $id = $_SESSION['user']['id'];
 $user = profil($id);
+print_r($user);
 
 if(!empty($user['taille']) && !empty($user['poids'])){
   $taille = $user['taille']/100;
@@ -50,9 +51,9 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         <div class="trait"></div>
         <h3>Informations principales : </h3>
         <ol>
-          <li><?php echo $user['prenom'] ?></li>
-          <li><?php echo $user['nom'] ?></li>
-          <li><?php echo $user['mail'] ?></li>
+          <li><?php echo $user['prenom']; ?></li>
+          <li><?php echo $user['nom']; ?></li>
+          <li><?php echo $user['mail']; ?></li>
         </ol>
     </aside>
 

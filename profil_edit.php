@@ -43,6 +43,7 @@ if(!empty($_POST['sub'])){
 
 $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
+    echo $_POST['sexe'];
      $success = true;
 
      if (empty($_SESSION['user']['ddn'])){
@@ -57,11 +58,12 @@ $id = $_SESSION['user']['id'];
      $_SESSION['user']['nom'] = $user['nom'];
      $_SESSION['user']['prenom'] = $user['prenom'];
      $_SESSION['user']['ddn'] = $user['ddn'];
+     $_SESSION['user']['sexe'] = $user['sexe'];
      $_SESSION['user']['taille'] = $user['taille'];
      $_SESSION['user']['poids'] = $user['poids'];
      $_SESSION['user']['notif'] = $user['notif'];
 
-     header('Location:profil.php');
+     //header('Location:profil.php');
    }
 }
 
@@ -91,10 +93,10 @@ $id = $_SESSION['user']['id'];
      <?php }?>
 
     <label for="sexe">votre sexe:
-      <select form="profil" class="select_sexe" name="sexe">
-        <option name ="homme" value=1>homme</option>
-        <option name ="femme" value=2>femme</option>
-        <option name ="autre" value=3 selected>autre</option>
+      <select class="select_sexe" name="sexe">
+        <option value=1>homme</option>
+        <option value=2>femme</option>
+        <option value=3>autre</option>
       </select><br></label>
 
       <label for="taille">Votre taille (en cm) : <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"></label>
