@@ -33,35 +33,16 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 }
 ?>
 
-<div class="profil">
-  <aside class="aside">
-    <div class="pp"><img class="bonhomme" src="img/avatar.jpg" alt=""></div>
-      <div class="trait"></div>
-      <div class="clear"></div>
-      <h3>Informations principales : </h3>
+<div class="carnet">
+  <div class="pp">
+    <h2 class="titre">Votre Carnet</h2>
+    <img src="img/avatar.jpg" alt="photo de profil">
+  </div>
+    
+  <div class="clear"></div>
 
-        <?php //infos profil
-
-              if(!empty($_SESSION['user']['prenom'])){
-                echo '<p>'.$_SESSION['user']['prenom'].'</p>';
-              }
-              if(!empty($_SESSION['user']['nom'])){
-                echo '<p>'.$_SESSION['user']['nom'].'</p>';
-              }
-              if(!empty($_SESSION['user']['taille'])){
-                echo '<p> taille : '.$_SESSION['user']['taille'].' cm</p>';
-              }
-              if(!empty($_SESSION['user']['poids'])){
-                echo '<p> poids :'.$_SESSION['user']['poids'].' kg</p>';
-              }
-              if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
-                echo '<p>IMC = '.round($imc, 3).'</p>';
-              }
-        ?>
-
-  </aside>
-  <div class="carnet">
-    <h2>Votre Carnet</h2>
+  <div>
+    
 
     <div class="listeVaccin">
       <form action="carnet.php" method="post">
@@ -71,7 +52,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
             $infopivots = b_select_nom_from_pivot($_SESSION['user']['id']);
             $nope = 1;
-            tab($_POST);
+            
             foreach($listeVaccin as $cle=>$valeur){
 
               $nom = $listeVaccin[$cle]['nom'];
@@ -96,16 +77,17 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 
                     if ($listeVaccin[$cle]['id'] == $listeVaccinUser[$key]['id_vaccins']){
                       ?>
+                      <div class="vaccinfait">
                       <input type="checkbox" name="<?php echo $nom;?>" checked="checked" disabled="disabled">
-                      <input type="date" name="<?php echo $nom; ?>_Rappel" value="<?php
+                      <span class="check"><?php echo $nom; ?></span>
+                 <br/><input type="date" name="<?php echo $nom; ?>_Rappel" value="<?php
 
                       foreach($infopivots as $cdt=>$valeur){
 
                         if($infopivots[$cdt]['nom'] == $nom){
                           echo $infopivots[$cdt]['rappel'];
                         }
-                      } ?>">
-                      <span class="check"><?php echo $nom; ?></span><br/> <?php
+                      } ?>"><br/></div><?php
                       $nope = 0;
                       break;
                     }
@@ -115,19 +97,16 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                 }
                   if ($nope == 1) {
                   ?>
+                  <div class="vaccinFait">
                   <input type="checkbox" name="<?php echo $listeVaccin[$cle]['nom'];?>">
-                  <span><?php echo $listeVaccin[$cle]['nom']; ?></span><br/> <?php
+                  <span><?php echo $listeVaccin[$cle]['nom']; ?></span></div><?php
                 }
-
             } ?>
-    </div>
-
-          <input type="submit" name="listeRappel" value="confirmer">
+            <div class="clear"></div>
+          <input type="submit" class="valider" name="listeRappel" value="Confirmer">
       </form>
     </div>
-    <a class="myButton button"href="profil_edit.php">éditer profil</a>
-    <a class="myButton"href="carnet.php">Mon carnet</a>
-    <div class="clear"></div>
+    <a class="myButton button" href="profil.php">Mon profil</a>
   </div>
 </div>
 

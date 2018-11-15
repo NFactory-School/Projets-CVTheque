@@ -757,9 +757,7 @@ body {
   height : 1px;
   background-color: white;
 }
-.carnet{
-  position :relative;
-}
+
 .carnet a {
   position :absolute;
   bottom : 10%;
@@ -776,7 +774,7 @@ body {
 
 /* minislider */
 .minislider{
-	opacity:.9
+	opacity:.9;
   float:left;
   width : 50%;
 }
@@ -1040,3 +1038,43 @@ body {
 .signlogin-container{
 	width:25%;
 }
+/*boite des vaccins déja fait*/
+.vaccinfait{
+  float: left;
+  width:50%;
+  }
+  
+  .listeVaccin input[type='date']{
+  border-radius: 5px;
+  width:80%;
+  text-align:center; 
+  border: 1px solid #B2B2B2;
+  margin-left: 10px;
+  }
+  
+  .listeVaccin input[type='checkbox']{
+    margin-right: 10px;
+  }
+  
+  .carnet, .profil{
+    width:75%;
+    background-color: #F8F8F8;
+    margin: 80px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+  .carnet img{
+    border: 1px solid black;
+    width:25%;
+    padding: 10px;
+  }
+  
+  .pp{
+    width:100%;
+    text-align: center;
+  }
+  
+  .pp h2{
+    margin: 10px 0;
+  }
