@@ -3,7 +3,7 @@ include 'inc/pdo.php';
 include 'inc/request.php';
 include 'inc/fonction.php';
 
-}
+
 if(islogged()){
   header('Location:carnet.php');
 }else {
@@ -128,7 +128,7 @@ if(islogged()){
           <span class="error"><?php if(!empty($error['mail'])) { echo $error['mail']; } ?></span>
           <input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
           <span class="error"><?php if(!empty($error['mdp'])) { echo $error['mdp']; } ?></span>
-  
+
           <div class="ligne"></div>
           <input type="submit" name="connexion" class="button" value="Se connecter">
         </form><!--.login-form-->
