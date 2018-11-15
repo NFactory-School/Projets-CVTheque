@@ -3,6 +3,7 @@ include 'inc/pdo.php';
 include 'inc/request.php';
 include 'inc/fonction.php';
 
+
 if(islogged()){
   header('Location:carnet.php');
 }else {
@@ -70,9 +71,6 @@ if(islogged()){
 
     $error['mail'] = 'Vous n\'êtes pas inscrit';
   }
-  // if(!empty($_POST['remember'])){
-  //   setcookie('user_id',$user -> id,time()+3600*24)
-  // }
 
     if(count($error) == 0){
       $_SESSION['user'] = array(
@@ -81,6 +79,7 @@ if(islogged()){
         'status' => $user['status'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
+
 
         header('Location:profil.php');
       }
@@ -129,8 +128,7 @@ if(islogged()){
           <span class="error"><?php if(!empty($error['mail'])) { echo $error['mail']; } ?></span>
           <input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
           <span class="error"><?php if(!empty($error['mdp'])) { echo $error['mdp']; } ?></span>
-          <input type="checkbox" name="remember" class="checkbox" id="remember_me">
-          <label for="remember_me">Se souvenir de moi</label>
+
           <div class="ligne"></div>
           <input type="submit" name="connexion" class="button" value="Se connecter">
         </form><!--.login-form-->

@@ -4,7 +4,7 @@ body {
 	background-color: #dcdcdc;
   background:url('../img/index.png') no-repeat center center fixed;
   background-size:cover;
-  
+
 }
 .bolder{
   font-weight: bold;
@@ -94,7 +94,6 @@ body {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     padding: 10px 10px 10px 10px;
-    border: 1px solid #CFCFCF;
     outline: 0;
     display: inline-block;
     margin-top:15px;
@@ -235,7 +234,7 @@ body {
 .logo-header{
   float:left;
   padding:5px;
-  width:20%;
+  width:10%;
 }
 .logo-header:hover{
   opacity:0.8;
@@ -664,7 +663,6 @@ body {
 
 /*bouton submit*/
 .myButton {
-	box-shadow:inset 0px 0px 15px 3px #230381;
 	background-color:#230381;
 	border-radius:15px;
 	display:inline-block;
@@ -673,9 +671,12 @@ body {
 	font-size:15px;
 	padding:6px 13px;
 	text-decoration:none;
+	transition:.4s;
 }
 .myButton:hover {
-	background-color:#608BD2;
+	background-color:white;
+	border:#230381 1px solid;
+	color:#230381;
 }
 
 /* Niko profil.php */
@@ -775,7 +776,6 @@ body {
 
 /* minislider */
 .minislider{
-  opacity:.8;
   float:left;
   width : 50%;
 }
@@ -821,4 +821,90 @@ body {
 	0%, 66.66% { left: -100%; opacity: 0; }
   74.96%, 91.62% { left: 25%; opacity: 1; }
   100% { left: 110%; opacity: 0; }
+}
+
+/* formulaire contact */
+.contacts input[type=text],input[type=mail], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+.contacts input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.contacts input[type=submit]:hover, input[type=reset]:hover {
+	background-color: white;
+	border : 1px solid #4CAF50;
+	color:#4CAF50;
+}
+
+.form-container {
+	margin: 50px auto;
+	width:80%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.form-container2{
+	margin:auto auto auto 20%;
+	z-index:3;
+}
+.bigcontainer {
+	width :70%;
+	margin: 100px;
+  border-radius: 5px;
+  padding: 20px;
+}
+.profil-form{
+	padding :20px;
+	background-color:whitesmoke;
+	Float : left;
+	width:40%;
+}
+.profil-form input[type=text],.profil-form input[type=mail],.profil-form input[type=number],.profil-form input[type=date],.profil-form select,.profil-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+.profil-form label{
+	color: #5383d3;
+	font-size: 1.2em;
+}
+.profil-form input[type=submit], input[type=reset] {
+  background-color: #5383d3;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.profil-form input[type=submit]:hover, input[type=reset]:hover {
+	background-color: white;
+	border : 1px solid#5383d3;
+	color:#5383d3;
+}
+.minislider{
+	z-index:-2;
+}
+.minislider2{
+	z-index: -1;
+	float:right;
+	width : 40%;
+}
+.minislider p{
+	z-index: -1;
 }

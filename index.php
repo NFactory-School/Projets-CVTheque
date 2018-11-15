@@ -83,7 +83,11 @@ if(islogged()){
 
         header('Location:profil.php');
       }
+
+
+
     }
+
   }
   include ('inc/header.php');
 ?>
@@ -133,8 +137,7 @@ if(islogged()){
             <span class="error"><?php if(!empty($error['mail'])) { echo $error['mail']; } ?></span>
   					<input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
             <span class="error"><?php if(!empty($error['mdp'])) { echo $error['mdp']; } ?></span>
-  					<input type="checkbox" name="remember" class="checkbox" id="remember_me">
-            <label for="remember_me">Se souvenir de moi</label>
+  		
             <div class="ligne"></div>
             <input type="submit" name="connexion" class="button" value="Se connecter">
   				</form><!--.login-form-->

@@ -69,9 +69,10 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
           <?php
             $listeVaccin = b_select_vaccin_from_vaccins();
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
-            $nope = 1;
-            print_r($_POST);
+            $infopivots = b_select_nom_from_pivot($_SESSION['user']['id']);
+            print_r($infopivots);
             br();
+            $nope = 1;
 
             foreach($listeVaccin as $cle=>$valeur){
 
@@ -85,20 +86,23 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                     b_insert_vaccin_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id']);
                   }
                   if ($cursor == $date){
-                    echo $_POST[$cursor];
-                    $rappel = str_replace($_POST[$cursor],"-", "/"); //probleme ps pense a la requete en update
-                    echo $rappel;
-                    //b_update_rappel_in_pivot($rappel);
+                    b_update_rappel_in_pivot($_SESSION['user']['id'],$listeVaccin[$cle]['id'],$_POST[$cursor]);
                   }
                 }
               }
-
                 foreach($listeVaccinUser as $key=>$valeur){
 
                     if ($listeVaccin[$cle]['id'] == $listeVaccinUser[$key]['id_vaccins']){
                       ?>
                       <input type="checkbox" name="<?php echo $nom;?>" checked="checked" disabled="disabled">
-                      <input type="date" name="<?php echo $nom; ?>_Rappel" value="confirmer">
+                      <input type="date" name="<?php echo $nom; ?>_Rappel" value="<?php
+
+                      foreach($infopivots as $cdt=>$valeur){
+
+                        if($infopivots[$cdt]['nom'] == $nom){
+                          echo $infopivots[$cdt]['rappel'];
+                        }
+                      } ?>">
                       <span class="check"><?php echo $nom; ?></span><br/> <?php
                       $nope = 0;
                       break;
@@ -118,8 +122,6 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
 
           <input type="submit" name="listeRappel" value="confirmer">
       </form>
-
-
     </div>
     <a class="myButton button"href="profil_edit.php">éditer profil</a>
     <a class="myButton"href="carnet.php">Mon carnet</a>

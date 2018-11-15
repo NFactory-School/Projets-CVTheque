@@ -67,53 +67,70 @@ $id = $_SESSION['user']['id'];
 
 
  ?>
-<form id="profil" action="profil_edit.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
 
-    <label for="nom">Votre nom:
-    <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
-  <input type="text" name="nom" placeholder="nom" value="<?php if(!empty($_SESSION['user']['nom'])){echo $_SESSION['user']['nom'];} ?>" ></label>
 
-    <label for="prenom">Votre prénom:
-    <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
-  <input type="text" name="prenom" placeholder="prenom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>"><br></label>
 
-  <?php if (empty($_SESSION['user']['ddn'])){ ?>
-    <label for="ddn">Votre date de naissance:
-  <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>"><span>
-   <br></label>
- <?php }?>
 
-<label for="sexe">votre sexe:
-  <select form="profil" class="select_sexe" name="sexe">
-    <option name ="homme" value=1>homme</option>
-    <option name ="femme" value=2>femme</option>
-    <option name ="autre" value=3 selected>autre</option>
-  </select><br></label>
+<div class="bigcontainer">
+  <div class="form-container2">
 
-  <label for="taille">Votre taille:  <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"> <span>en cm</span></label>
-  <br>
+    <form class="profil-form" action="profil_edit.php?id=<?php echo $_SESSION['user']['id'] ?>" method="post">
 
-    <label for="poids">Votre poids:<input type="number" name="poids" value="<?php if(!empty($_SESSION['user']['poids'])){echo $_SESSION['user']['poids'];} ?>"> <span>en kg</span>
-  <br>
+        <label for="nom">Votre nom:
+        <span class="error"><?php if(!empty($errors['nom'])){echo $errors['nom'];}?></span>
+      <input type="text" name="nom" placeholder="Votre nom" value="<?php if(!empty($_SESSION['user']['nom'])){echo $_SESSION['user']['nom'];} ?>" ></label>
 
-  <?php
-  if(!empty($_POST['taille']) && !empty($_POST['poids'])){
-    $taille = $_POST['taille'];
-    $poids = $_POST['poids'];
-    $imc = $taille*$taille;
-    $imc = $poids/$imc;
+        <label for="prenom">Votre prénom:
+        <span class="error"><?php if(!empty($errors['prenom'])){echo $errors['prenom'];}?></span>
+      <input type="text" name="prenom" placeholder="Votre prénom" value="<?php if(!empty($_SESSION['user']['prenom'])){echo $_SESSION['user']['prenom'];} ?>"><br></label>
 
-    if ($imc<20){
-      $resultimc = 0;
-    }
-  }
-  ?>
+      <?php if (empty($_SESSION['user']['ddn'])){ ?>
+        <label for="ddn">Votre date de naissance:
+      <input type="date" name="ddn"  value="<?php if(!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];} ?>"><span>
+       <br></label>
+     <?php }?>
 
-    <input type="checkbox" name="notif" value="notif" checked><span>Voulez vous recevoir les notifications </span><br>
+    <label for="sexe">votre sexe:
+      <select form="profil" class="select_sexe" name="sexe">
+        <option name ="homme" value=1>homme</option>
+        <option name ="femme" value=2>femme</option>
+        <option name ="autre" value=3 selected>autre</option>
+      </select><br></label>
 
-    <input type="submit" name="sub" value="Confirmer">
+      <label for="taille">Votre taille (en cm) : <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"></label>
+      <br>
 
-</form>
+        <label for="poids">Votre poids (en kg) : <input type="number" name="poids" value="<?php if(!empty($_SESSION['user']['poids'])){echo $_SESSION['user']['poids'];} ?>"></label>
+      <br>
+
+      <?php
+      if(!empty($_POST['taille']) && !empty($_POST['poids'])){
+        $taille = $_POST['taille'];
+        $poids = $_POST['poids'];
+        $imc = $taille*$taille;
+        $imc = $poids/$imc;
+
+        if ($imc<20){
+          $resultimc = 0;
+        }
+      }
+      ?>
+
+        <input type="checkbox" name="notif" value="notif" checked><span>Voulez vous recevoir les notifications </span><br>
+
+        <input type="submit" name="sub" value="Confirmer">
+
+    </form>
+  </div>
+
+  <div class="minislider minislider2">
+    <p class="item-1"><span class="bolder">Plus qu'un carnet de vaccination en ligne, </span>VAX est capable de calculer votre IMC et de vous donner la date de vos prochains vaccins et rappels en temps réel, quel que soit votre physionomie</p>
+    <p class="item-2"><span class="bolder">Nous avons besoin de ces informations </span> afin d'alimenter notre algorithme et de vous tenir au courant de vos prochains rappels les plus urgents !</p>
+    <p class="item-3"><span class="bolder">Utiliser VAX : </span>c'est être en permanence à jour sur ses vaccins et ce, sur tout le territoire francais, quelle que soit votre tranche d'âge.</p>
+  </div>
+</div>
+<div class="clear"></div>
+
 
 
 

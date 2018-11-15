@@ -44,6 +44,16 @@ function b_select_vaccinanduser_from_pivot($id){
   return $vaccinUser;
 }
 
+function b_select_nom_from_pivot($id){
+  global $pdo;
+  $sql = "SELECT nom, rappel FROM vax_vaccins INNER JOIN vax_pivot ON vax_vaccins.id = vax_pivot.id_vaccins WHERE id_profil = :id";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':id', $id, PDO::PARAM_INT);
+  $query -> execute();
+  $vaccinUser = $query -> fetchAll();
+  return $vaccinUser;
+}
+
 function b_insert_vaccin_from_pivot($tab){
   global $pdo;
   $sql = "INSERT INTO vax_pivot (id_profils, id_vaccins, date, rappel)   VALUES (, , NOW(), )";
@@ -67,9 +77,10 @@ function b_insert_vaccin_in_pivot ($id_profil,$id_vaccins){
 
 function b_update_rappel_in_pivot ($id_profil,$id_vaccins,$rappel){
   global $pdo;
-  $sql = "INSERT INTO vax_pivot (rappel)
-          VALUES (:rappel)";
+  $sql = "UPDATE vax_pivot SET rappel = :rappel WHERE id_profil = :id_profil AND id_vaccins = :id_vaccins";
   $query = $pdo -> prepare($sql);
+  $query -> bindValue(':id_profil', $id_profil, PDO::PARAM_INT);
+  $query -> bindValue(':id_vaccins', $id_vaccins, PDO::PARAM_INT);
   $query -> bindValue(':rappel', $rappel, PDO::PARAM_STR);
   $query -> execute();
 }
