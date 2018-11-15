@@ -5,7 +5,3 @@ pdo.php
 *.ai
 .*
 !.gitignore
-vendor/
-composer.json
-composer.lock
-bootstrap/
