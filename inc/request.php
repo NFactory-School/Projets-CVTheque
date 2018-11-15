@@ -1,13 +1,28 @@
 <?php
 
-function b_add_vaccin($nom){
+function basic_where_STR($value, $key, $bdd){
   global $pdo;
-  $sql = "SELECT nom FROM vax_vaccins WHERE nom = :nom";
+  $sql = "SELECT $key FROM $bdd WHERE $key = :$key";
   $query = $pdo -> prepare($sql);
-  $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
+  $query -> bindValue(':'.$key, $value, PDO::PARAM_STR);
   $query -> execute();
-  $nomVaccin = $query -> fetch();
-  return $nomVaccin;
+  $return = $query -> fetch();
+  return $return;
+}
+
+
+
+
+
+
+function basic_where_ID($id, $where, $to, $value, $bdd){
+  global $pdo;
+  $sql = "SELECT $value$where FROM $bdd WHERE $value$to = :$value";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':'.$value, $id, PDO::PARAM_INT);
+  $query -> execute();
+  $vaccinUser = $query -> fetch();
+  return $vaccinUser;
 }
 
 function b_select_vaccin_from_vaccins(){
@@ -213,7 +228,22 @@ function profil_edit($id, $nom, $prenom, $ddn, $taille, $poids, $sexe, $notif){
   $query -> execute();
 }
 
-function profil_edit1($id){
+function profil_edit1($id, $nom, $prenom, $taille, $poids, $sexe, $notif){
+  global $pdo;
+  $sql = "UPDATE vax_profils
+         SET modified_at = NOW(), nom = :nom, prenom = :prenom, sexe = :sexe, taille = :taille, poids = :poids, notif = $notif
+         WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+
+  $query -> bindValue(':nom', $nom, PDO::PARAM_STR);
+  $query -> bindValue(':prenom', $prenom, PDO::PARAM_STR);
+  $query -> bindValue(':taille', $taille, PDO::PARAM_INT);
+  $query -> bindValue(':poids', $poids, PDO::PARAM_INT);
+  $query -> bindValue(':sexe', $sexe, PDO::PARAM_INT);
+  $query -> execute();
+}
+
+function profil_edit2($id){
   global $pdo;
   $sql = "SELECT * FROM vax_profils
           WHERE  id = $id";

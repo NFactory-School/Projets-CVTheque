@@ -61,7 +61,8 @@ if(!empty($user['taille']) && !empty($user['poids'])){
     <div class='main'>
         <h3>Informations à remplir :</h3>
         <ul>
-          <li><span class="bleu">date de naissance : </span><?php echo $user['ddn'] ?></li>
+          <li><span class="bleu">date de naissance : </span><?php if (!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];}
+          else{ echo '0000-00-00';} ?></li>
           <li><span class="bleu">sexe : </span><?php echo $user['sexe'] ?></li>
           <li><span class="bleu">taille : </span><?php echo $user['taille'] ?></li>
           <li><span class="bleu">poids : </span><?php echo $user['poids'] ?></li>
