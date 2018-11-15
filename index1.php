@@ -2,17 +2,7 @@
 include 'inc/pdo.php';
 include 'inc/request.php';
 include 'inc/fonction.php';
-if(!empty($_COOKIE['user_id']) && empty($_SESSION['user'])){
-  $user=$_COOKIE['user'];
-  $user=explode('-----',$user);
-  $user= profil_edit1($id);
-  $key= sha1($user['id'].$user['mdp'].$_SERVER['REMOTE_ADDR']);
-  if($key == $user[1]){
-    $_SESSION['user']= (array)$user;
-    setcookie('user_id',$user['id'].'-----'.$key,time()+3600*24,'/',false ,true);
-  }else{
-    setcookie('user','',time()-3600*24,'/',false ,true);
-  }
+
 }
 if(islogged()){
   header('Location:carnet.php');
@@ -90,11 +80,7 @@ if(islogged()){
         'ip' => $_SERVER['REMOTE_ADDR']
       );
 
-      if(!empty($_POST['remember'])){
-        setcookie('user_id',$user['id'],time()+3600*24,'/',false,true);
-        setcookie('user_ip',$_SERVER['REMOTE_ADDR'],time()+3600*24,'/',false,true);
 
-      }
         header('Location:profil.php');
       }
     }
@@ -142,8 +128,7 @@ if(islogged()){
           <span class="error"><?php if(!empty($error['mail'])) { echo $error['mail']; } ?></span>
           <input type="password" name="mdp" class="input" id="user_passl" placeholder="Mot de passe">
           <span class="error"><?php if(!empty($error['mdp'])) { echo $error['mdp']; } ?></span>
-          <input type="checkbox" name="remember" class="checkbox" id="remember_me">
-          <label for="remember_me">Se souvenir de moi</label>
+  
           <div class="ligne"></div>
           <input type="submit" name="connexion" class="button" value="Se connecter">
         </form><!--.login-form-->
