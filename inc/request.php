@@ -29,6 +29,16 @@ function b_select_vaccinanduser_from_pivot($id){
   return $vaccinUser;
 }
 
+function b_select_all_from_pivot($id){
+  global $pdo;
+  $sql = "SELECT * FROM vax_pivot WHERE id_profil = :id";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':id', $id, PDO::PARAM_INT);
+  $query -> execute();
+  $vaccinUser = $query -> fetchAll();
+  return $vaccinUser;
+}
+
 function b_insert_vaccin_from_pivot($tab){
   global $pdo;
   $sql = "INSERT INTO vax_pivot (id_profils, id_vaccins, date, rappel)   VALUES (, , NOW(), )";
