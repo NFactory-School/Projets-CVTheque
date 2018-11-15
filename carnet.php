@@ -124,7 +124,6 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
           <input type="submit" name="listeRappel" value="confirmer">
       </form>
     
-
     </div>
     <a class="myButton button"href="profil_edit.php">éditer profil</a>
     <a class="myButton"href="carnet.php">Mon carnet</a>
