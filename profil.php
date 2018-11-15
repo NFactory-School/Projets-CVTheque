@@ -36,9 +36,8 @@ if(!empty($user['taille']) && !empty($user['poids'])){
   }
 }
 ?>
+
 <div class='profil'>
-
-
     <aside>
       <?php if(!empty($user['sexe']) && $user['sexe'] == 'homme'){
         echo '<img src="img/avatar.jpg"    alt="avatar">';
@@ -70,8 +69,8 @@ if(!empty($user['taille']) && !empty($user['poids'])){
           <li><a class="myButton button"href="profil_edit.php">Editer profil</a></li>
           <li><a class="myButton" href="carnet.php">Mon carnet</a></li>
         </ul>
-  </div>
-  <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
 </div>
 
 

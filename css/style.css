@@ -755,7 +755,7 @@ body {
   margin:0 auto 5px;
   width : 120px;
   height : 1px;
-  background-color: grey;
+  background-color: white;
 }
 .carnet{
   position :relative;
@@ -776,6 +776,7 @@ body {
 
 /* minislider */
 .minislider{
+	opacity:.9
   float:left;
   width : 50%;
 }
@@ -844,11 +845,11 @@ body {
 }
 .contacts input[type=submit]:hover, input[type=reset]:hover {
 	background-color: white;
-	border : 1px solid #4CAF50;
 	color:#4CAF50;
 }
 
 .form-container {
+	opacity:.9;
 	margin: 50px auto;
 	width:80%;
   border-radius: 5px;
@@ -874,7 +875,6 @@ body {
 .profil-form input[type=text],input[type=mail],input[type=number],input[type=date], select, textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
@@ -907,4 +907,136 @@ body {
 }
 .minislider p{
 	z-index: -1;
+}
+
+/*///////////////////////////////////////////////////////////////////////////*/
+
+.signlogin-container{
+	opacity:.9;
+	position: absolute;
+	right: 10%;
+}
+.a-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+		margin-bottom: 10%;
+}
+.a-group a {
+    display: block;
+    width: 90%;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 24px;
+		border: solid 1px black;
+		border-radius:15px;
+		margin:0 auto;
+}
+
+.button{
+    background-color:#4169E1;
+		cursor: pointer;
+}
+.a-sign-in {
+    background-color: white;
+    color: black;
+}
+.a-sign-up {
+    background-color: white;
+    color: black;
+}
+.form-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+}
+.form-content input {
+    width: 100%;
+    padding: 10px;
+		margin: 10px 0;
+    border:1px solid black;
+		border-radius: 5px;
+    font-size: 16px;
+}
+.form-content input:first-child {
+		margin-top: 30px;
+}
+.form-content input:focus {
+    box-shadow: inset 0px 0px 5px #121515;
+}
+#sign-in {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 20px;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    top:0;
+    color: #fff;
+    padding: 0 10px;
+    z-index: 1;
+		border-radius:15px;
+		border: 1px solid black;
+}
+#sign-in h1 {
+    margin-bottom: 0;
+}
+.frg-password {
+    text-decoration: none;
+    color: #ececec;
+}
+.frg-password:hover {
+    color: #121515;
+}
+.btn-sign-in {
+    outline: none;
+    border: 3px solid #fff;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background: none;
+    font-weight: 600;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+#sign-up {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 20px;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding: 10px 20px;
+    opacity: 0;
+		border-radius:15px;
+		border: 1px solid black;
+}
+#sign-up:target {
+    opacity: 1;
+    z-index: 2;
+}
+#sign-up h1 {
+    margin-bottom: 0;
+    color: #121515;
+}
+.btn-sign-up {
+    outline: none;
+    border: 3px solid #121515;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background: none;
+    font-weight: 600;
+    color: #121515;
+    font-size: 24px;
+    cursor: pointer;
+}
+.signlogin-container{
+	width:25%;
 }

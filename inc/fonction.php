@@ -56,11 +56,11 @@ if (!empty($data)){
 
 function vMdp($error,$value,$value1,$min,$max,$key){
   if (!empty($value)) {
-    if (is_string($value) && strlen($value) <= $min) {
-      $error[$key] = 'Error : Plus de '.$min.' caractères';
+    if (is_string($value) && strlen($value) < $min) {
+      $error[$key] = 'Error : Moins de '.$min.' caractères';
     }
     elseif (is_string($value) && strlen($value) >= $max ){
-      $error[$key] = 'Error : Moins de '.$max.' caractères';
+      $error[$key] = 'Error : Plus de '.$max.' caractères';
     }
   }
   else {
