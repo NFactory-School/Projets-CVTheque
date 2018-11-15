@@ -95,16 +95,13 @@ if(islogged()){
         header('Location:profil.php');
       }
 
-      // if(!empty($_POST['remember'])){
-      //     setcookie('userma',$user['mail'].$_SERVER['REMOTE_ADDR'],time()+3600*24,'/',false ,true);
-      //     setcookie('usermd',$user['mdp'].$_SERVER['REMOTE_ADDR'],time()+3600*24,'/',false ,true);
-      // }
+      if(!empty($_POST['remember'])){
+          setcookie('userma',$user['mail'],time()+3600*24,'/',false ,true);
+          setcookie('usermd',$hash,time()+3600*24,'/',false ,true);
+      }
 
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 90963637eaf7ae3207c3fec2e418277157467009
   }
   include ('inc/header.php');
 ?>
