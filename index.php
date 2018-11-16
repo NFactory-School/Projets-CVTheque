@@ -103,8 +103,8 @@ if(islogged()){
     <!-- Formulaire d'inscription -->
   <div class="signlogin-container">
     <div class="a-group">
-        <a href="#sign-in" class="a-sign-in">Connexion</a>
-        <a href="#sign-up" class="a-sign-up">Inscription</a>
+        <a href="index.php#sign-in" class="a-sign-in">Connexion</a>
+        <a href="index.php#sign-up" class="a-sign-up">Inscription</a>
     </div>
     <div class="form-content">
         <div id="sign-in">
@@ -119,6 +119,7 @@ if(islogged()){
                 <div class="ligne"></div>
                 <input type="submit" name="connexion" class="button" value="Se connecter">
                 <div class="help-text">
+                  <div class="ligne"></div>
                 	<p><a class="lienutile" href="oublimail.php">Mot de passe oublié ?</a></p>
                 </div><!--.help-text-->
             </div>
@@ -134,22 +135,26 @@ if(islogged()){
                 <div class="ligne"></div>
                 <input type="submit" name="submit" class="button" value="S'inscrire">
                 <div class="help-text">
+                  <div class="ligne"></div>
                 	<p>En vous inscrivant vous acceptez nos</p>
                 	<p><a class="lienutile" href="cgu.php">termes et services</a></p>
                 </div><!--.help-text-->
               </form>
+              <div class="clear"></div>
         </div>
       </div>
     </div>
-    <div class="clear"></div>
 
     <div class="minislider">
-      <p class="item-1"><span class="bolder">Selon l'OMS : </span> la vaccination est l’une des interventions sanitaires les plus efficaces et les plus économiques. Elle a permis d’éradiquer la variole, de réduire de 99 % à ce jour l’incidence mondiale de la poliomyélite, et de faire baisser de façon spectaculaire la morbidité, les incapacités et la mortalité dues à la diphtérie, au tétanos, à la coqueluche et à la rougeole. Pour la seule année 2003, on estime que la vaccination a évité plus de deux millions de décès</p>
-      <p class="item-2"><span class="bolder">Lorsque l’on se fait vacciner contre une maladie infectieuse,</span> on évite de développer cette maladie et, par conséquent, de transmettre le microbe aux autres. En se faisant vacciner, on se protège donc soi-même, mais on protège aussi les autres : ses enfants, ses proches, ses voisins et l’ensemble des membres de la collectivité.</p>
-      <p class="item-3"><span class="bolder">De nombreuses maladies qui ont disparu en France </span>ou qui sont devenues très rares continuent d’exister dans d’autres régions du monde, où la vaccination n’est pas mise en œuvre de manière suffisante. Si l’on arrêtait la vaccination en France, ces maladies reviendraient.</p>
+      <p ><span class="bolder">Selon l'OMS </span> la vaccination est l’une des interventions sanitaires les plus efficaces et les plus économiques. Elle a permis d’éradiquer la variole, de réduire de 99 % à ce jour l’incidence mondiale de la poliomyélite, et de faire baisser de façon spectaculaire la morbidité, les incapacités et la mortalité dues à la diphtérie, au tétanos, à la coqueluche et à la rougeole. Pour la seule année 2003, on estime que la vaccination a évité plus de deux millions de décès</p>
+      <p ><span class="bolder">Lorsque l’on se fait vacciner contre une maladie infectieuse,</span> on évite de développer cette maladie et, par conséquent, de transmettre le microbe aux autres. En se faisant vacciner, on se protège donc soi-même, mais on protège aussi les autres : ses enfants, ses proches, ses voisins et l’ensemble des membres de la collectivité.</p>
+      <p ><span class="bolder">De nombreuses maladies qui ont disparu en France </span>ou qui sont devenues très rares continuent d’exister dans d’autres régions du monde, où la vaccination n’est pas mise en œuvre de manière suffisante. Si l’on arrêtait la vaccination en France, ces maladies reviendraient.</p>
     </div>
-
   </div>
+  <div class="clear">
+</div>
+<div class="clear">
+
 </div>
 
 

@@ -69,12 +69,12 @@ if(!empty($user['taille']) && !empty($user['poids'])){
           <li><span class="bleu">Statut : </span><?php echo $user['status'] ?></li>
 
           <li><span class="bleu">Indice de masse corporelle : </span><?php if(!empty($imc)){ echo $imc; } ?></li>
-          <li><a class="myButton button"href="profil_edit.php">Editer profil</a></li>
-          <li><a class="myButton" href="carnet.php">Mon carnet</a></li>
+          <li><a class="myButton"href="profil_edit.php">Editer profil</a></li>
         </ul>
     </div>
     <div class="clear"></div>
 </div>
+<a class="myButton button fixed" href="carnet.php">Mon carnet</a>
 
 
 <?php

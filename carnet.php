@@ -38,11 +38,11 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
     <h2 class="titre">Votre Carnet</h2>
     <img src="img/avatar.jpg" alt="photo de profil">
   </div>
-    
+
   <div class="clear"></div>
 
   <div>
-    
+
 
     <div class="listeVaccin">
       <form action="carnet.php" method="post">
@@ -52,7 +52,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
             $listeVaccinUser = b_select_vaccinanduser_from_pivot($_SESSION['user']['id']);
             $infopivots = b_select_nom_from_pivot($_SESSION['user']['id']);
             $nope = 1;
-            
+
             foreach($listeVaccin as $cle=>$valeur){
 
               $nom = $listeVaccin[$cle]['nom'];
