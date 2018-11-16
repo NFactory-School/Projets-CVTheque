@@ -760,8 +760,7 @@ body {
 }
 
 .check{
-  color:lightblue;
-  font-weight: bold;
+  color:blue;
 }
 
 .rappel {
@@ -778,6 +777,19 @@ body {
 	opacity:.9;
 	padding:30px;
   float:left;
+	opacity:.9;
+	border:1px black solid;
+  width : 30%;
+}
+
+.minislider2{
+	background-color: #F6F6F6;
+	border-radius: 10px;
+	text-align: justify;
+	margin-right:20%;
+	opacity:.9;
+	padding:30px;
+  float:right;
 	opacity:.9;
 	border:1px black solid;
   width : 30%;
@@ -828,8 +840,10 @@ body {
 .profil-form{
 	padding :20px;
 	background-color:whitesmoke;
-	Float : left;
-	width:40%;
+	Float: right;
+  width:40%;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 .profil-form input[type=text],input[type=mail],input[type=number],input[type=date], select, textarea {
   width: 100%;

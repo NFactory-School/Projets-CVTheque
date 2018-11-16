@@ -114,7 +114,7 @@ $id = $_SESSION['user']['id'];
     </form>
   </div>
 
-  <div class="minislider minislider2">
+  <div class="minislider2">
     <p><span class="bolder">Plus qu'un carnet de vaccination en ligne, </span>VAX est capable de calculer votre IMC et de vous donner la date de vos prochains vaccins et rappels en temps réel, quel que soit votre physionomie</p>
     <p><span class="bolder">Nous avons besoin de ces informations </span> afin d'alimenter notre algorithme et de vous tenir au courant de vos prochains rappels les plus urgents !</p>
     <p><span class="bolder">Utiliser VAX : </span>c'est être en permanence à jour sur ses vaccins et ce, sur tout le territoire francais, quelle que soit votre tranche d'âge.</p>
