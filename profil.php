@@ -4,41 +4,48 @@ include 'inc/request.php';
 include 'inc/fonction.php';
 include 'inc/header.php';
 
-if (isLogged()==false){
+if (isLogged()==false){ //si pas connecté --> 403
  header('Location:403.php');
 }
 
-if($_SESSION['user']['status'] == 'banni'){
+if($_SESSION['user']['status'] == 'banni'){ //si banni --> 403
   header('Location:403.php');
 }
+//obtenir ID de l'utilisateur
+$id = $_SESSION['user']['id'];  
 
-$id = $_SESSION['user']['id'];
 $user = basic_where_ID($id, 'id', 'vax_profils', '*');
-$_SESSION['user']['nom'] = $user['nom'];
+
+//remplir $_SESSION
+$_SESSION['user']['nom'] = $user['nom']; 
 $_SESSION['user']['prenom'] = $user['prenom'];
 $_SESSION['user']['ddn'] = $user['ddn'];
 $_SESSION['user']['sexe'] = $user['sexe'];
 $_SESSION['user']['taille'] = $user['taille'];
 $_SESSION['user']['poids'] = $user['poids'];
 
-if(!empty($user['taille']) && !empty($user['poids'])){
+
+
+
+
+if(!empty($user['taille']) && !empty($user['poids'])){ //si taille et poid existent --> calcul imc
   $taille = $user['taille']/100;
   $poids = $user['poids'];
-  $imc = $taille*$taille;
+  $imc = $taille*$taille;   //calcul imc
   $imc = $poids/$imc;
-  $imc = round($imc, 3);
+  $imc = round($imc, 3);  //3 chiffres après la virgule
 
   if ($imc<=20){
-    $resultimc = 'Sous-poids';
+    $resultimc = 'Sous-poids';  //interpretation imc faible
   }
-  else if ($imc>20 && $imc<=25){
+  else if ($imc>20 && $imc<=25){ //interpretation imc normal
     $resultimc = 'Poids idéal';
   }
-  else if ($imc>=25 && $imc<=27){
+  else if ($imc>=25 && $imc<=27){ //interpretation imc élevé
     $resultimc = 'Léger surpoids';
   }
   else{
-    $resultimc = 'Obésité';
+    $resultimc = 'Obésité'; //interpretation imc Beaucoup trop élevé
   }
 }
 ?>
