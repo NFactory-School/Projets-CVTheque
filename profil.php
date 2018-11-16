@@ -29,16 +29,16 @@ if(!empty($user['taille']) && !empty($user['poids'])){
   $imc = round($imc, 3);
 
   if ($imc<=20){
-    $resultimc = 'insuffisance';
+    $resultimc = 'Sous-poids';
   }
   else if ($imc>20 && $imc<=25){
-    $resultimc = 'bon';
+    $resultimc = 'Poids idéal';
   }
   else if ($imc>=25 && $imc<=27){
-    $resultimc = 'exces';
+    $resultimc = 'Léger surpoids';
   }
   else{
-    $resultimc = 'risque';
+    $resultimc = 'Obésité';
   }
 }
 ?>
@@ -72,7 +72,7 @@ if(!empty($user['taille']) && !empty($user['poids'])){
           if (!empty($user['sexe'])) {echo '<li><span class="bleu">Sexe : </span>'.$user['sexe'].'</li>';}
           if (!empty($user['taille'])) { echo '<li><span class="bleu">Taille : </span>'.$user['taille'].'</li>';}
           if (!empty($user['poids'])) { echo '<li><span class="bleu">Poids : </span>'.$user['poids'].'</li>';}
-          if(!empty($imc)){ echo '<li><span class="bleu">Indice de masse corporelle : </span>'.$imc.'</li>';}
+          if(!empty($imc)){ echo '<li><span class="bleu">Indice de masse corporelle : </span>'.$imc.' - '.$resultimc.'</li>';}
           br();
           if (!empty($user['status']) && $user['status']=='admin') { echo '<li class="admin"><span class="bleu">Statut : </span><span class="upper">'.$user['status'].'</span></li>';}
           ?>
