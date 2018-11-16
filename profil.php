@@ -14,7 +14,6 @@ if($_SESSION['user']['status'] == 'banni'){
 
 $id = $_SESSION['user']['id'];
 $user = profil($id);
-print_r($user);
 
 if(!empty($user['taille']) && !empty($user['poids'])){
   $taille = $user['taille']/100;
