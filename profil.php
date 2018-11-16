@@ -27,13 +27,17 @@ $_SESSION['user']['poids'] = $user['poids'];
 
 
 
+//si taille et poid existent --> calcul imc
+if(!empty($user['taille']) && !empty($user['poids'])){ 
 
-if(!empty($user['taille']) && !empty($user['poids'])){ //si taille et poid existent --> calcul imc
+  //calcul imc
   $taille = $user['taille']/100;
   $poids = $user['poids'];
-  $imc = $taille*$taille;   //calcul imc
-  $imc = $poids/$imc;
-  $imc = round($imc, 3);  //3 chiffres après la virgule
+  $taille = $taille*$taille;   
+  $imc = $poids/$taille;
+
+  //3 chiffres après la virgule
+  $imc = round($imc,3);
 
   if ($imc<=20){
     $resultimc = 'Sous-poids';  //interpretation imc faible
@@ -71,12 +75,12 @@ if(!empty($user['taille']) && !empty($user['poids'])){ //si taille et poid exist
 
     <h2 class="titre">Votre profil</h2>
     <div class='main'>
-        <h3>Informations à remplir :</h3>
+        <h3>Informations personnelles :</h3>
         <ul>
 
           <?php
-          if (!empty($user['ddn'])){echo '<li><span class="bleu">Date de naissance : </span>'.$user['ddn'];}
-          if (!empty($user['sexe'])) {echo '<li><span class="bleu">Sexe : </span>'.$user['sexe'].'</li>';}
+          if (!empty($user['ddn']) && $user['ddn']!= '0000-00-00'){echo '<li><span class="bleu">Date de naissance : </span>'.$user['ddn'];}
+          if (!empty($user['sexe']) && $user['sexe']!= 'non défini') {echo '<li><span class="bleu">Sexe : </span>'.$user['sexe'].'</li>';}
           if (!empty($user['taille'])) { echo '<li><span class="bleu">Taille : </span>'.$user['taille'].'</li>';}
           if (!empty($user['poids'])) { echo '<li><span class="bleu">Poids : </span>'.$user['poids'].'</li>';}
           if(!empty($imc)){ echo '<li><span class="bleu">Indice de masse corporelle : </span>'.$imc.' - '.$resultimc.'</li>';}

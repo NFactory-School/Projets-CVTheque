@@ -906,7 +906,7 @@ body {
     background-color:#4169E1;
 		cursor: pointer;
 		position:fixed;
-		bottom : 5%;
+		top : 20%;
 		right:5%;
 		z-index: 2;
 }
