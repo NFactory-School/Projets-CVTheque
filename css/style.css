@@ -1080,3 +1080,7 @@ body {
     border:#230381 1px solid;
     color:#230381;
   }
+
+  .error{
+color:red;
+}
