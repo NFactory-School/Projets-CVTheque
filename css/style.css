@@ -676,7 +676,8 @@ body {
 	font-size:15px;
 	padding:6px 13px;
 	text-decoration:none;
-	transition:.4s;
+  transition:.4s;
+  border:none;
 }
 .myButton:hover {
 	background-color:white;
@@ -759,7 +760,12 @@ body {
 }
 
 .check{
+<<<<<<< HEAD
   color:blue;
+=======
+  color:lightblue;
+  font-weight: bold;
+>>>>>>> c68b27b821c30f3dd89811ffb27ad32100d430b7
 }
 
 .rappel {
@@ -1020,6 +1026,7 @@ body {
 
   .carnet, .profil{
     width:75%;
+    padding:20px;
     background-color: #F8F8F8;
 		padding:50px;
     margin: 80px auto;
@@ -1041,6 +1048,31 @@ body {
   .pp h2{
     margin: 10px 0;
   }
+<<<<<<< HEAD
 .central{
 	margin: 0 50%;
 }
+=======
+
+  .vaccinButton{
+    width:10%;
+    margin-left:45%;
+    margin-top:20px;
+    margin-bottom:20px;
+    background-color:#230381;
+    border-radius:5px;
+    cursor:pointer;
+    color:white;
+    font-size:15px;
+    padding:6px 13px;
+    text-decoration:none;
+    transition:.4s;
+    border:none;
+  }
+
+  .vaccinButton:hover {
+    background-color:white;
+    border:#230381 1px solid;
+    color:#230381;
+  }
+>>>>>>> c68b27b821c30f3dd89811ffb27ad32100d430b7
