@@ -67,12 +67,11 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         <h3>Informations à remplir :</h3>
         <ul>
 
-          <?php if (!empty($user['ddn'])){echo '<li><span class="bleu">Date de naissance : </span>'.$user['ddn'];}
-
+          <?php 
+          if (!empty($user['ddn'])){echo '<li><span class="bleu">Date de naissance : </span>'.$user['ddn'];}
           if (!empty($user['sexe'])) {echo '<li><span class="bleu">Sexe : </span>'.$user['sexe'].'</li>';}
           if (!empty($user['taille'])) { echo '<li><span class="bleu">Taille : </span>'.$user['taille'].'</li>';}
           if (!empty($user['poids'])) { echo '<li><span class="bleu">Poids : </span>'.$user['poids'].'</li>';}
-          if (!empty($user['status']) && $user['status']=='admin') { echo '<li><span class="bleu">Statut : </span>'.$user['status'].'</li>';}
           if (!empty($user['status']) && $user['status']=='admin') { echo '<li><span class="bleu">Statut : </span>'.$user['status'].'</li>';}
           if(!empty($imc)){ echo '<li><span class="bleu">Indice de masse corporelle : </span></li>'.$imc;}
           ?>
