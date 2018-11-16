@@ -89,6 +89,7 @@ if(!empty($_POST['submit'])) {
         <input class="champ" type="mail" name="mail" value="<?php if(!empty($_POST['mail'])) {echo $_POST['mail'];}?>" placeholder="Ex:jb@jambon.fr">
         <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
       </div>
+      <div class="trait"></div>
 
     <h2>Nous Contacter</h2>
       <div class="champ">

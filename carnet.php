@@ -103,11 +103,7 @@ if(!empty($_SESSION['user']['taille']) && !empty($_SESSION['user']['poids'])){
                 }
             } ?>
             <div class="clear"></div>
-<<<<<<< HEAD
-          <input type="submit" class="myButton central" name="listeRappel" value="Confirmer">
-=======
           <input type="submit" class="vaccinButton" name="listeRappel" value="Confirmer">
->>>>>>> c68b27b821c30f3dd89811ffb27ad32100d430b7
       </form>
     </div>
     <a class="myButton button" href="profil.php">Mon profil</a>

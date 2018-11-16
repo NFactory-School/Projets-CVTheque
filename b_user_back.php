@@ -74,9 +74,9 @@ $Users = $query -> fetchAll();
                   <td><?php echo $User['sexe']?></td>
                   <td><?php echo $User['notif']?></td>
                   <td><?php echo $User['status']?></td>
-                  <td><a href="b_ban_user.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-danger btn-circle">Ban</button></a>
-                      <a href="b_deban_user.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-info btn-circle">User</button></a>
-                      <a href="b_user_admin.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-warning btn-circle">Admin</button></a> </td>
+                  <td><a href="b_ban_user.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-danger btn-circle"> <i class="fas fa-user-slash"></i> </button></a>
+                      <a href="b_deban_user.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-info btn-circle"> <i class="fas fa-user"></i> </button></a>
+                      <a href="b_user_admin.php?id=<?php echo $User['id'] ?>"><button type ="button" class="btn btn-warning btn-circle"> <i class="	fas fa-user-secret"></i> </button></a> </td>
               </tr>
             <?php endforeach; ?>
             </tbody>

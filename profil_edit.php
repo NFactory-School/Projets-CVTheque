@@ -120,7 +120,6 @@ $id = $_SESSION['user']['id'];
     <p><span class="bolder">Utiliser VAX : </span>c'est être en permanence à jour sur ses vaccins et ce, sur tout le territoire francais, quelle que soit votre tranche d'âge.</p>
   </div>
 </div>
-<div class="clear"></div>
 
 
 

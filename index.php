@@ -147,7 +147,6 @@ if(islogged()){
     <div class="minislider">
       <p ><span class="bolder">Selon l'OMS </span> la vaccination est l’une des interventions sanitaires les plus efficaces et les plus économiques. Elle a permis d’éradiquer la variole, de réduire de 99 % à ce jour l’incidence mondiale de la poliomyélite, et de faire baisser de façon spectaculaire la morbidité, les incapacités et la mortalité dues à la diphtérie, au tétanos, à la coqueluche et à la rougeole. Pour la seule année 2003, on estime que la vaccination a évité plus de deux millions de décès</p>
       <p ><span class="bolder">Lorsque l’on se fait vacciner contre une maladie infectieuse,</span> on évite de développer cette maladie et, par conséquent, de transmettre le microbe aux autres. En se faisant vacciner, on se protège donc soi-même, mais on protège aussi les autres : ses enfants, ses proches, ses voisins et l’ensemble des membres de la collectivité.</p>
-      <p ><span class="bolder">De nombreuses maladies qui ont disparu en France </span>ou qui sont devenues très rares continuent d’exister dans d’autres régions du monde, où la vaccination n’est pas mise en œuvre de manière suffisante. Si l’on arrêtait la vaccination en France, ces maladies reviendraient.</p>
     </div>
   </div>
   <div class="clear">

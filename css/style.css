@@ -256,15 +256,15 @@ body {
 	font: bold 16px sans-serif;
   margin-top: 80px;
 	padding: 55px 50px;
-  position:relative;
-  bottom: 0;
-  left:0;
+  bottom:0;
 	z-index : 1;
 }
 
 .footer .footer-left,
 .footer .footer-center,
 .footer .footer-right{
+
+
 	display: inline-block;
 	vertical-align: top;
 }
@@ -690,8 +690,7 @@ body {
   background-color: #F8F8F8;
   opacity:.8;
   padding-top:10px;
-  width: 960px;
-  margin: 80px auto;
+  width: 50%;
   position:relative;
 }
 
@@ -738,8 +737,7 @@ body {
 }
 
 .profil .main {
-  width: 650px;
-  float: right;
+  width: 100%;
   margin: 20px 0;
   line-height: 20px;
 }
@@ -760,12 +758,8 @@ body {
 }
 
 .check{
-<<<<<<< HEAD
-  color:blue;
-=======
   color:lightblue;
   font-weight: bold;
->>>>>>> c68b27b821c30f3dd89811ffb27ad32100d430b7
 }
 
 .rappel {
@@ -1048,11 +1042,9 @@ body {
   .pp h2{
     margin: 10px 0;
   }
-<<<<<<< HEAD
 .central{
 	margin: 0 50%;
 }
-=======
 
   .vaccinButton{
     width:10%;
@@ -1075,4 +1067,19 @@ body {
     border:#230381 1px solid;
     color:#230381;
   }
->>>>>>> c68b27b821c30f3dd89811ffb27ad32100d430b7
+	.form-container2{
+		float:left;
+		width : 100%;
+	}
+
+	.minislider2{
+		float:right;
+		width: 40%;
+	}
+
+.form-container .contacts h2{
+	font-size: 1.3em;
+	color : #230381;
+	text-decoration: underline;
+	line-height: 50px;
+}
