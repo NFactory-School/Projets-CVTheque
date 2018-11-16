@@ -6,6 +6,9 @@ body {
   background-size:cover;
 
 }
+.champ{
+	resize:vertical;
+}
 .bolder{
   font-weight: bold;
   color:#5383d3;
@@ -48,7 +51,6 @@ body {
   background-color: #f1f2f2;
 	font: 16px/26px "Raleway", sans-serif;
 }
-
 .form-wrap {
   margin-right:20%;
   float:right;
@@ -99,7 +101,7 @@ body {
     margin-top:15px;
 		width: 100%;
 	}
-  .form-wrap form .button {
+ form .button {
     width: 100%;
     padding: .8em 0 10px .8em;
     background-color: #230381;
@@ -107,9 +109,12 @@ body {
     color: #fff;
     cursor: pointer;
 		text-transform: uppercase;
+		transition:.4s;
 	}
-    .form-wrap form .button:hover {
-			background-color: #608BD2;
+ form .button:hover {
+			background-color: white;
+			color:#230381;
+			border : #230381 1px solid;
 		}
 
   .form-wrap form .checkbox {
@@ -254,6 +259,7 @@ body {
   position:relative;
   bottom: 0;
   left:0;
+	z-index : 1;
 }
 
 .footer .footer-left,
@@ -665,13 +671,13 @@ body {
 .myButton {
 	background-color:#230381;
 	border-radius:15px;
-	display:inline-block;
 	cursor:pointer;
 	color:white;
 	font-size:15px;
 	padding:6px 13px;
 	text-decoration:none;
-	transition:.4s;
+  transition:.4s;
+  border:none;
 }
 .myButton:hover {
 	background-color:white;
@@ -717,11 +723,6 @@ body {
   bottom : 10%;
   right : 10%;
 }
-.profil .button{
-  position:absolute;
-  bottom:10%;
-  right: 25%;
-}
 
 .profil aside {
   margin:10px;
@@ -758,13 +759,8 @@ body {
   background-color: white;
 }
 
-.carnet a {
-  position :absolute;
-  bottom : 10%;
-  right : 10%;
-}
 .check{
-  color:orange;
+  color:blue;
 }
 
 .rappel {
@@ -774,52 +770,29 @@ body {
 
 /* minislider */
 .minislider{
+	background-color: #F6F6F6;
+	border-radius: 10px;
+	text-align: justify;
+	margin-left:20%;
 	opacity:.9;
+	padding:30px;
   float:left;
-  width : 50%;
-}
-.item-1, .item-2, .item-3 {
-  padding:15px;
-  text-align: justify;
-  border-radius: 10px;
-  background-color: #F6F6F6;
-  opacity:.8;
-  position:relative;
-  display: block;
-  width: 60%;
-	animation-duration: 30s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
+	opacity:.9;
+	border:1px black solid;
+  width : 30%;
 }
 
-.item-1{
-	animation-name: anim-1;
-}
-
-.item-2{
-	animation-name: anim-2;
-}
-
-.item-3{
-	animation-name: anim-3;
-}
-
-@keyframes anim-1 {
-	0%, 8.3% { left: -100%; opacity: 0; }
-  8.3%,25% { left: 25%; opacity: 1; }
-  33.33%, 100% { left: 110%; opacity: 0; }
-}
-
-@keyframes anim-2 {
-	0%, 33.33% { left: -100%; opacity: 0; }
-  41.63%, 58.29% { left: 25%; opacity: 1; }
-  66.66%, 100% { left: 110%; opacity: 0; }
-}
-
-@keyframes anim-3 {
-	0%, 66.66% { left: -100%; opacity: 0; }
-  74.96%, 91.62% { left: 25%; opacity: 1; }
-  100% { left: 110%; opacity: 0; }
+.minislider2{
+	background-color: #F6F6F6;
+	border-radius: 10px;
+	text-align: justify;
+	margin-right:20%;
+	opacity:.9;
+	padding:30px;
+  float:right;
+	opacity:.9;
+	border:1px black solid;
+  width : 30%;
 }
 
 /* formulaire contact */
@@ -867,8 +840,10 @@ body {
 .profil-form{
 	padding :20px;
 	background-color:whitesmoke;
-	Float : left;
-	width:40%;
+	Float: right;
+  width:40%;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 .profil-form input[type=text],input[type=mail],input[type=number],input[type=date], select, textarea {
   width: 100%;
@@ -895,24 +870,13 @@ body {
 	border : 1px solid#5383d3;
 	color:#5383d3;
 }
-.minislider{
-	z-index:-2;
-}
-.minislider2{
-	z-index: -1;
-	float:right;
-	width : 40%;
-}
-.minislider p{
-	z-index: -1;
-}
 
 /*///////////////////////////////////////////////////////////////////////////*/
 
 .signlogin-container{
 	opacity:.9;
 	position: absolute;
-	right: 10%;
+	right: 20%;
 }
 .a-group {
     display: grid;
@@ -928,22 +892,37 @@ body {
     text-decoration: none;
     padding: 10px;
     font-size: 24px;
-		border: solid 1px black;
-		border-radius:15px;
+		border-radius:10px;
 		margin:0 auto;
 }
 
 .button{
     background-color:#4169E1;
 		cursor: pointer;
+		position:fixed;
+		bottom : 5%;
+		right:5%;
+		z-index: 2;
 }
 .a-sign-in {
-    background-color: white;
-    color: black;
+    background-color: #4169E1;
+    color: white;
+		transition:.4s;
 }
 .a-sign-up {
-    background-color: white;
-    color: black;
+    background-color: #4169E1;
+    color: white;
+		transition:.4s;
+}
+.a-sign-in:hover{
+  background-color :white;
+  border: 1px solid black;
+	color:#4169E1;
+}
+.a-sign-up:hover{
+  color:#4169E1;
+  border: 1px solid black;
+	background-color :white;
 }
 .form-content {
     display: grid;
@@ -1043,38 +1022,61 @@ body {
   float: left;
   width:50%;
   }
-  
+
   .listeVaccin input[type='date']{
   border-radius: 5px;
   width:80%;
-  text-align:center; 
+  text-align:center;
   border: 1px solid #B2B2B2;
   margin-left: 10px;
   }
-  
+
   .listeVaccin input[type='checkbox']{
     margin-right: 10px;
   }
-  
+
   .carnet, .profil{
     width:75%;
+    padding:20px;
     background-color: #F8F8F8;
     margin: 80px auto;
     border: 1px solid black;
     border-radius: 10px;
   }
-  
+
   .carnet img{
     border: 1px solid black;
     width:25%;
     padding: 10px;
   }
-  
+
   .pp{
     width:100%;
     text-align: center;
   }
-  
+
   .pp h2{
     margin: 10px 0;
+  }
+
+  .vaccinButton{
+    width:10%;
+    margin-left:45%;
+    margin-top:20px;
+    margin-bottom:20px;
+    background-color:#230381;
+    border-radius:5px;
+    cursor:pointer;
+    color:white;
+    font-size:15px;
+    padding:6px 13px;
+    text-decoration:none;
+    transition:.4s;
+    border:none;
+  }
+
+  .vaccinButton:hover {
+    background-color:white;
+    border:#230381 1px solid;
+    color:#230381;
   }
