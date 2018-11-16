@@ -7,6 +7,6 @@ if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
 }
 
 $id = $_GET['id'];
-b_contact_lu($id);
+contact_statut($id, '1');
 
 header('Location:b_back.php');

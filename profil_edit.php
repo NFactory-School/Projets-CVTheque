@@ -38,6 +38,7 @@ if(!empty($_POST['sub'])){
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
    vnum($errors,$poids,1,500,'poids');
+   vnum($errors,$taille,1,500,'taille');
 
 
 

@@ -23,7 +23,7 @@ if(islogged()){
         if(strlen($mail) < 5 || (strlen($mail) >150)){
           $errors['mail'] = "Veuillez entrer un mail valide";
         }else{
-              $userMail = index($mail);
+              $userMail = basic_where_STR($mail, 'mail', 'vax_profils');
 
           if(!empty($userMail)){
             $errors['mail'] = "Adresse mail déja utilisée";
@@ -56,7 +56,7 @@ if(islogged()){
     $mdp = trim(strip_tags($_POST['mdp']));
 
   // Vérif  & MDP
-  $user = index2($mail);
+  $user = basic_where_STR($mail, 'mail', 'vax_profils');
 
   if(!empty($user)){
 
