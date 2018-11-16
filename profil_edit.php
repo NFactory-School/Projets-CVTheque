@@ -43,6 +43,7 @@ if(!empty($_POST['sub'])){
 
 $id = $_SESSION['user']['id'];
    if(count($errors) == 0){
+    echo $_POST['sexe'];
      $success = true;
 
      if (empty($_SESSION['user']['ddn'])){
@@ -50,16 +51,6 @@ $id = $_SESSION['user']['id'];
      }
 
       profil_edit1($id, $nom, $prenom, $taille, $poids, $sexe, $notif);
-
-    $user = profil_edit2($id);
-
-     tab($_SESSION);
-     $_SESSION['user']['nom'] = $user['nom'];
-     $_SESSION['user']['prenom'] = $user['prenom'];
-     $_SESSION['user']['ddn'] = $user['ddn'];
-     $_SESSION['user']['taille'] = $user['taille'];
-     $_SESSION['user']['poids'] = $user['poids'];
-     $_SESSION['user']['notif'] = $user['notif'];
 
      header('Location:profil.php');
    }
@@ -91,10 +82,10 @@ $id = $_SESSION['user']['id'];
      <?php }?>
 
     <label for="sexe">votre sexe:
-      <select form="profil" class="select_sexe" name="sexe">
-        <option name ="homme" value=1>homme</option>
-        <option name ="femme" value=2>femme</option>
-        <option name ="autre" value=3 selected>autre</option>
+      <select class="select_sexe" name="sexe">
+        <option value=1>homme</option>
+        <option value=2>femme</option>
+        <option value=3>autre</option>
       </select><br></label>
 
       <label for="taille">Votre taille (en cm) : <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"></label>
@@ -124,9 +115,9 @@ $id = $_SESSION['user']['id'];
   </div>
 
   <div class="minislider minislider2">
-    <p class="item-1"><span class="bolder">Plus qu'un carnet de vaccination en ligne, </span>VAX est capable de calculer votre IMC et de vous donner la date de vos prochains vaccins et rappels en temps réel, quel que soit votre physionomie</p>
-    <p class="item-2"><span class="bolder">Nous avons besoin de ces informations </span> afin d'alimenter notre algorithme et de vous tenir au courant de vos prochains rappels les plus urgents !</p>
-    <p class="item-3"><span class="bolder">Utiliser VAX : </span>c'est être en permanence à jour sur ses vaccins et ce, sur tout le territoire francais, quelle que soit votre tranche d'âge.</p>
+    <p><span class="bolder">Plus qu'un carnet de vaccination en ligne, </span>VAX est capable de calculer votre IMC et de vous donner la date de vos prochains vaccins et rappels en temps réel, quel que soit votre physionomie</p>
+    <p><span class="bolder">Nous avons besoin de ces informations </span> afin d'alimenter notre algorithme et de vous tenir au courant de vos prochains rappels les plus urgents !</p>
+    <p><span class="bolder">Utiliser VAX : </span>c'est être en permanence à jour sur ses vaccins et ce, sur tout le territoire francais, quelle que soit votre tranche d'âge.</p>
   </div>
 </div>
 <div class="clear"></div>

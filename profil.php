@@ -14,6 +14,12 @@ if($_SESSION['user']['status'] == 'banni'){
 
 $id = $_SESSION['user']['id'];
 $user = profil($id);
+$_SESSION['user']['nom'] = $user['nom'];
+$_SESSION['user']['prenom'] = $user['prenom'];
+$_SESSION['user']['ddn'] = $user['ddn'];
+$_SESSION['user']['sexe'] = $user['sexe'];
+$_SESSION['user']['taille'] = $user['taille'];
+$_SESSION['user']['poids'] = $user['poids'];
 
 if(!empty($user['taille']) && !empty($user['poids'])){
   $taille = $user['taille']/100;
@@ -50,9 +56,9 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         <div class="trait"></div>
         <h3>Informations principales : </h3>
         <ol>
-          <li><?php echo $user['prenom'] ?></li>
-          <li><?php echo $user['nom'] ?></li>
-          <li><?php echo $user['mail'] ?></li>
+          <li><?php echo $user['prenom']; ?></li>
+          <li><?php echo $user['nom']; ?></li>
+          <li><?php echo $user['mail']; ?></li>
         </ol>
     </aside>
 
@@ -61,13 +67,13 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         <h3>Informations à remplir :</h3>
         <ul>
 
-          <li><span class="bleu">Date de naissance : </span><?php if (!empty($_SESSION['user']['ddn'])){echo $_SESSION['user']['ddn'];}
-          else{ echo '0000-00-00';} ?></li>
-          <li><span class="bleu">Sexe : </span><?php echo $user['sexe'] ?></li>
-          <li><span class="bleu">Taille : </span><?php echo $user['taille'] ?></li>
-          <li><span class="bleu">Poids : </span><?php echo $user['poids'] ?></li>
-          <li><span class="bleu">Statut : </span><?php echo $user['status'] ?></li>
+          <?php if (!empty($user['ddn'])){echo '<li><span class="bleu">Date de naissance : </span>'.$user['ddn'];}
 
+          if (!empty($user['sexe'])) {echo '<li><span class="bleu">Sexe : </span>'.$user['sexe'].'</li>';}
+          if (!empty($user['taille'])) { echo '<li><span class="bleu">Taille : </span>'.$user['taille'].'</li>';}
+          if (!empty($user['poids'])) { echo '<li><span class="bleu">Poids : </span>'.$user['poids'].'</li>';}
+          if (!empty($user['status'])) { echo '<li><span class="bleu">Statut : </span>'.$user['status'].'</li>';}
+          ?>
           <li><span class="bleu">Indice de masse corporelle : </span><?php if(!empty($imc)){ echo $imc; } ?></li>
           <li><a class="myButton"href="profil_edit.php">Editer profil</a></li>
         </ul>

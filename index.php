@@ -45,7 +45,7 @@ if(islogged()){
       $hash = password_hash($mdp, PASSWORD_DEFAULT);
       $token = generateRandomString(120);
       index1($mail, $token, $hash);
-      header('Location:index#sign-in.php');
+      header('Location:index.php#sign-in');
 
     }
   }
@@ -109,7 +109,6 @@ if(islogged()){
     <div class="form-content">
         <div id="sign-in">
             <form class="login-form" action="" method="post">
-
 
                 <input type="text" name="mail" class="input" id="user_login" placeholder="Adresse mail">
                 <span class="error"><?php if(!empty($error['mail'])) { echo $error['mail']; } ?></span>
