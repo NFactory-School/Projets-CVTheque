@@ -116,7 +116,7 @@ if(islogged()){
                 <span class="error"><?php if(!empty($error['mdp'])) { echo $error['mdp']; } ?></span>
 
                 <div class="ligne"></div>
-                <input type="submit" name="connexion" class="button" value="Se connecter">
+                <input type="submit" name="connexion" class="myButton" value="Se connecter">
                 <div class="help-text">
                   <div class="ligne"></div>
                 	<p><a class="lienutile" href="oublimail.php">Mot de passe oublié ?</a></p>
@@ -132,7 +132,7 @@ if(islogged()){
                 <input type="password" name="mdpV" class="input" id="user_passV" placeholder="Répéter mot de passe">
                 <span class="error"><?php if(!empty($errors['mdpV'])) { echo $errors['mdpV']; } ?></span>
                 <div class="ligne"></div>
-                <input type="submit" name="submit" class="button" value="S'inscrire">
+                <input type="submit" name="submit" class="myButton" value="S'inscrire">
                 <div class="help-text">
                   <div class="ligne"></div>
                 	<p>En vous inscrivant vous acceptez nos</p>

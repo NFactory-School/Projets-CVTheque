@@ -62,7 +62,7 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         </ol>
     </aside>
 
-    <h2>Votre profil</h2>
+    <h2 class="titre">Votre profil</h2>
     <div class='main'>
         <h3>Informations à remplir :</h3>
         <ul>

@@ -670,7 +670,7 @@ body {
 /*bouton submit*/
 .myButton {
 	background-color:#230381;
-	border-radius:15px;
+	border-radius:5px;
 	cursor:pointer;
 	color:white;
 	font-size:15px;
@@ -699,7 +699,7 @@ body {
 }
 
 
-.profil h2 {
+.titre {
   font-size: 2em;
   color: #5383d3;
   font-family: Georgia, Times, Serif;
@@ -759,7 +759,7 @@ body {
 }
 
 .check{
-  color:orange;
+  color:blue;
 }
 
 .rappel {
@@ -1021,6 +1021,7 @@ body {
   .carnet, .profil{
     width:75%;
     background-color: #F8F8F8;
+		padding:50px;
     margin: 80px auto;
     border: 1px solid black;
     border-radius: 10px;
@@ -1040,3 +1041,6 @@ body {
   .pp h2{
     margin: 10px 0;
   }
+.central{
+	margin: 0 50%;
+}
