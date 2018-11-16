@@ -16,21 +16,21 @@ if(!empty($_POST['submit'])){
   $nom = trim(strip_tags($_POST['nom']));
   $cible = trim(strip_tags($_POST['cible']));
   $info = trim(strip_tags($_POST['info']));
-  $age = $_POST['age'];
-    if (!empty($_POST['nom'])) {
-      $nomVaccin = basic_where_1('nom', 'vax_vaccins');
+  $age = trim(strip_tags($_POST['age']));
+    if (!empty($nom)) {
+      $nomVaccin = basic_where_STR($nom, 'nom', 'vax_vaccins');
       if(!empty($nomVaccin)){
         $errors['nom'] = "Ce vaccin est déjà présent dans la base de données.";
       }
     }else{
       $errors['nom'] = "Veuillez remplir ce champ";
     }
-    if(!empty($_POST['cible'])){
+    if(!empty($cible)){
     }else{
       $errors['cible'] = "Veuillez remplir ce champ";
     }
-    if(!empty($_POST['age'])){
-      if($_POST['age'] < 0 || $_POST['age'] > 1560){
+    if(!empty($age)){
+      if($age < 0 || $age > 1560){
         $errors['age'] = 'Veuillez renseigner un age valide';
       }
     }else{

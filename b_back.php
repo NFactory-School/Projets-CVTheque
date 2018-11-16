@@ -20,7 +20,7 @@ $count_users = countSql('*', 'vax_profils');
 $count_vaccins = countSql('*', 'vax_vaccins');
 
 // Requete pagination profils
-$totalItems = countSqlColumn('id', 'vax_profils');
+$totalItems = countSqlColumn('id', 'vax_contact');
 
 // Définition des variables
 $itemsPerPage = 4;
