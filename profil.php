@@ -73,8 +73,9 @@ if(!empty($user['taille']) && !empty($user['poids'])){
           if (!empty($user['taille'])) { echo '<li><span class="bleu">Taille : </span>'.$user['taille'].'</li>';}
           if (!empty($user['poids'])) { echo '<li><span class="bleu">Poids : </span>'.$user['poids'].'</li>';}
           if (!empty($user['status']) && $user['status']=='admin') { echo '<li><span class="bleu">Statut : </span>'.$user['status'].'</li>';}
+          if (!empty($user['status']) && $user['status']=='admin') { echo '<li><span class="bleu">Statut : </span>'.$user['status'].'</li>';}
+          if(!empty($imc)){ echo '<li><span class="bleu">Indice de masse corporelle : </span></li>'.$imc;}
           ?>
-          <li><span class="bleu">Indice de masse corporelle : </span><?php if(!empty($imc)){ echo $imc; } ?></li>
           <li><a class="myButton"href="profil_edit.php">Editer profil</a></li>
         </ul>
     </div>

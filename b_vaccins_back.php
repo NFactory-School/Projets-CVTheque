@@ -47,7 +47,7 @@ $vaccins = $query -> fetchAll();
               <th>nom du vaccin</th>
               <th>maladie ciblée</th>
               <th>Informations complémentaires</th>
-              <th>Âge Recommandé</th>
+              <th>Âge Recommandé (en mois)</th>
               <th>Supprimer un vaccin</th>
               <th>Statut</th>
             </thead>

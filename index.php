@@ -77,6 +77,8 @@ if(islogged()){
       $_SESSION['user'] = array(
         'id' => $user['id'],
         'mail' => $user['mail'],
+        'nom' => $user['nom'],
+        'prenom' => $user['prenom'],
         'status' => $user['status'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
