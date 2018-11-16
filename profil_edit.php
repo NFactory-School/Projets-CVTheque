@@ -85,7 +85,7 @@ $id = $_SESSION['user']['id'];
       <select class="select_sexe" name="sexe">
         <option value=1>homme</option>
         <option value=2>femme</option>
-        <option value=3>autre</option>
+        <option value=3 selected>autre</option>
       </select><br></label>
 
       <label for="taille">Votre taille (en cm) : <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"></label>
