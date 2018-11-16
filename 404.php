@@ -21,7 +21,8 @@ include ('inc/header.php'); ?>
       <div class="shadow"></div>
     </div>
   </a>
-    <h2 class ="noAccess">Page not found ! <br/><span>click me to go home</span></h2>
+    <h2 class ="noAccess">Page non trouvé<br/>
+    <span>cliquer sur moi pour retourner sur le site.</span></h2>
 
 
 <?php include ('inc/footer.php') ?>

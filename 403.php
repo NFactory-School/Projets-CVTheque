@@ -20,9 +20,9 @@ include ('inc/header.php'); ?>
       <div class="shadow"></div>
     </div>
   </a>
-    <h2 class ="noAccess">Access not granted !<br/>
-    <span>click me to go home.</span><br><br/>
-    <span>Si le fantôme ne fonctionne pas, c'est que vous êtes banni du site</span><br/>
+    <h2 class ="noAccess">Accès non autorisé<br/>
+    <span>cliquer sur moi pour retourner sur le site.</span><br><br/>
+    <span>Si vous êtes banni du site, vous resterez sur cette page</span><br/>
   </h2>
   
 
