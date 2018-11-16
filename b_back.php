@@ -14,13 +14,13 @@ if (isLogged()==false){
 
 // Requête count profils
 
-$count_users = b_back();
+$count_users = countSql('*', 'vax_profils');
 
 // requête count vaccins
-$count_vaccins = b_back1();
+$count_vaccins = countSql('*', 'vax_vaccins');
 
 // Requete pagination profils
-$totalItems = b_back2();
+$totalItems = countSqlColumn('id', 'vax_profils');
 
 // Définition des variables
 $itemsPerPage = 4;
@@ -34,7 +34,7 @@ if(!empty($_GET['page']) && is_numeric($_GET['page'])){
 $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
 // requête affichage contacts
-$contacts = b_back3($offset, $itemsPerPage);
+$contacts = b_back1($offset, $itemsPerPage);
 ?>
 
 <div id="wrapper">

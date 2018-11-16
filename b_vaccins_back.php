@@ -9,10 +9,7 @@ use JasonGrimes\Paginator;
 isAdmin();
 
 // Requete pagination vaccins
-$sql ="SELECT COUNT(id) FROM vax_vaccins";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$totalItems = $query -> fetchColumn();
+$totalItems = countSqlColumn('id', 'vax_vaccins');
 
   // Définition des variables
   $itemsPerPage = 4;
@@ -50,7 +47,7 @@ $vaccins = $query -> fetchAll();
               <th>nom du vaccin</th>
               <th>maladie ciblée</th>
               <th>Informations complémentaires</th>
-              <th>Âge Recommandé</th>
+              <th>Âge Recommandé (en mois)</th>
               <th>Supprimer un vaccin</th>
               <th>Statut</th>
             </thead>

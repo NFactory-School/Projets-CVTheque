@@ -11,7 +11,7 @@ if (isLogged()==false){
 }
 
 $id = $_GET['id'];
-$contacts = b_contact_back($id);
+$contacts = basic_where_ID($id, 'id', 'vax_contact', '*');
 ?>
 
 <div class="row">

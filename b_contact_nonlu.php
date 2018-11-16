@@ -7,6 +7,6 @@ if (isLogged() == false && $_SESSION['user']['status'] != 'admin'){
 }
 
 $id = $_GET['id'];
-b_contact_nonlu($id);
+contact_statut($id, '2');
 
 header('Location:b_back.php');

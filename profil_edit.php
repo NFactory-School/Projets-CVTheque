@@ -38,6 +38,7 @@ if(!empty($_POST['sub'])){
    vTxt($errors,$nom,3,100,'nom',$empty = true);
    vTxt($errors,$prenom,3,100,'prenom',$empty = true);
    vnum($errors,$poids,1,500,'poids');
+   vnum($errors,$taille,1,500,'taille');
 
 
 
@@ -85,7 +86,7 @@ $id = $_SESSION['user']['id'];
       <select class="select_sexe" name="sexe">
         <option value=1>homme</option>
         <option value=2>femme</option>
-        <option value=3>autre</option>
+        <option value=3 selected>autre</option>
       </select><br></label>
 
       <label for="taille">Votre taille (en cm) : <input type="number" name="taille" value="<?php if(!empty($_SESSION['user']['taille'])){echo $_SESSION['user']['taille'];} ?>"></label>
@@ -114,7 +115,7 @@ $id = $_SESSION['user']['id'];
     </form>
   </div>
 
-  <div class="minislider minislider2">
+  <div class="minislider2">
     <p><span class="bolder">Plus qu'un carnet de vaccination en ligne, </span>VAX est capable de calculer votre IMC et de vous donner la date de vos prochains vaccins et rappels en temps réel, quel que soit votre physionomie</p>
     <p><span class="bolder">Nous avons besoin de ces informations </span> afin d'alimenter notre algorithme et de vous tenir au courant de vos prochains rappels les plus urgents !</p>
     <p><span class="bolder">Utiliser VAX : </span>c'est être en permanence à jour sur ses vaccins et ce, sur tout le territoire francais, quelle que soit votre tranche d'âge.</p>

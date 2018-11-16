@@ -10,6 +10,6 @@ if (isLogged()==false){
 }
 
 $id = $_GET['id'];
-b_deban_user($id);
+set_statut($id, 'user', 'vax_profils');
 
 header('Location:b_user_back.php');

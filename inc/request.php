@@ -1,8 +1,8 @@
 <?php
-
+// Functions basics
 function basic_where_STR($value, $key, $bdd){
   global $pdo;
-  $sql = "SELECT $key FROM $bdd WHERE $key = :$key";
+  $sql = "SELECT * FROM $bdd WHERE $key = :$key";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':'.$key, $value, PDO::PARAM_STR);
   $query -> execute();
@@ -10,19 +10,62 @@ function basic_where_STR($value, $key, $bdd){
   return $return;
 }
 
+function basic_where_ID($value, $key, $bdd, $select){
+  global $pdo;
+  $sql = "SELECT $select FROM $bdd WHERE $key = :$key";
+  $query = $pdo -> prepare($sql);
+  $query -> bindValue(':'.$key, $value, PDO::PARAM_INT);
+  $query -> execute();
+  $return = $query -> fetch();
+  return $return;
+}
 
-
-
-
-
-function basic_where_ID($id, $where, $to, $value, $bdd){
+function basic_where_ID_Complexe($id, $where, $to, $value, $bdd){
   global $pdo;
   $sql = "SELECT $value$where FROM $bdd WHERE $value$to = :$value";
   $query = $pdo -> prepare($sql);
   $query -> bindValue(':'.$value, $id, PDO::PARAM_INT);
   $query -> execute();
-  $vaccinUser = $query -> fetch();
-  return $vaccinUser;
+  $return = $query -> fetch();
+  return $return;
+}
+
+function countSql($value, $bdd){
+  global $pdo;
+  $sql = "SELECT COUNT($value)
+          FROM $bdd";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $count = $query->fetch();
+  return $count;
+}
+
+function countSqlColumn($value, $bdd){
+  global $pdo;
+  $sql = "SELECT COUNT($value)
+          FROM $bdd";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $count = $query->fetchColumn();
+  return $count;
+}
+
+function set_statut($id, $value, $bdd){
+  global $pdo;
+  $sql = "UPDATE $bdd
+          SET status = '$value'
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
+}
+
+function contact_statut($id, $statut){
+  global $pdo;
+  $sql = "UPDATE vax_contact
+          SET statut = $statut
+          WHERE id = $id";
+  $query = $pdo -> prepare($sql);
+  $query -> execute();
 }
 
 function b_select_vaccin_from_vaccins(){
@@ -97,16 +140,6 @@ function b_add_vaccin1($nom,$cible,$info,$age){
   $query -> execute();
 }
 
-function index($mail){
-  global $pdo;
-  $sql = "SELECT mail FROM vax_profils WHERE mail = :mail";
-  $query = $pdo -> prepare($sql);
-  $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-  $query -> execute();
-  $userMail = $query -> fetch();
-  return $userMail;
-}
-
 function index1($mail, $token, $hash){
   global $pdo;
   $sql = "INSERT INTO vax_profils ( mail, mdp , created_at,token,status)
@@ -118,47 +151,7 @@ function index1($mail, $token, $hash){
   $query -> execute();
 }
 
-function index2($mail){
-  global $pdo;
-  $sql = "SELECT * FROM vax_profils
-          WHERE mail = :mail";
-  $query = $pdo -> prepare($sql);
-  $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
-}
-
-function b_back(){
-  global $pdo;
-  $sql = "SELECT COUNT(*)
-          FROM vax_profils";
-  $query = $pdo->prepare($sql);
-  $query->execute();
-  $count_users = $query->fetch();
-  return $count_users;
-}
-
-function b_back1(){
-  global $pdo;
-  $sql = "SELECT COUNT(*)
-          FROM vax_vaccins";
-  $query = $pdo->prepare($sql);
-  $query->execute();
-  $count_vaccins = $query->fetch();
-  return $count_vaccins;
-}
-
-function b_back2(){
-  global $pdo;
-  $sql ="SELECT COUNT(id) FROM vax_profils";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $totalItems = $query -> fetchColumn();
-  return $totalItems;
-}
-
-function b_back3($offset, $itemsPerPage){
+function b_back1($offset, $itemsPerPage){
   global $pdo;
   $sql = "SELECT * FROM vax_contact
           ORDER BY statut ASC LIMIT $offset, $itemsPerPage";
@@ -168,55 +161,10 @@ function b_back3($offset, $itemsPerPage){
   return $contacts;
 }
 
-function b_ban_user($id){
-  global $pdo;
-  $sql = "UPDATE vax_profils
-          SET status = 'banni'
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-
-function b_cancel_vaccin($id){
-  global $pdo;
-  $sql = "UPDATE vax_vaccins
-          SET status = '1'
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-
-function b_vaccins_back(){
-  global $pdo;
-  $sql ="SELECT COUNT(*) as nbVaccins
-        FROM vax_vaccins";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $countVaccins = $query -> fetch();
-  return $countVaccins;
-}
-
-function b_contact_lu($id){
-  global $pdo;
-  $sql = "UPDATE vax_contact
-          SET statut = 2
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-function b_contact_nonlu($id){
-  global $pdo;
-  $sql = "UPDATE vax_contact
-          SET statut = 1
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-
-function b_vaccins_back1($cPage, $vaccinsParPages){
+function b_vaccins_back($offset, $itemsPerPage){
   global $pdo;
   $sql = "SELECT * FROM vax_vaccins
-          ORDER BY id DESC LIMIT ".(($cPage - 1) * $vaccinsParPages).", $vaccinsParPages";
+          ORDER BY id DESC LIMIT $offset, $itemsPerPage";
   $query = $pdo -> prepare($sql);
   $query -> execute();
   $vaccins = $query -> fetchAll();
@@ -254,66 +202,10 @@ function profil_edit1($id, $nom, $prenom, $taille, $poids, $sexe, $notif){
   $query -> execute();
 }
 
-function profil_edit2($id){
+function b_user_back1($offset, $itemsPerPage){
   global $pdo;
   $sql = "SELECT * FROM vax_profils
-          WHERE  id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
-}
-
-function b_contact_back($id){
-  global $pdo;
-  $sql = "SELECT * FROM vax_contact WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $contacts = $query -> fetch();
-  return $contacts;
-}
-
-function b_deban_user($id){
-  global $pdo;
-  $sql = "UPDATE vax_profils
-          SET status = 'user'
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-
-function b_rm_vaccin($id){
-  global $pdo;
-  $sql = "UPDATE vax_vaccins
-          SET status = 2
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-
-function b_user_admin($id){
-  global $pdo;
-  $sql = "UPDATE vax_profils
-          SET status = 'admin'
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-
-function b_user_back(){
-  global $pdo;
-  $sql ="SELECT COUNT(*) as nbUsers
-        FROM vax_profils";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $countUsers = $query -> fetch();
-  return $countUsers;
-}
-
-function b_user_back1($cPage, $UsersParPages){
-  global $pdo;
-  $sql = "SELECT * FROM vax_profils
-          ORDER BY id DESC LIMIT ".(($cPage - 1) * $UsersParPages).", $UsersParPages";
+          ORDER BY id DESC LIMIT $offset, $itemsPerPage";
   $query = $pdo -> prepare($sql);
   $query -> execute();
   $Users = $query -> fetchAll();
@@ -330,16 +222,6 @@ function contact($obj, $msg, $name, $mail){
   $query -> bindValue(':name', $name, PDO::PARAM_STR);
   $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
   $query -> execute();
-}
-
-function oublimail($mail){
-  global $pdo;
-  $sql = "SELECT mail, token FROM vax_profils WHERE mail = :mail";
-  $query = $pdo -> prepare($sql);
-  $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
 }
 
 function oublimdp($token, $mail){
@@ -364,24 +246,4 @@ function oublimdp1($hash, $token, $userid){
   $query -> bindValue(':token', $token);
   $query -> bindValue(':id', $userid);
   $query -> execute();
-}
-
-function profil($id){
-  global $pdo;
-  $sql = "SELECT * FROM vax_profils
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
-}
-
-function allVaccin(){
-  global $pdo;
-  $sql = "SELECT * FROM vax_profils
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
 }

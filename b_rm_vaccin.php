@@ -10,6 +10,6 @@ if (isLogged()==false){
 }
 
 $id = $_GET['id'];
-b_rm_vaccin($id);
+set_statut($id, '2', 'vax_vaccins');
 
 header('Location:b_vaccins_back.php');
