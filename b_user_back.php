@@ -13,10 +13,7 @@ if (isLogged()==false){
 }
 
 // Requete pagination user
-$sql ="SELECT COUNT(id) FROM vax_profils";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$totalItems = $query -> fetchColumn();
+$totalItems = countSqlColumn('id', 'vax_profils');
 
   // Définition des variables
   $itemsPerPage = 4;
@@ -30,11 +27,8 @@ $totalItems = $query -> fetchColumn();
   $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
 // Requete d'affichage
-$sql = "SELECT * FROM vax_profils
-        ORDER BY id DESC LIMIT $offset, $itemsPerPage";
-$query = $pdo -> prepare($sql);
-$query -> execute();
-$Users = $query -> fetchAll();
+
+$Users = b_user_back1($offset, $itemsPerPage);
 ?>
 
 <div id="wrapper">

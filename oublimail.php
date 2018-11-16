@@ -13,7 +13,7 @@ if(!empty($_POST['submit'])){
         $errors['mail'] = "Veuillez entrer un mail valide";
       }else{
         // requete sql
-        $user = oublimail($mail);
+        $user = basic_where_STR($mail, 'mail', 'vax_profils');
         if(!empty($user)){
           $body = '<p>Veuillez cliquer sur ce <a class="myButton" href = "oublimdp.php?mail='.urlencode($user['mail']).'&token='.urlencode($user['token']).'">lien</a></p>';
         }else {

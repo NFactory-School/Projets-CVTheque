@@ -202,38 +202,10 @@ function profil_edit1($id, $nom, $prenom, $taille, $poids, $sexe, $notif){
   $query -> execute();
 }
 
-function b_rm_vaccin($id){
-  global $pdo;
-  $sql = "UPDATE vax_vaccins
-          SET status = 2
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-
-function b_user_admin($id){
-  global $pdo;
-  $sql = "UPDATE vax_profils
-          SET status = 'admin'
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-}
-
-function b_user_back(){
-  global $pdo;
-  $sql ="SELECT COUNT(*) as nbUsers
-        FROM vax_profils";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $countUsers = $query -> fetch();
-  return $countUsers;
-}
-
-function b_user_back1($cPage, $UsersParPages){
+function b_user_back1($offset, $itemsPerPage){
   global $pdo;
   $sql = "SELECT * FROM vax_profils
-          ORDER BY id DESC LIMIT ".(($cPage - 1) * $UsersParPages).", $UsersParPages";
+          ORDER BY id DESC LIMIT $offset, $itemsPerPage";
   $query = $pdo -> prepare($sql);
   $query -> execute();
   $Users = $query -> fetchAll();
@@ -250,16 +222,6 @@ function contact($obj, $msg, $name, $mail){
   $query -> bindValue(':name', $name, PDO::PARAM_STR);
   $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
   $query -> execute();
-}
-
-function oublimail($mail){
-  global $pdo;
-  $sql = "SELECT mail, token FROM vax_profils WHERE mail = :mail";
-  $query = $pdo -> prepare($sql);
-  $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
 }
 
 function oublimdp($token, $mail){
@@ -284,24 +246,4 @@ function oublimdp1($hash, $token, $userid){
   $query -> bindValue(':token', $token);
   $query -> bindValue(':id', $userid);
   $query -> execute();
-}
-
-function profil($id){
-  global $pdo;
-  $sql = "SELECT * FROM vax_profils
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
-}
-
-function allVaccin(){
-  global $pdo;
-  $sql = "SELECT * FROM vax_profils
-          WHERE id = $id";
-  $query = $pdo -> prepare($sql);
-  $query -> execute();
-  $user = $query -> fetch();
-  return $user;
 }

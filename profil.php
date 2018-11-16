@@ -13,7 +13,7 @@ if($_SESSION['user']['status'] == 'banni'){
 }
 
 $id = $_SESSION['user']['id'];
-$user = profil($id);
+$user = basic_where_ID($id, 'id', 'vax_profils', '*');
 $_SESSION['user']['nom'] = $user['nom'];
 $_SESSION['user']['prenom'] = $user['prenom'];
 $_SESSION['user']['ddn'] = $user['ddn'];
@@ -67,7 +67,7 @@ if(!empty($user['taille']) && !empty($user['poids'])){
         <h3>Informations à remplir :</h3>
         <ul>
 
-          <?php 
+          <?php
           if (!empty($user['ddn'])){echo '<li><span class="bleu">Date de naissance : </span>'.$user['ddn'];}
           if (!empty($user['sexe'])) {echo '<li><span class="bleu">Sexe : </span>'.$user['sexe'].'</li>';}
           if (!empty($user['taille'])) { echo '<li><span class="bleu">Taille : </span>'.$user['taille'].'</li>';}
