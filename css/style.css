@@ -259,6 +259,7 @@ body {
   position:relative;
   bottom: 0;
   left:0;
+	z-index : 1;
 }
 
 .footer .footer-left,
@@ -886,6 +887,7 @@ body {
 		position:fixed;
 		bottom : 5%;
 		right:5%;
+		z-index: 2;
 }
 .a-sign-in {
     background-color: #4169E1;
