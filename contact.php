@@ -69,7 +69,9 @@ if(!empty($_POST['submit'])) {
 // Si pas d'erreurs dans formulaire
     if (count($errors) == 0) {
     contact($obj, $msg, $name, $mail);
-    // header('Location:profil.php');
+    ?>
+    <?php
+    header('Location:profil.php');
   }
 } ?>
 

@@ -3,10 +3,6 @@ function br(){
   echo '<br/>';
 }
 
-function division(int $a,int $b){
-$result = $a/$b;
-return($result);}
-
 function tab($array){
   echo '<pre>';
   print_r ($array);
@@ -30,29 +26,6 @@ if (!empty($data)){
 }
   return $errors;
 }
-
-// function vMail($error,$value,$min,$max,$key) {
-//   if (!empty($value)) {
-//     if (filter_var($value, FILTER_VALIDATE_EMAIL)){
-//       $value = trim(strip_tags($value));
-//       if (is_string($value) && strlen($value) <= $min) {
-//         $error[$key] = 'Error : Plus de '.$min.' caractères';
-//       }elseif (is_string($value) && strlen($value) >= $max ){
-//         $error[$key] = 'Error : Moins de '.$max.' caractères';
-//       }else{
-//             $userMail = index($value);
-//         if(!empty($userMail)){
-//             $error[$key] = "Error : Adresse mail déja utilisée";
-//         }
-//       }
-//     }else {
-//         $error[$key] = 'error : Email non valide';
-//     }
-//   }else {
-//     $error[$key] = 'error : Le champs de texte est vide';
-//   }
-//   return $error;
-// }
 
 function vMdp($error,$value,$value1,$min,$max,$key){
   if (!empty($value)) {
